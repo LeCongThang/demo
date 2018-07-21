@@ -1,0 +1,30 @@
+{
+  "links": {
+    "home": "Home",
+    "about_us": "About Us",
+    "project": "Project",
+    "partner": "Partner",
+    "news": "News",
+    "recruitment": "Recruitment",
+    "agent": "Connect",
+    "library": "Library",
+    "e_profile": "E-Profile",
+    "contact": "Contact"
+
+  },
+  "home": {
+    "read_more":"Read more",
+    "register":"Register",
+    "name":"Full name",
+    "phone":"Phone number",
+    "content":"Content",
+    "wellcome":"Wellcome you to"
+  },
+  "about": {
+    "title": "About",
+    "introduction": "..."
+  },
+  "contact":{
+    "send_button":"Send"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "links": {
+    "home": "Trang chủ",
+    "about_us": "Giới Thiệu",
+    "project": "Dự Án",
+    "partner": "Đối Tác",
+    "news": "Tin Tức",
+    "recruitment": "Tuyển Dụng",
+    "agent": "Hợp Tác Đại Lý",
+    "library": "Thư Viện",
+    "e_profile": "E-Profile",
+    "contact": "Liên Hệ"
+
+  },
+  "home": {
+    "read_more":"Xem Thêm",
+    "register":"Đăng Ký",
+    "name":"Họ và Tên",
+    "phone":"Số điện thoại",
+    "content":"Nội dung",
+    "wellcome":"Chào mừng bạn đến với"
+  },
+  "about": {
+    "title": "Giới thiệu",
+    "introduction": "..."
+  },
+  "contact":{
+    "send_button":"Gửi"
+  }
+}
