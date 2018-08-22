@@ -22,13 +22,13 @@
                             </div>
                             <form class="row">
                                 <div class="form-group col-sm-12">
-                                    <input type="text" placeholder="Họ và tên" class="form-control">
+                                    <input type="text" required placeholder="Họ và tên" class="form-control">
                                 </div>
                                 <div class="form-group col-sm-6">
-                                    <input type="email" class="form-control" placeholder="Email">
+                                    <input type="email" required class="form-control" placeholder="Email">
                                 </div>
                                 <div class="form-group col-sm-6">
-                                    <input type="text" placeholder="Điện thoại" class="form-control">
+                                    <input type="text" required placeholder="Điện thoại" class="form-control">
                                 </div>
                                 <div class="form-group col-sm-12">
                                     <input type="text" placeholder="Tiêu đề" class="form-control">
@@ -38,7 +38,6 @@
                                 </div>
                                 <div class="form-group col-sm-12 text-center">
                                     <button type="submit">Gửi</button>
-    
                                 </div>
     
                             </form>
