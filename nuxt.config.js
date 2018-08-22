@@ -23,10 +23,6 @@ module.exports = {
     ],
     script: [
       {src: 'https://embed.tawk.to/5b514ed1e21878736ba225f6/default',async:true,charset:'UTF-8' },
-      {src:'/js/bootstrap.min.js', async:true},
-      {src:'/js/wow.min.js', async:true},
-      {src:'/js/slick.min.js', async:true},
-      {src:'/js/main.js', async:true},
     ],
 
   },
@@ -36,13 +32,13 @@ module.exports = {
   loading: {
     color: '#3B8070'
   },
-  
+
   /*
    ** Build configuration
    */
 
   build: {
-    vendor: ['axios', 'vue-i18n','jquery'],
+    vendor: ['axios', 'vue-i18n','jquery','bootstrap','slick-carousel','aos'],
     plugins: [
       new webpack.ProvidePlugin({
         $: 'jquery',
@@ -55,14 +51,19 @@ module.exports = {
   css:[
     {src:'bootstrap/dist/css/bootstrap.min.css'},
     {src:'~/static/css/font-awesome.min.css'},
-    {src:'~/static/css/main.css'},
     {src:'~/static/css/animate.css'},
-    {src:'~/static/css/slick.css'},
-    {src:'~/static/css/slick-theme.css'},
+    {src:'~/static/css/jquery.fancybox.min.css'},
+    {src:'slick-carousel/slick/slick.css'},
+    {src:'slick-carousel/slick/slick-theme.css'},
+    {src:'aos/dist/aos.css'},
+    {src:'~/static/css/main.css'},
   ],
   plugins: [
     {src:'~/plugins/i18n.js',ssr:true},
-    // {src:'~/plugins/bootstrap.js',ssr:true}
+    {src:'~/plugins/bootstrap.js',ssr:false},
+    {src:'~/static/js/jquery.fancybox.min.js', ssr:false},
+    {src:'~/plugins/aos.js', ssr:false},
+    {src:'~/static/js/numscroller-1.0.js', ssr:false},
 ],
   router: { // customize nuxt.js router (vue-router).
     middleware: ['i18n','system_config'], // middleware all pages of the application

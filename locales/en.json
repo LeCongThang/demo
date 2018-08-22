@@ -9,22 +9,34 @@
     "agent": "Connect",
     "library": "Library",
     "e_profile": "E-Profile",
-    "contact": "Contact"
+    "contact": "Contact",
+    "event":"Event"
 
   },
   "home": {
-    "read_more":"Read more",
-    "register":"Register",
-    "name":"Full name",
-    "phone":"Phone number",
-    "content":"Content",
-    "wellcome":"Wellcome you to"
+    "about":"About <strong>us</strong>",
+    "project":"Dự án <strong>phân phối</strong>",
+    "contact":"Đăng ký<strong> nhận thông tin dự án</strong>",
+    "event":"Sự kiện <strong>nổi bật</strong>",
+    "partner":"Đối tác<strong> tiêu biểu</strong>",
+    "news":"Tin tức <strong>nổi bật</strong>",
+    "feedback":"Khách hàng<strong> đánh giá</strong>",
+    "gallery":"Thư viện <strong>hình ảnh</strong>"
   },
   "about": {
     "title": "About",
     "introduction": "..."
   },
   "contact":{
+    "name":"Full name",
+    "phone":"Phone number",
+    "title":"Title",
+    "content":"Content",
     "send_button":"Send"
+  },
+  "common":{
+    "readmore":"Read more",
+    "company_info":"Company Info",
+    "connect":"Connect"
   }
 }

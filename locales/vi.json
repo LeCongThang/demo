@@ -9,22 +9,34 @@
     "agent": "Hợp Tác Đại Lý",
     "library": "Thư Viện",
     "e_profile": "E-Profile",
-    "contact": "Liên Hệ"
+    "contact": "Liên Hệ",
+    "event":"Sự kiện"
 
   },
   "home": {
-    "read_more":"Xem Thêm",
-    "register":"Đăng Ký",
-    "name":"Họ và Tên",
-    "phone":"Số điện thoại",
-    "content":"Nội dung",
-    "wellcome":"Chào mừng bạn đến với"
+    "about":"Về <strong>chúng tôi</strong>",
+    "project":"Dự án <strong>phân phối</strong>",
+    "contact":"Đăng ký<strong> nhận thông tin dự án</strong>",
+    "event":"Sự kiện <strong>nổi bật</strong>",
+    "partner":"Đối tác<strong> tiêu biểu</strong>",
+    "news":"Tin tức <strong>nổi bật</strong>",
+    "feedback":"Khách hàng<strong> đánh giá</strong>",
+    "gallery":"Thư viện <strong>hình ảnh</strong>"
   },
   "about": {
     "title": "Giới thiệu",
     "introduction": "..."
   },
   "contact":{
+    "name":"Họ và tên",
+    "phone":"Số điện thoại",
+    "title":"Tiêu đề",
+    "content":"Nội dung",
     "send_button":"Gửi"
+  },
+  "common":{
+    "readmore":"Xem thêm",
+    "company_info":"Thông tin công ty",
+    "connect":"Liên kết"
   }
 }
