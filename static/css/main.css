@@ -167,21 +167,7 @@ a, a:hover {
   padding: 0px 0 25px;
 }
 
-.about-home .about-home-2 {
-  background: url(../images/home/pic-2.jpg) no-repeat;
-  background-size: cover;
-  padding: 30px 15px;
-}
-
-.about-home .about-home-2 p {
-  color: #fff;
-}
-
-.about-home .about-home-2 .about-home-right>.regular1 .items-2 .pic-items2 img {
-  width: 100%;
-}
-
-.about-home .about-home-2 .number-count {
+.about-home .number-count {
   padding: 0;
   margin: 100px 0 0 0;
   list-style: none;
@@ -192,14 +178,14 @@ a, a:hover {
   justify-content: center;
 }
 
-.about-home .about-home-2 .number-count li {
+.about-home  .number-count li {
   color: #07529b;
   text-align: center;
   width: 25%;
 }
 
 @media screen and (max-width: 575px) {
-  .about-home .about-home-2 .number-count li {
+  .about-home .number-count li {
     margin: 10px 40px;
   }
 }

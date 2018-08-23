@@ -32,215 +32,36 @@
                 <div class="col-sm-12">
 
                     <div class="ed-gallery">
-
-                        <div class="gallery-1 home-gallery" data-aos="fade-right" data-aos-delay="500" data-aos-duration="2000" data-aos-easing="ease-in-out" style="background: url(../images/gallery/pic-1.jpg) no-repeat center; background-size: cover;">
-
-                            <div class="caption">
-
-                                <div class="cc">
-
-                                    <h3 class="title boldtext">SUN PRIMIER VILLAGE KEM BEACH RESORT</h3>
-
-                                    <ul>
-
-                                        <li>
-
-                                            <strong>Chủ đầu tư:</strong> Tập đoàn Sun Group</li>
-
-                                        <li>
-
-                                            <strong>Vị trí dự án:</strong> Bãi Khem, Phú Quốc</li>
-
-                                    </ul>
-
-                                    <div class="btn-page text-center">
-
-                                        <a href="project-detail.html">Xem thêm</a>
-
+                        <div v-for="(project, index) in projects" :key="project.id">
+                            <div :class="`gallery-${index+1} home-gallery`" :data-aos="setAnimate(index)" data-aos-delay="400" data-aos-duration="1500" data-aos-easing="ease-in-out" :style="`background: url(${$store.state.system_config.directory.project+'/'+project.image_thumbnail}) no-repeat center; background-size: cover;`">
+                                <div class="caption">
+                                    <div class="cc">
+                                        <h3 class="title boldtext" v-if="lang" v-html="project.title_vi"></h3>
+                                        <h3 class="title boldtext" v-else v-html="project.title_en"></h3>
+                                        <ul>
+                                            <li>
+                                                <strong>Chủ đầu tư: </strong> <span v-if="lang" v-html="project.investor_vi"></span>
+                                                <span v-else v-html="project.investor_en"></span>
+                                            </li>
+                                            <li>
+                                                <strong>Vị trí dự án: </strong> <span v-if="lang" v-html="project.location_vi"></span>
+                                                <span v-else v-html="project.location_en"></span>
+                                            </li>
+                                        </ul>
+                                        <div class="btn-page text-center">
+                                            <nuxt-link :to="`/project-detail/${project.id}/${project.slug}`">Xem thêm</nuxt-link>
+                                        </div>
                                     </div>
-
                                 </div>
-
                             </div>
-
                         </div>
-
-                        <div class="gallery-2 home-gallery" data-aos="fade-up" data-aos-delay="750" data-aos-duration="1500" data-aos-easing="ease-in-out" style="background: url(../images/gallery/pic-6.jpg) no-repeat center; background-size: cover;">
-
-                            <div class="caption">
-
-                                <div class="cc">
-
-                                    <h3 class="title boldtext">SUN PRIMIER VILLAGE THE EDEN BAY</h3>
-
-                                    <ul>
-
-                                        <li>
-
-                                            <strong>Chủ đầu tư:</strong> Tập đoàn Sun Group</li>
-
-                                        <li>
-
-                                            <strong>Vị trí dự án:</strong> Mũi ông Đội, Phú Quốc</li>
-
-                                    </ul>
-
-                                    <div class="btn-page text-center">
-
-                                        <a href="project-detail.html">Xem thêm</a>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="gallery-3 home-gallery" data-aos="fade-down" data-aos-delay="500" data-aos-duration="1500" data-aos-easing="ease-in-out" style="background: url(../images/gallery/pic-7.jpg) no-repeat center; background-size: cover;">
-
-                            <div class="caption">
-
-                                <div class="cc">
-
-                                    <h3 class="title boldtext">JW MARIOTT PHU QUOC EMMERALD BAY</h3>
-
-                                    <ul>
-
-                                        <li>
-
-                                            <strong>Chủ đầu tư:</strong> Tập đoàn Sun Group</li>
-
-                                        <li>
-
-                                            <strong>Vị trí dự án:</strong> Bãi Khem, Phú Quốc</li>
-
-                                    </ul>
-
-                                    <div class="btn-page text-center">
-
-                                        <a href="project-detail.html">Xem thêm</a>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="gallery-4 home-gallery" data-aos="fade-left" data-aos-delay="250" data-aos-duration="1500" data-aos-easing="ease-in-out" style="background: url(../images/gallery/pic-8.jpg) no-repeat center; background-size: cover;">
-
-                            <div class="caption">
-
-                                <div class="cc">
-
-                                    <h3 class="title boldtext">THE COASTAL HILL</h3>
-
-                                    <ul>
-
-                                        <li>
-
-                                            <strong>Chủ đầu tư:</strong> Tập đoàn FLC Group</li>
-
-                                        <li>
-
-                                            <strong>Vị trí dự án:</strong> Quy Nhơn, Bình Định</li>
-
-                                    </ul>
-
-                                    <div class="btn-page text-center">
-
-                                        <a href="project-detail.html">Xem thêm</a>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="gallery-5 home-gallery" data-aos="fade-right" data-aos-delay="500" data-aos-duration="1500" data-aos-easing="ease-in-out" style="background: url(../images/gallery/pic-9.jpg) no-repeat center; background-size: cover;">
-
-                            <div class="caption">
-
-                                <div class="cc cc1">
-
-                                    <h3 class="title boldtext">FLC LUX CITY</h3>
-
-                                    <ul>
-
-                                        <li>
-
-                                            <strong>Chủ đầu tư:</strong> Tập đoàn FLC Group</li>
-
-                                        <li>
-
-                                            <strong>Vị trí dự án:</strong> KCN Nhơn Hội, Bình Định</li>
-
-                                    </ul>
-
-                                    <div class="btn-page text-center">
-
-                                        <a href="project-detail.html">Xem thêm</a>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="gallery-6 home-gallery" style="background: url(../images/gallery/pic-10.jpg) no-repeat center; background-size: cover;" data-aos="fade-left" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
-
-                            <div class="caption">
-
-                                <div class="cc">
-
-                                    <h3 class="title boldtext">FLC LUXURY RESORT</h3>
-
-                                    <ul>
-
-                                        <li>
-
-                                            <strong>Chủ đầu tư:</strong> Tập đoàn FLC Group</li>
-
-                                        <li>
-
-                                            <strong>Vị trí dự án:</strong> Xã Nhơn Lý, TP. Quy Nhơn, Bình Định</li>
-
-                                    </ul>
-
-                                    <div class="btn-page text-center">
-
-                                        <a href="project-detail.html">Xem thêm</a>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
-
-    <!-- <div class="col-md-12" data-wow-delay="1.5s" data-wow-duration="1.5s"> -->
-
     <div class="btn-page text-center" style="padding-bottom: 20px;">
-
-        <a href="project.html">Xem thêm</a>
-
+        <nuxt-link to="/project">Xem thêm</nuxt-link>
     </div>
 
 </div>
@@ -248,6 +69,33 @@
 
 <script>
 export default {
-  props: ["projects", "lang"]
+    props: ["projects", "lang"],
+    methods: {
+        setAnimate: (index) => {
+            let animateName = '';
+            switch (index) {
+                case 0:
+                    animateName = "fade-right";
+                    break;
+                case 1:
+                    animateName = "fade-down";
+                    break;
+                case 2:
+                    animateName = "fade-up";
+                    break;
+                case 3:
+                    animateName = "fade-left";
+                    break;
+                case 4:
+                    animateName = "fade-right";
+                    break;
+                case 5:
+                    animateName = "fade-left";
+                    break;
+
+            }
+            return animateName;
+        }
+    }
 };
 </script>

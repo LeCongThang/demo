@@ -21,18 +21,18 @@
                     </h4>
                     <form>
                         <div class="form-group">
-                            <select class="form-control" id="sel1">
+                            <select class="form-control" id="sel1" v-model="eventId">
                               <option v-for="event in events" :key="event.id" :value="event.id">{{event.title_vi}}</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <input type="text" placeholder="Họ và tên" class="form-control" id="name">
+                            <input type="text" placeholder="Họ và tên" required class="form-control" id="name" v-model="name">
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Email" class="form-control" id="email">
+                            <input type="email" placeholder="Email" required class="form-control" id="email" v-model="email">
                         </div>
                         <div class="form-group">
-                            <input type="text" placeholder="Số điện thoại" class="form-control" id="name">
+                            <input type="text" placeholder="Số điện thoại" required class="form-control" id="phone" v-model="phone">
                         </div>
                         <div class="btn-page text-center">
                             <a href="#">Gửi</a>
@@ -59,6 +59,26 @@
 
 <script>
 export default {
-    props: ["events", "lang"]
+    data: function () {
+        return {
+            name: "",
+            email: "",
+            phone: "",
+            eventId: "",
+        };
+    },
+    props: ["events", "lang"],
+    methods: {
+        RegisterEvent: (e) => {
+            e.preventDefault();
+            let dataSubmit = {
+                name: this.name,
+                email: this.email,
+                phone: this.phone,
+                eventId: this.eventId,
+            };
+            console.log(dataSubmit);
+        }
+    }
 };
 </script>

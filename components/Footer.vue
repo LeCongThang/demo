@@ -52,19 +52,19 @@
                             <nuxt-link to="/aboutus">{{$t('links.about_us')}}</nuxt-link>
                         </li>
                         <li>
-                            <nuxt-link to="/aboutus">{{$t('links.project')}}</nuxt-link>
+                            <nuxt-link to="/project">{{$t('links.project')}}</nuxt-link>
                         </li>
                         <li>
-                            <nuxt-link to="/aboutus">{{$t('links.event')}}</nuxt-link>
+                            <nuxt-link to="/event">{{$t('links.event')}}</nuxt-link>
                         </li>
                         <li>
-                            <nuxt-link to="/aboutus">{{$t('links.news')}}</nuxt-link>
+                            <nuxt-link to="/news">{{$t('links.news')}}</nuxt-link>
                         </li>
                         <li>
-                            <nuxt-link to="/aboutus">{{$t('links.library')}}</nuxt-link>
+                            <nuxt-link to="/library">{{$t('links.library')}}</nuxt-link>
                         </li>
                         <li>
-                            <nuxt-link to="/aboutus">{{$t('links.recruitment')}}</nuxt-link>
+                            <nuxt-link to="/recruitment">{{$t('links.recruitment')}}</nuxt-link>
                         </li>
                     </ul>
                 </div>

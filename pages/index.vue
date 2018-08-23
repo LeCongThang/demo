@@ -340,8 +340,8 @@ export default {
       $(".video-news").css("height", right_height);
       $(".video-news iframe").css("width", "100%");
       $(".video-news iframe").css("height", right_height);
+      // for event section
       var form_height = $(".left-form").innerHeight();
-      console.log(form_height);
       $(".regular2 .items-2 .pic-items2 > img").css("height", form_height);
     }
     switch (this.popupType) {
