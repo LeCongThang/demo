@@ -40,64 +40,64 @@
                     <div class="row">
                         <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
                             <div class="box-recuitment text-center">
-                                <a href="recuitment-detail.html" class="pic-box-recuitment">
+                                <a href="#" class="pic-box-recuitment">
                                     <img src="images/about/pic-1.jpg" class="img-responsive">
                                 </a>
                                 <div class="txt-box-recuitment">
-                                    <a href="recuitment-detail.html">
+                                    <a href="#">
                                         <h4>Tổng quan về Central Real</h4>
                                     </a>
                                     <p style="text-align: justify;">Công ty Cổ Phần Đầu Tư Phát Triển Central Real, tên viết tắt là Central Real…</p>
                                     <div class="btn-page">
-                                        <a href="recuitment-detail.html">Xem thêm</a>
+                                        <a href="#">Xem thêm</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000" data-aos-easing="ease-in-out">
                             <div class="box-recuitment text-center">
-                                <a href="recuitment-detail.html" class="pic-box-recuitment">
+                                <a href="#" class="pic-box-recuitment">
                                     <img src="images/about/pic-2.jpg" class="img-responsive">
                                 </a>
                                 <div class="txt-box-recuitment">
-                                    <a href="recuitment-detail.html">
+                                    <a href="#">
                                         <h4>Quá trình phát triển</h4>
                                     </a>
                                     <p style="text-align: justify;">Được hình thành trong thời điểm thị trường BĐS có nhiều biến động nói chung…</p>
                                     <div class="btn-page">
-                                        <a href="recuitment-detail.html">Xem thêm</a>
+                                        <a href="#">Xem thêm</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1000" data-aos-easing="ease-in-out">
                             <div class="box-recuitment text-center">
-                                <a href="recuitment-detail.html" class="pic-box-recuitment">
+                                <a href="#" class="pic-box-recuitment">
                                     <img src="images/about/pic-3.jpg" class="img-responsive">
                                 </a>
                                 <div class="txt-box-recuitment">
-                                    <a href="recuitment-detail.html">
+                                    <a href="#">
                                         <h4>Thương hiệu Central Real</h4>
                                     </a>
                                     <p style="text-align: justify;">Ngay từ ngày đầu thành lập, chúng tôi đã xác định rõ mục tiêu trở thành…</p>
                                     <div class="btn-page">
-                                        <a href="recuitment-detail.html">Xem thêm</a>
+                                        <a href="#">Xem thêm</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-in-out">
                             <div class="box-recuitment text-center">
-                                <a href="recuitment-detail.html" class="pic-box-recuitment">
+                                <a href="#" class="pic-box-recuitment">
                                     <img src="images/about/pic-4.jpg" class="img-responsive">
                                 </a>
                                 <div class="txt-box-recuitment">
-                                    <a href="recuitment-detail.html">
+                                    <a href="#">
                                         <h4>Ban lãnh đạo</h4>
                                     </a>
                                     <p style="text-align: justify;">Chúng tôi là đơn vị phân phối BĐS nghỉ dưỡng hàng đầu tại Việt Nam…</p>
                                     <div class="btn-page">
-                                        <a href="recuitment-detail.html">Xem thêm</a>
+                                        <a href="#">Xem thêm</a>
                                     </div>
                                 </div>
                             </div>
