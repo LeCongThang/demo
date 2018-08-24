@@ -178,7 +178,7 @@ a, a:hover {
   justify-content: center;
 }
 
-.about-home  .number-count li {
+.about-home .number-count li {
   color: #07529b;
   text-align: center;
   width: 25%;
@@ -669,6 +669,7 @@ a, a:hover {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
 .overlay .btn-xem {
   position: absolute;
   top: 70%;
@@ -679,10 +680,12 @@ a, a:hover {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
 .overlay .title:focus {
   color: red;
 }
-.overlay:hover .btn-xem{
+
+.overlay:hover .btn-xem {
   visibility: visible;
 }
 
@@ -985,7 +988,7 @@ a, a:hover {
   }
   .event-form-modal {
     padding-right: 0;
-    margin-top:1px;
+    margin-top: 1px;
   }
 }
 
@@ -1931,21 +1934,23 @@ footer .bottom-footer p {
   height: unset;
 }
 
-.resource-human .box-ic-about>h3 {
+.resource-human .box-ic-about>span {
   color: #ff0000;
   font-size: 34px;
-  font-weight: normal;
-  margin: 6px 0 10px;
+  font-weight: bold;
   border-bottom: 1px solid #ebebeb;
-}
-
-.resource-human .box-ic-about>h3>span {
-  color: #024e9f;
-  font-size: 25px;
+  margin: 25px 0 !important;
+  padding: 0 0 20px 0;
 }
 
 .resource-human .box-ic-about>h4 {
+  padding-top: 20px;
   text-transform: uppercase;
+  font-weight: bold;
+}
+
+.resource-human .box-ic-about>img {
+  margin-bottom: 20px;
 }
 
 .banner-nth-3 {
@@ -2536,11 +2541,6 @@ footer .bottom-footer p {
 
 .register-event form .btn-page {
   margin-bottom: 15px;
-}
-
-.box-ic-about h3 {
-  margin: 15px 0 !important;
-  padding-bottom: 15px;
 }
 
 .option-11 {

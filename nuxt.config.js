@@ -4,7 +4,7 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: 'MPC',
+    title: 'CENTRALREAL.VN',
     meta: [{
         charset: 'utf-8'
       },
@@ -38,7 +38,7 @@ module.exports = {
    */
 
   build: {
-    vendor: ['axios', 'vue-i18n','jquery','bootstrap','slick-carousel','aos'],
+    vendor: ['axios', 'vue-i18n','jquery','bootstrap','slick-carousel','aos','vue-countup-v2'],
     plugins: [
       new webpack.ProvidePlugin({
         $: 'jquery',
@@ -64,6 +64,7 @@ module.exports = {
     {src:'~/static/js/jquery.fancybox.min.js', ssr:false},
     {src:'~/plugins/aos.js', ssr:false},
     {src:'~/static/js/numscroller-1.0.js', ssr:false},
+    {src:'~/static/js/jquery-scrolltofixed-min.js', ssr:false},
 ],
   router: { // customize nuxt.js router (vue-router).
     middleware: ['i18n','system_config'], // middleware all pages of the application

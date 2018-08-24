@@ -10,7 +10,7 @@
                             <!-- <img src="resources/images/logo/logo_2.png"> -->
                             <!-- <div class="logo"> -->
                             <a href="/" style="padding-bottom: 10px;">
-                          <img src="images/logo/logo.png">
+                          <img src="/images/logo/logo.png">
                           <!-- <h5 style="text-transform: uppercase; font-size: 11px; font-weight: bold">Nơi khởi nguồn thịnh vượng</h5> -->
                         </a>
                             <!-- </div> -->
@@ -28,16 +28,16 @@
                         <div id="share" class="share">
                             <ul>
                                 <li>
-                                    <a :href="$store.state.system_config.config.facebook" target="_blank">		<img src="images/icon/fb.png">		</a>
+                                    <a :href="$store.state.system_config.config.facebook" target="_blank"><img src="/images/icon/fb.png"></a>
                                 </li>
                                 <li>
-                                    <a :href="$store.state.system_config.config.youtube" target="_blank">		<img src="images/icon/yt.png">		</a>
+                                    <a :href="$store.state.system_config.config.youtube" target="_blank"><img src="/images/icon/yt.png"></a>
                                 </li>
                                 <li>
-                                    <a :href="$store.state.system_config.config.youtube">		<img src="images/icon/gg.png">		</a>
+                                    <a :href="$store.state.system_config.config.youtube"><img src="/images/icon/gg.png"></a>
                                 </li>
                                 <li>
-                                    <a :href="`tel:${$store.state.system_config.config.viber}`">		<img src="images/icon/vb.png">		</a>
+                                    <a :href="`tel:${$store.state.system_config.config.viber}`"><img src="/images/icon/vb.png"></a>
                                 </li>
                             </ul>
                         </div>
