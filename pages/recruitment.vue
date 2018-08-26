@@ -128,9 +128,9 @@
 
                     <div class="row">
                         <div class="col-sm-12">
-                            <ul class="ed-recuitment-1" v-for="r in recruitmentData" :key="r.id">
+                            <ul class="ed-recuitment-1" v-for="r in recruitmentData.recruitment" :key="r.id">
                                 <li>
-                                    <nuxt-link :to="`/recruitment-detail/${r.id}`">
+                                    <nuxt-link :to="`/recruitment-detail/${r.id}/${r.slug}`">
                                         <h4 v-if="lang" v-html="r.title_vi"></h4>
                                         <h4 v-else v-html="r.title_en"></h4>
                                     </nuxt-link>
@@ -142,37 +142,11 @@
                                 </li>
                                 <li>
                                     <div class="btn-page">
-                                        <nuxt-link :to="`/recruitment-detail/${r.id}`">Xem chi tiết</nuxt-link>
+                                        <nuxt-link :to="`/recruitment-detail/${r.id}/${r.slug}`">Xem chi tiết</nuxt-link>
                                     </div>
                                 </li>
                             </ul>
                         </div>
-                        <!-- pagination -->
-                        <!-- <div class="col-sm-12">
-                            <div class="ed-pagination">
-                                <ul class="pagination setting-ul">
-                                    <li class="disabled">
-                                        <span>
-                                            <i class="fa fa-angle-left"></i>
-                                        </span>
-                                    </li>
-                                    <li class="active">
-                                        <span>1</span>
-                                    </li>
-                                    <li>
-                                        <a href="#">2</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">3</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" rel="next">
-                                            <i class="fa fa-angle-right"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
             </div>
