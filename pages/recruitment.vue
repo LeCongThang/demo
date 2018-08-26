@@ -110,16 +110,9 @@
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <li>
-                                        <a href="#">Sale</a>
-                                    </li>
-                                    <li role="separator" class="divider"></li>
-                                    <li>
-                                        <a href="#">Thư ký</a>
-                                    </li>
-                                    <li role="separator" class="divider"></li>
-                                    <li>
-                                        <a href="#">Nhân viên</a>
+                                    <li v-for="r in recruitmentData.recruitment_category" :key="r.id">
+                                        <a href="#" v-if="lang" v-html="r.title_vi"></a>
+                                        <a href="#" v-else v-html="r.title_en"></a>
                                     </li>
                                 </ul>
                             </div>
