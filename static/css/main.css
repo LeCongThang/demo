@@ -2533,10 +2533,6 @@ footer .bottom-footer p {
   color: #ff0000;
 }
 
-.numscroller {
-  font-weight: bold !important;
-}
-
 /*# sourceMappingURL=main.css.map */
 
 .register-event form .btn-page {
@@ -2859,7 +2855,7 @@ a.call-now {
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.64);
 }
 
-.ed-in-number12>h1 {
+.ed-in-number12>span {
   color: #024e9f;
   font-size: 50px;
   letter-spacing: 3px;
@@ -2870,11 +2866,6 @@ a.call-now {
   text-transform: uppercase;
   color: #024e9f;
   font-size: 15px;
-}
-
-h1.numscroller {
-  margin-top: 0px !important;
-  margin-bottom: 0px !important;
 }
 
 h4.des {

@@ -36,37 +36,57 @@
         <div class="col-md-12 ed-count-number-12" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1000" data-aos-easing="ease-in-out">
             <div class="col-sm-3">
                 <div class="ed-in-number12 text-center">
-                    <img src="images/icon/icon-a.png" alt="">
-                    <h1 data-min="1" class="numscroller" :data-max="aboutus.clients" data-delay="2" data-increment="1">
-                        <strong>0</strong>
-                    </h1>
+                    <img src="images/icon/icon-a.png" alt=""><br/>
+                    <ICountUp
+                        :startVal="startVal"
+                        :endVal="endVal"
+                        :decimals="decimals"
+                        :duration="duration"
+                        :options="options"
+                        @ready="onReadyClient"
+                    />
                     <h4 class="des">Tổng số nhân viên</h4>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="ed-in-number12 text-center">
-                    <img src="images/icon/icon-b.png" alt="">
-                    <h1 data-min="1" class="numscroller" :data-max="aboutus.transports" data-delay="2" data-increment="1">
-                        <b>0</b>
-                    </h1>
+                    <img src="images/icon/icon-b.png" alt=""><br/>
+                    <ICountUp
+                        :startVal="startVal"
+                        :endVal="endVal"
+                        :decimals="decimals"
+                        :duration="duration"
+                        :options="options"
+                        @ready="onReadyProject"
+                    />
                     <h4 class="des">Tổng số dự án</h4>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="ed-in-number12 text-center">
-                    <img src="images/icon/icon-c.png" alt="">
-                    <h1 data-min="1" class="numscroller" :data-max="aboutus.projects" data-delay="2" data-increment="5">
-                        <b>0</b>
-                    </h1>
+                    <img src="images/icon/icon-c.png" alt=""><br/>
+                    <ICountUp
+                        :startVal="startVal"
+                        :endVal="endVal"
+                        :decimals="decimals"
+                        :duration="duration"
+                        :options="options"
+                        @ready="onReadyPartner"
+                    />
                     <h4 class="des">Tổng số đối tác</h4>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="ed-in-number12 text-center">
-                    <img src="images/icon/icon-d.png" alt="">
-                    <h1 data-min="1" class="numscroller" :data-max="aboutus.awards" data-delay="2" data-increment="1">
-                        <b>0</b>
-                    </h1>
+                    <img src="images/icon/icon-d.png" alt=""><br/>
+                    <ICountUp
+                        :startVal="startVal"
+                        :endVal="endVal"
+                        :decimals="decimals"
+                        :duration="duration"
+                        :options="options"
+                        @ready="onReadyRelation"
+                    />
                     <h4 class="des">Tổng số sàn liên kết</h4>
                 </div>
             </div>
@@ -76,7 +96,45 @@
 </template>
 
 <script>
+import ICountUp from "vue-countup-v2";
 export default {
+    components: {
+        ICountUp
+    },
+    data() {
+        return {
+            startVal: 0,
+            endVal: 1,
+            decimals: 0,
+            duration: 3,
+            options: {
+                useEasing: true,
+                useGrouping: true,
+                separator: ",",
+                decimal: ".",
+                prefix: "",
+                suffix: ""
+            }
+        };
+    },
+    methods: {
+        onReadyClient: function (instance, CountUp) {
+            const that = this;
+            instance.update(this.aboutus.clients);
+        },
+        onReadyProject: function (instance, CountUp) {
+            const that = this;
+            instance.update(this.aboutus.transports);
+        },
+        onReadyPartner: function (instance, CountUp) {
+            const that = this;
+            instance.update(this.aboutus.projects);
+        },
+        onReadyRelation: function (instance, CountUp) {
+            const that = this;
+            instance.update(this.aboutus.awards);
+        }
+    },
     props: ['aboutus', 'lang']
 }
 </script>

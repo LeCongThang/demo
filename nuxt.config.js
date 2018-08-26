@@ -163,10 +163,6 @@ module.exports = {
       ssr: false
     },
     {
-      src: '~/static/js/numscroller-1.0.js',
-      ssr: false
-    },
-    {
       src: '~/static/js/jquery-scrolltofixed-min.js',
       ssr: false
     },

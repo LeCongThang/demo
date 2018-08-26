@@ -244,6 +244,13 @@ export default {
                 }
             ]
         };
+    },
+    mounted() {
+        var url = "/project";
+        $("ul.nav > li").removeClass("active");
+        $("a[href=\"" + url + "\"]")
+            .parent()
+            .addClass("active");
     }
 };
 </script>
