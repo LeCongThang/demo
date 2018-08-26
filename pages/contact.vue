@@ -1,48 +1,69 @@
 <template>
-<div class="container">
-    <div class="row">
-        <h1 class="text-center" style="color:red">Contact page under construction</h1>
-        <!-- <form class="" method="post" @submit.prevent="postNow"> -->
-        <form class="form-horizontal">
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Name</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" required placeholder="Name" v-model="name">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Email</label>
-                <div class="col-sm-10">
-                    <input type="email" class="form-control" required placeholder="Email" v-model="email">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Phone</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" required placeholder="Phone" v-model="phone">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Budget</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control"  placeholder="Budget" v-model="budget">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Content</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" placeholder="content" v-model="contents">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">{{$t('contact.send_button')}}</button>
-                </div>
-            </div>
-        </form>
+<section class="wrapper">
+    <div class="banner-partner-page">
+        <div class="banner-partner-page-1">
+            <h4>Liên Hệ</h4>
+        </div>
     </div>
-</div>
+    <div class="contact-page">
+        <div class="banner-mid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a href="#">
+                            <img src="/images/contact/pic-2.jpg" class="img-responsive" alt="centralreal.vn">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-contact-page">
+            <div class="container">
+                <div class="row wow fadeInDown" data-wow-delay="0.25s" data-wow-duration="1.5s">
+                    <div class="col-sm-12">
+                        <div class="box-big">
+                            <div class="box-small">
+                                <h3>Đăng ký nhận
+                                    <strong>thông tin dự án</strong>
+                                </h3>
+                                <form class="row">
+                                    <div class="form-group col-sm-4">
+                                        <input type="text" class="form-control" required placeholder="Họ và tên" v-model="name">
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <input type="email" class="form-control" required placeholder="Email" v-model="email">
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <input type="text" class="form-control" required placeholder="Số điện thoại" v-model="phone">
+                                    </div>
+                                    <div class="form-group col-sm-12">
+                                        <input type="text" placeholder="Tiêu đề" required class="form-control" v-model="title">
+                                    </div>
+                                    <div class="form-group col-sm-12">
+                                        <textarea class="form-control" rows="5" required id="comment" placeholder="Nội dung" v-model="contents"></textarea>
+                                    </div>
+
+                                    <button type="submit">Gửi tin nhắn</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 padding-0">
+                    <div class="maps-page">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1959.5521588283993!2d106.71530435801498!3d10.803321832748136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528a4143f87d1%3A0x64daa8d9b239ec3a!2zNjggxJDGsOG7nW5nIE5ndXnhu4VuIEdpYSBUcsOtLCBQaMaw4budbmcgMjUsIELDrG5oIFRo4bqhbmgsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1533692314253"
+                            width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
 </template>
 
 <script>
@@ -56,8 +77,7 @@ export default {
             name: "",
             email: "",
             phone: "",
-            address: "",
-            budget: "",
+            title: "",
             contents: ""
         };
     },
@@ -67,8 +87,7 @@ export default {
                 name: this.name,
                 email: this.email,
                 phone: this.phone,
-                address: this.address,
-                budget: this.budget,
+                title: this.title,
                 contents: this.contents
             };
             axios
@@ -87,7 +106,7 @@ export default {
                         this.email = "";
                         this.phone = "";
                         this.address = "";
-                        this.budget = "";
+                        this.title = "";
                         this.contents = "";
                     }
                 })

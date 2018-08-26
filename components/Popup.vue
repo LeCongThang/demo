@@ -36,17 +36,17 @@
 							<section class="regular6 slider">
 								<div class="items-2">
 									<div class="pic-items2">
-										<img src="images/event/pic-1.jpg" class="img-responsive" alt="">
+										<img src="/images/event/pic-1.jpg" class="img-responsive" alt="">
 									</div>
 								</div>
 								<div class="items-2">
 									<div class="pic-items2">
-										<img src="images/event/pic-1.jpg" class="img-responsive" alt="">
+										<img src="/images/event/pic-1.jpg" class="img-responsive" alt="">
 									</div>
 								</div>
 								<div class="items-2">
 									<div class="pic-items2">
-										<img src="images/event/pic-1.jpg" class="img-responsive" alt="">
+										<img src="/images/event/pic-1.jpg" class="img-responsive" alt="">
 									</div>
 								</div>
 							</section>

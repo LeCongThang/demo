@@ -35,7 +35,7 @@
                         <div v-for="(project, index) in projects" :key="project.id">
                             <div :class="`gallery-${index+1} home-gallery`" :data-aos="setAnimate(index)" data-aos-delay="400" data-aos-duration="1500" data-aos-easing="ease-in-out" :style="`background: url(${$store.state.system_config.directory.project+'/'+project.image_thumbnail}) no-repeat center; background-size: cover;`">
                                 <div class="caption">
-                                    <div class="cc">
+                                    <div :class="setClass(index)">
                                         <h3 class="title boldtext" v-if="lang" v-html="project.title_vi"></h3>
                                         <h3 class="title boldtext" v-else v-html="project.title_en"></h3>
                                         <ul>
@@ -95,6 +95,18 @@ export default {
 
             }
             return animateName;
+        },
+        setClass: (index) => {
+            let className = '';
+            switch (index) {
+                case 4:
+                    className = "cc cc1";
+                    break;
+                default:
+                    className = "cc";
+                    break;
+            }
+            return className;
         }
     }
 };
