@@ -23,23 +23,25 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-3 col-sm-6 wow animated fadeInUp" data-wow-delay="0.25s">
+                        <div class="col-md-3 col-sm-6" v-for="r in recruitmentData.recruitment_central_real" :key="r.id">
                             <div class="box-recuitment text-center">
                                 <a href="#" class="pic-box-recuitment">
-                                    <img src="images/recruitment/dao-tao-dinh-huong-1-250x250.jpg" class="img-responsive">
+                                    <img :src="$store.state.system_config.directory.recruitment+'/'+r.image" class="img-responsive" :alt="r.title_vi">
                                 </a>
                                 <div class="txt-box-recuitment">
-                                    <a href="#">
-                                        <h4>Đào tạo định hướng</h4>
-                                    </a>
-                                    <p style="text-align: justify;">Trong gần 5 năm hoạt động, Ban lãnh đạo Central Real luôn coi nguồn nhân lực là yếu tố quan trọng cho sự phát triển của công ty.</p>
+                                    <nuxt-link :to="`/why-choose-us/${r.id}/${r.slug}`">
+                                        <h4 v-if="lang" v-html="r.title_vi"></h4>
+                                        <h4 v-else v-html="r.title_en"></h4>
+                                    </nuxt-link>
+                                    <!-- <p style="text-align: justify;">Trong gần 5 năm hoạt động, Ban lãnh đạo Central Real luôn coi nguồn nhân lực là yếu tố quan trọng cho sự phát triển của công ty.</p> -->
                                     <div class="btn-page">
-                                        <a href="#">Xem thêm</a>
+                                        <nuxt-link :to="`/why-choose-us/${r.id}/${r.slug}`">{{$t('common.readmore')}}</nuxt-link>
                                     </div>
+                                    <p style="padding-bottom:10px"></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 col-sm-6 wow animated fadeInUp" data-wow-delay="0.5s">
+                        <!-- <div class="col-md-3 col-sm-6 wow animated fadeInUp" data-wow-delay="0.5s">
                             <div class="box-recuitment text-center">
                                 <a href="#" class="pic-box-recuitment">
                                     <img src="images/recruitment/che-do-dai-ngo-1-250x250.jpg" class="img-responsive">
@@ -86,7 +88,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
