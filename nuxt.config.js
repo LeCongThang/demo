@@ -162,10 +162,6 @@ module.exports = {
       src: '~/plugins/aos.js',
       ssr: false
     },
-    {
-      src: '~/static/js/jquery-scrolltofixed-min.js',
-      ssr: false
-    },
     // { src: '~plugins/ga.js', ssr: false }
   ],
   router: { // customize nuxt.js router (vue-router).

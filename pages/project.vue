@@ -17,7 +17,7 @@
                         <button class="filter-button" data-filter="4">Đất nền</button>
 
                         <ul class="ed-dropdown">
-                            <li>
+                            <!-- <li>
                                 <div class="dropdown">
                                     <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 Giá
@@ -42,7 +42,7 @@
                                         <a class="dropdown-item" href="#">Phú Quốc</a>
                                     </div>
                                 </div>
-                            </li>
+                            </li> -->
                             <li>
                                 <div class="dropdown">
                                     <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -58,9 +58,9 @@
                         </ul>
                     </div>
                     <div class="row">
-                        <div class="col-md-4" v-for="p in projectData.data" :key="p.id">
-                            <div class="each-item filter 1">
-                                <nuxt-link :to="`/project-detail/${p.id}/${p.slug}`" class="pic-prj" :style="`background:url(${$store.state.system_config.directory.project+'/'+p.image});background-size:cover;width:100%;height:150px;`">
+                        <div class="col-md-4 prodcont new" v-for="(p,index) in projectData.data" :key="p.id">
+                            <div :class="`each-item filter ${index+1}`">
+                                <nuxt-link :to="`/project-detail/${p.id}/${p.slug}`" class="pic-prj" :style="`background:url(${$store.state.system_config.directory.project+'/'+p.image});background-size:cover;width:100%;height:${setHeight(index)};`">
                                 </nuxt-link>
                                 <nuxt-link class="project-title" :to="`/project-detail/${p.id}/${p.slug}`">
                                     <h4>
@@ -90,12 +90,18 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="bottom-line"></p>
+                        <!-- {{projectData}} -->
+                        <div class="text-center" v-if="projectData.last_page>1">
+                            <div class="btn-group" role="group">
+                                <button type="button" v-on:click="getProjectData(1)" class="btn btn-md btn-default"><i class="fa fa-angle-double-left" aria-hidden="true"></i></button>
+                                <button type="button" v-for="page in projectData.last_page" :key="page" v-on:click="getProjectData(page)" class="btn btn-md btn-default">{{page}}</button>
+                                <button type="button" v-on:click="getProjectData(projectData.last_page)" class="btn btn-md btn-default"><i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-3 wow fadeInDown" data-wow-delay="0.75s" data-wow-duration="1.5s">
-                    <div id="scroller-anchor"></div>
-                    <aside class="form-contact-prj" id="scroller">
+                    <!-- <aside class="form-contact-prj" id="scroller">
                         <h4>ĐĂNG KÝ NGAY</h4>
                         <h3 class="phone maudo">094 915 2424</h3>
                         <h5>Hotline: 19000000</h5>
@@ -120,12 +126,42 @@
 
                             <button type="submit">Đăng ký</button>
                         </form>
-                    </aside>
+                    </aside> -->
+                    <form id="frmDangKy" class="project-form form-horizontal">
+                        <input type="hidden" name="_token" id="token" value="wx4gvSzwJvrY83W68FfCTel16gWRGnD6VdJ9rt7Q">
+                        <div class="form-group text-center">
+                            <h4 style="color: white;font-weight: bold">Liên hệ ngay</h4>
+                            <h3 class="maudo">094 915 2424</h3>
+                            <h5 style="color: white;">‎Hotline: 028 7307 5555</h5>
+                            <p style="color: white;">Nhập thông tin để được tư vấn miễn phí và nhanh nhất.</p>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="text" id="name" name="name" class="form-control" placeholder="Họ tên">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 30px">
+                            <div class="col-sm-12">
+                                <input type="tel" required="" id="phone" name="phone" class="form-control" placeholder="Số điện thoại" aria-required="true">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <button type="submit" id="btnGui" class="btn btn-danger form-control upper">Đăng ký</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
+                <hr id="neo" style="border-top:1px solid rgb(209, 209, 209);">
             </div>
         </div>
     </div>
-
 </section>
 </template>
 
@@ -161,6 +197,16 @@ export default {
             );
             this.projectData = data.data;
             this.$nuxt.$loading.finish();
+        },
+        setHeight(index) {
+            let height = '360px';
+            if (index % 2 != 0) {
+                height = '180px';
+            }
+            if (index == 4) {
+                height = height + ';margin-top: -180px';
+            }
+            return height;
         }
     },
     mounted() {
@@ -169,16 +215,15 @@ export default {
         $("a[href=\"" + url + "\"]")
             .parent()
             .addClass("active");
-        var neo = $('.bottom-line').offset().top - $('#scroller').height();
-        $(window).scroll(function () {
-            if ($(window).scrollTop() <= neo) {
-                $('#scroller').css('top', $(window).scrollTop());
-            }
-        });
-        // $('#scroller').scrollToFixed({
-        //     marginTop: 80,
-        //     limit: $($('.bottom-line')).offset().top
-        // });
+        if ($(window).innerWidth() > 1024) {
+            var neo = $('#neo').offset().top+350;
+            $(window).scroll(function () {
+                console.log($(window).scrollTop())
+                if ($(window).scrollTop() <= neo && $(window).scrollTop() >= 400)
+                    $('.project-form').css('top', $(window).scrollTop()-370)
+            });
+        }
+
     }
 };
 </script>
@@ -196,5 +241,13 @@ export default {
 
 .project-title h4 strong {
     text-transform: uppercase;
+}
+
+.project-form {
+    position: relative;
+    top:0;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 32px 24px;
+    box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.2)  
 }
 </style>
