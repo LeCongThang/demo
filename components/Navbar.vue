@@ -55,7 +55,7 @@
                                 <nuxt-link to="/recruitment">{{$t('links.recruitment')}}</nuxt-link>
                             </li>
                             <li>
-                                <nuxt-link to="/library">{{$t('links.library')}}</nuxt-link>
+                                <nuxt-link to="/gallery">{{$t('links.library')}}</nuxt-link>
                             </li>
                             <li>
                                 <nuxt-link to="/contact">{{$t('links.contact')}}</nuxt-link>

@@ -22,7 +22,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12 padding-0">
-                    <img :src="$store.state.system_config.directory.project+'/'+project.image" class="img-responsive" width="100% !important; height:auto" :alt="project.title_vi">
+                    <img :src="$store.state.system_config.directory.project+'/'+project.project.image" class="img-responsive" width="100% !important; height:auto" :alt="project.title_vi">
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
 
     <div class="box-pj-dt">
         <div class="container">
-            <div class="box-pj-0 row">
+            <!-- <div class="box-pj-0 row">
                 <div class="col-sm-6 padding-0 wow animated fadeInLeft">
                     <img :src="$store.state.system_config.directory.project+'/'+project.image_about" class="img-responsive" :alt="project.title_vi">
                 </div>
@@ -94,7 +94,11 @@
                 <div class="col-sm-6 padding-0 hidden-xs wow animated fadeInRight ">
                     <img :src="$store.state.system_config.directory.project+'/'+project.image_flat" class="img-responsive" :alt="project.title_vi">
                 </div>
-            </div>
+            </div> -->
+            <h1 class="text-center" v-if="lang" v-html="project.project.title_vi" data-aos="fade-down" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out"></h1>
+            <h1 class="text-center" v-else v-html="project.project.title_en" data-aos="fade-down" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out"></h1>
+            <p v-if="lang" v-html="project.project.description_vi"></p>
+            <p v-else v-html="project.project.description_en"></p>
         </div>
     </div>
     <div class="container">
@@ -130,45 +134,17 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4 wow animated fadeInUp" data-wow-delay="0.25s">
+                <div class="col-sm-4" v-for="r in project.projects_rela" :key="r.id">
                     <div class="box-event-page">
-                        <a href="event-detail.html">
-                                    <img src="/images/event/pic-3.jpg" class="img-responsive" alt="">
-                                </a>
+                        <nuxt-link :to="`/project-detail/${r.id}/${r.slug}`">
+                            <img :src="$store.state.system_config.directory.project+'/'+r.image" class="img-responsive" :alt="r.title_vi">
+                        </nuxt-link>
                         <div class="txt-box-event-page">
-                            <a href="event-detail.html">
-                                <h4>Giới Thiệu Sản Phẩm Coco Wonderland Resort</h4>
-                            </a>
-                            <p>Sáng nay ngày 14/10/2017 buổi lễ “Giới thiệu sản phẩm Coco Wonderland Resort” được tổ chức tại tầng 19 tòa nhà Pearl Plaza, số 561 Điện Biên Phủ, P.25, Q. Bình Thạnh, TpHcm.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 wow animated fadeInUp" data-wow-delay="0.5s">
-                    <div class="box-event-page">
-                        <a href="event-detail.html">
-                                    <img src="/images/event/pic-4.jpg" class="img-responsive" alt="">
-                                </a>
-                        <div class="txt-box-event-page">
-                            <a href="event-detail.html">
-                                <h4>Giới Thiệu Sản Phẩm Coco Wonderland Resort</h4>
-                            </a>
-                            <p>Sáng nay ngày 14/10/2017 buổi lễ “Giới thiệu sản phẩm Coco Wonderland Resort” được tổ chức tại tầng 19 tòa nhà Pearl Plaza, số 561 Điện Biên Phủ, P.25, Q. Bình Thạnh, TpHcm.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 wow animated fadeInUp" data-wow-delay="0.75s">
-                    <div class="box-event-page">
-                        <a href="event-detail.html">
-                                    <img src="/images/event/pic-5.jpg" class="img-responsive" alt="">
-                                </a>
-                        <div class="txt-box-event-page">
-                            <a href="event-detail.html">
-                                <h4>Giới Thiệu Sản Phẩm Coco Wonderland Resort</h4>
-                            </a>
-                            <p>Sáng nay ngày 14/10/2017 buổi lễ “Giới thiệu sản phẩm Coco Wonderland Resort” được tổ chức tại tầng 19 tòa nhà Pearl Plaza, số 561 Điện Biên Phủ, P.25, Q. Bình Thạnh, TpHcm.
-                            </p>
+                            <nuxt-link :to="`/project-detail/${r.id}/${r.slug}`">
+                                <h4>{{lang?r.title_vi:r.title_en}}</h4>
+                            </nuxt-link>
+                            <p v-if="lang" v-html="r.des_short_vi"></p>
+                            <p v-else v-html="r.des_short_en"></p>
                         </div>
                     </div>
                 </div>
@@ -195,18 +171,26 @@ export default {
             project: data.data
         };
     },
+    computed: {
+        lang() {
+            if (this.$store.state.lang == "vi") {
+                return true;
+            }
+            return false;
+        }
+    },
     head() {
         return {
-            title: this.project.title_vi,
+            title: this.project.project.title_vi,
             meta: [{
                     hid: "description",
                     name: "description",
-                    content: this.project.des_short_vi
+                    content: this.project.project.des_short_vi
                 },
                 {
                     hid: "og:description",
                     name: "og:description",
-                    content: this.project.des_short_vi
+                    content: this.project.project.des_short_vi
                 },
                 {
                     hid: "og:image",

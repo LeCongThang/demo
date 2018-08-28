@@ -11,38 +11,8 @@
                 <div class="col-md-9">
                     <div class="ed-filter">
                         <button class="active filter-button" data-filter="all">Tất cả</button>
-                        <button class="filter-button" data-filter="1">Condotel</button>
-                        <button class="filter-button" data-filter="2">Shop house</button>
-                        <button class="filter-button" data-filter="3">Biệt thự</button>
-                        <button class="filter-button" data-filter="4">Đất nền</button>
-
+                        <button class="filter-button" v-for="c in projectData.categories" :key="c.id" :data-filter="c.id">{{lang?c.title_vi:c.title_en}}</button>
                         <ul class="ed-dropdown">
-                            <!-- <li>
-                                <div class="dropdown">
-                                    <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Giá
-                                                <i class="fa fa-caret-down"></i>
-                                            </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">1 Tỷ</a>
-                                        <a class="dropdown-item" href="#">2 Tỷ</a>
-                                        <a class="dropdown-item" href="#">> 3 Tỷ</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="dropdown">
-                                    <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Vị trí
-                                                <i class="fa fa-caret-down"></i>
-                                            </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Quy Nhơn</a>
-                                        <a class="dropdown-item" href="#">Ninh Bình</a>
-                                        <a class="dropdown-item" href="#">Phú Quốc</a>
-                                    </div>
-                                </div>
-                            </li> -->
                             <li>
                                 <div class="dropdown">
                                     <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -50,15 +20,14 @@
                                                 <i class="fa fa-caret-down"></i>
                                             </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">SUN Group</a>
-                                        <a class="dropdown-item" href="#">FLC Group</a>
+                                        <a class="dropdown-item" href="#" v-for="c in projectData.partners" :key="c.id" :data-filter="c.id">{{c.name}}</a>
                                     </div>
                                 </div>
                             </li>
                         </ul>
                     </div>
                     <div class="row">
-                        <div class="col-md-4 prodcont new" v-for="(p,index) in projectData.data" :key="p.id">
+                        <div class="col-md-4 prodcont new" v-for="(p,index) in projectData.projects.data" :key="p.id">
                             <div :class="`each-item filter ${index+1}`">
                                 <nuxt-link :to="`/project-detail/${p.id}/${p.slug}`" class="pic-prj" :style="`background:url(${$store.state.system_config.directory.project+'/'+p.image});background-size:cover;width:100%;height:${setHeight(index)};`">
                                 </nuxt-link>
@@ -71,16 +40,15 @@
                                 <div class="project-detail">
                                     <ul>
                                         <li>
-                                            <strong>Chủ đầu tư: </strong> <span v-if="lang" v-html="p.investor_vi"></span>
-                                            <span v-else v-html="p.investor_en"></span>
+                                            <strong>Chủ đầu tư: </strong> <span v-html="p.rela_partner.name"></span>
                                         </li>
                                         <li>
                                             <strong>Vị trí dự án: </strong> <span v-if="lang" v-html="p.location_vi"></span>
                                             <span v-else v-html="p.location_en"></span>
                                         </li>
                                         <li>
-                                            <strong>Loại dự án: </strong> <span v-if="lang" v-html="p.type_of_project_vi"></span>
-                                            <span v-else v-html="p.type_of_project_en"></span>
+                                            <strong>Loại dự án: </strong> <span v-if="lang" v-html="p.rela_category.title_vi"></span>
+                                            <span v-else v-html="p.rela_category.title_en"></span>
                                         </li>
                                     </ul>
                                 </div>
@@ -101,32 +69,6 @@
                     </div>
                 </div>
                 <div class="col-md-3 wow fadeInDown" data-wow-delay="0.75s" data-wow-duration="1.5s">
-                    <!-- <aside class="form-contact-prj" id="scroller">
-                        <h4>ĐĂNG KÝ NGAY</h4>
-                        <h3 class="phone maudo">094 915 2424</h3>
-                        <h5>Hotline: 19000000</h5>
-                        <p>Nhập trông tin tư vấn miễn phí và nhanh nhất.</p>
-                        <form>
-                            <div class="form-group">
-                                <select class="form-control" id="sel1">
-                                            <option>Sự kiện</option>
-                                            <option>Bán căn hộ Vinhome</option>
-                                            <option>Đấu giá khu chung cư</option>
-                                        </select>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" placeholder="Họ tên" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" placeholder="Số điện thoại" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email">
-                            </div>
-
-                            <button type="submit">Đăng ký</button>
-                        </form>
-                    </aside> -->
                     <form id="frmDangKy" class="project-form form-horizontal">
                         <input type="hidden" name="_token" id="token" value="wx4gvSzwJvrY83W68FfCTel16gWRGnD6VdJ9rt7Q">
                         <div class="form-group text-center">
@@ -218,8 +160,7 @@ export default {
         if ($(window).innerWidth() > 1024) {
             var neo = $('#neo').offset().top+350;
             $(window).scroll(function () {
-                console.log($(window).scrollTop())
-                if ($(window).scrollTop() <= neo && $(window).scrollTop() >= 400)
+                if ($(window).scrollTop() <= neo && $(window).scrollTop() >= 370)
                     $('.project-form').css('top', $(window).scrollTop()-370)
             });
         }

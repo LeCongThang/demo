@@ -657,7 +657,7 @@ a, a:hover {
 }
 
 .overlay .title {
-  width: 99%;
+  width: 98%;
   color: white;
   font-size: 16px;
   font-weight: bold;
@@ -2981,8 +2981,8 @@ h4.des {
 }
 
 .box-pj-dt {
-  margin-top: 50px;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .box-pj-0 {

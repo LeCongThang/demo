@@ -24,12 +24,20 @@ export default {
             news: data.data
         };
     },
+    computed: {
+        lang() {
+            if (this.$store.state.lang == "vi") {
+                return true;
+            }
+            return false;
+        }
+    },
     middleware: 'news_detail'
 };
 </script>
-<style>
-  .container>.row>img{
-    width: 100%!important
-  }
-</style>
 
+<style>
+.container>.row>img {
+    width: 100% !important
+}
+</style>

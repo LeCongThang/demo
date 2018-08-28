@@ -40,8 +40,7 @@
                                         <h3 class="title boldtext" v-else v-html="project.title_en"></h3>
                                         <ul>
                                             <li>
-                                                <strong>Chủ đầu tư: </strong> <span v-if="lang" v-html="project.investor_vi"></span>
-                                                <span v-else v-html="project.investor_en"></span>
+                                                <strong>Chủ đầu tư: </strong> <span v-html="project.rela_partner.name"></span>
                                             </li>
                                             <li>
                                                 <strong>Vị trí dự án: </strong> <span v-if="lang" v-html="project.location_vi"></span>
