@@ -16,28 +16,26 @@
                     <div class="col-md-5 col-md-offset-7" data-aos="fade-left" data-aos-delay="150" data-aos-duration="1000" data-aos-easing="ease-in-out">
                         <div class="form-ct-1">
                             <div class="title-page text-center">
-                                <h2>Đăng ký
-                                    <strong> nhận thông tin dự án</strong>
-                                </h2>
+                                <h2 v-html="$t('home.contact')"></h2>
                             </div>
                             <form class="row">
                                 <div class="form-group col-sm-12">
-                                    <input type="text" required placeholder="Họ và tên" class="form-control">
+                                    <input type="text" required :placeholder="$t('contact.name')" class="form-control">
                                 </div>
                                 <div class="form-group col-sm-6">
                                     <input type="email" required class="form-control" placeholder="Email">
                                 </div>
                                 <div class="form-group col-sm-6">
-                                    <input type="text" required placeholder="Điện thoại" class="form-control">
+                                    <input type="text" required :placeholder="$t('contact.phone')" class="form-control">
                                 </div>
                                 <div class="form-group col-sm-12">
-                                    <input type="text" placeholder="Tiêu đề" class="form-control">
+                                    <input type="text" :placeholder="$t('contact.title')" class="form-control">
                                 </div>
                                 <div class="form-group col-sm-12">
-                                    <textarea rows="3" placeholder="Nội dung" id="comment" class="form-control"></textarea>
+                                    <textarea rows="3" :placeholder="$t('contact.content')" id="comment" class="form-control"></textarea>
                                 </div>
                                 <div class="form-group col-sm-12 text-center">
-                                    <button type="submit">Gửi</button>
+                                    <button type="submit">{{$t('contact.send_button')}}</button>
                                 </div>
     
                             </form>

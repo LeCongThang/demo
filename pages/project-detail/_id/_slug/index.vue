@@ -1,21 +1,4 @@
 <template>
-<!-- <div class="container">
-    <div class="row">
-        <h2>{{project.title_vi}}</h2>
-        <img :src="$store.state.system_config.directory.project+'/'+project.image" :alt="project.title_vi" class="img-responsive">
-        <div v-html="project.investor_vi"></div>
-        <div v-html="project.location_vi"></div>
-        <div v-html="project.type_of_project_vi"></div>
-        <div v-for="image in project.project_images" :key="image.id">
-            <div class="col-md-4">
-                <a class="width100" data-fancybox="gallery" :href="$store.state.system_config.directory.project+'/'+image.image">
-                    <div class="grid-gallery" v-bind:style="{ background: 'url('+$store.state.system_config.directory.project+'/'+image.image+ ') no-repeat center; background-size: cover'}">
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-</div> -->
 <section class="wrapper">
 
     <div class="banner-project-dt">
@@ -134,7 +117,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4" v-for="r in project.projects_rela" :key="r.id">
+                <div class="col-sm-4" v-for="r in project.projects_rela" :key="r.id" data-aos="fade-up" :data-aos-delay="(index+1)*150" data-aos-duration="1000" data-aos-easing="ease-in-out">
                     <div class="box-event-page">
                         <nuxt-link :to="`/project-detail/${r.id}/${r.slug}`">
                             <img :src="$store.state.system_config.directory.project+'/'+r.image" class="img-responsive" :alt="r.title_vi">

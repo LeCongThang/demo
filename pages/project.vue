@@ -2,7 +2,7 @@
 <section class="wrapper">
     <div class="banner-partner-page">
         <div class="banner-partner-page-1">
-            <h4>Dự án</h4>
+            <h4>{{$t('links.project')}}</h4>
         </div>
     </div>
     <div class="project-page" style="padding-top: 30px;">
@@ -27,7 +27,7 @@
                         </ul>
                     </div>
                     <div class="row">
-                        <div class="col-md-4 prodcont new" v-for="(p,index) in projectData.projects.data" :key="p.id">
+                        <div class="col-md-4 prodcont new" v-for="(p,index) in projectData.projects.data" :key="p.id" data-aos="fade-up" :data-aos-delay="(index+1)*50" data-aos-duration="1000" data-aos-easing="ease-in-out">
                             <div :class="`each-item filter ${index+1}`">
                                 <nuxt-link :to="`/project-detail/${p.id}/${p.slug}`" class="pic-prj" :style="`background:url(${$store.state.system_config.directory.project+'/'+p.image});background-size:cover;width:100%;height:${setHeight(index)};`">
                                 </nuxt-link>
@@ -68,7 +68,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 wow fadeInDown" data-wow-delay="0.75s" data-wow-duration="1.5s">
+                <div class="col-md-3" data-aos="fade-left" data-aos-delay="150" data-aos-duration="1000" data-aos-easing="ease-in-out">
                     <form id="frmDangKy" class="project-form form-horizontal">
                         <input type="hidden" name="_token" id="token" value="wx4gvSzwJvrY83W68FfCTel16gWRGnD6VdJ9rt7Q">
                         <div class="form-group text-center">
@@ -151,6 +151,11 @@ export default {
             return height;
         }
     },
+    head() {
+        return {
+            title: this.$t('links.project') + "- CENTRALREAL.VN"
+        };
+    },
     mounted() {
         var url = $(location).attr("pathname");
         $("ul.nav > li").removeClass("active");
@@ -158,10 +163,11 @@ export default {
             .parent()
             .addClass("active");
         if ($(window).innerWidth() > 1024) {
-            var neo = $('#neo').offset().top+350;
+            var neo = $('.top-footer').offset().top - 600;
+            console.log(neo)
             $(window).scroll(function () {
                 if ($(window).scrollTop() <= neo && $(window).scrollTop() >= 370)
-                    $('.project-form').css('top', $(window).scrollTop()-370)
+                    $('.project-form').css('top', $(window).scrollTop() - 370)
             });
         }
 
@@ -186,9 +192,9 @@ export default {
 
 .project-form {
     position: relative;
-    top:0;
+    top: 0;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 32px 24px;
-    box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.2)  
+    box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.2)
 }
 </style>

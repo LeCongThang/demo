@@ -4,9 +4,7 @@
         <div class="row wow animated fadeInUp">
             <div class="col-md-6 col-md-offset-3">
                 <div class="title-page text-center">
-                    <h2>Tin tức
-                        <strong>nổi bật</strong>
-                    </h2>
+                    <h2 v-html="$t('home.news')"></h2>
                     <p>Hơn 50 dự án Central Real đã và đang phân phối bởi các nhà đầu tư uy tín
                         <br> chất lượng hàng đầu Việt Nam.</p>
                 </div>
@@ -23,7 +21,7 @@
                         <nuxt-link :to="`/news-detail/${news[0].id}/${news[0].slug}`" class="title" v-if="lang" v-html="news[0].title_vi"></nuxt-link>
                         <nuxt-link :to="`/news-detail/${news[0].id}/${news[0].slug}`" class="title" v-else v-html="news[0].title_en"></nuxt-link>
                         <div class="btn-page text-center btn-xem">
-                            <a href="project-detail.html">{{$t('common.readmore')}}</a>
+                            <nuxt-link :to="`/news-detail/${news[0].id}/${news[0].slug}`">{{$t('common.readmore')}}</nuxt-link>
                         </div>
                     </div>
                 </div>
@@ -33,7 +31,7 @@
                         <nuxt-link :to="`/news-detail/${news[1].id}/${news[1].slug}`" class="title" v-if="lang" v-html="news[1].title_vi"></nuxt-link>
                         <nuxt-link :to="`/news-detail/${news[1].id}/${news[1].slug}`" class="title" v-else v-html="news[1].title_en"></nuxt-link>
                         <div class="btn-page text-center btn-xem">
-                            <a href="project-detail.html">{{$t('common.readmore')}}</a>
+                            <nuxt-link :to="`/news-detail/${news[1].id}/${news[1].slug}`">{{$t('common.readmore')}}</nuxt-link>
                         </div>
                     </div>
                 </div>
@@ -45,7 +43,7 @@
                         <nuxt-link :to="`/news-detail/${n.id}/${n.slug}`" class="title" v-if="lang" v-html="n.title_vi"></nuxt-link>
                         <nuxt-link :to="`/news-detail/${n.id}/${n.slug}`" class="title" v-else v-html="n.title_en"></nuxt-link>
                         <div class="btn-page text-center btn-xem">
-                            <a href="project-detail.html">{{$t('common.readmore')}}</a>
+                            <nuxt-link :to="`/news-detail/${n.id}/${n.slug}`">{{$t('common.readmore')}}</nuxt-link>
                         </div>
                     </div>
                 </div>

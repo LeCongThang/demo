@@ -1,36 +1,19 @@
 <template>
 <div>
-
     <section class="gallery-home">
-
         <div class="container">
-
             <div class="row wow animated fadeInUp">
-
                 <div class="col-md-6 col-md-offset-3">
-
                     <div class="title-page text-center">
-
-                        <h2>Dự án
-
-                            <strong>phân phối</strong>
-
+                        <h2 v-html="$t('home.project')">
                         </h2>
-
                         <p>Hơn 50 dự án Central Real đã và đang phân phối bởi các nhà đầu tư uy tín
-
                             <br> chất lượng hàng đầu Việt Nam.</p>
-
                     </div>
-
                 </div>
-
             </div>
-
             <div class="row">
-
                 <div class="col-sm-12">
-
                     <div class="ed-gallery">
                         <div v-for="(project, index) in projects" :key="project.id">
                             <div :class="`gallery-${index+1} home-gallery`" :data-aos="setAnimate(index)" data-aos-delay="400" data-aos-duration="1500" data-aos-easing="ease-in-out" :style="`background: url(${$store.state.system_config.directory.project+'/'+project.image_thumbnail}) no-repeat center; background-size: cover;`">
@@ -60,7 +43,7 @@
         </div>
     </section>
     <div class="btn-page text-center" style="padding-bottom: 20px;">
-        <nuxt-link to="/project">Xem thêm</nuxt-link>
+        <nuxt-link to="/project">{{$t('common.readmore')}}</nuxt-link>
     </div>
 
 </div>

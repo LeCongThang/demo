@@ -9,11 +9,7 @@
     
                     <div class="title-page text-center">
     
-                        <h2>Đối tác
-    
-                            <strong> tiêu biểu</strong>
-    
-                        </h2>
+                        <h2 v-html="$t('home.partner')"></h2>
     
                         <p>Hơn 50 dự án Central Real đã và đang phân phối bởi các nhà đầu tư uy tín
     

@@ -3,7 +3,7 @@
 
             <div class="banner-partner-page">
                 <div class="banner-partner-page-1">
-                    <h4>Thư viện</h4>
+                    <h4>{{$t('links.library')}}</h4>
                 </div>
             </div>
 

@@ -2,7 +2,7 @@
 <section class="wrapper">
     <div class="banner-partner-page">
         <div class="banner-partner-page-1">
-            <h4>Liên Hệ</h4>
+            <h4>{{$t('links.contact')}}</h4>
         </div>
     </div>
     <div class="contact-page">
@@ -122,6 +122,11 @@ export default {
             }
             return false;
         }
+    },
+    head() {
+        return {
+            title: this.$t('links.contact')+"- CENTRALREAL.VN"
+        };
     },
     mounted() {
         var url = $(location).attr("pathname");

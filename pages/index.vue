@@ -20,7 +20,6 @@ import Slider from "~/components/home/Slider.vue";
 import About from "~/components/home/About.vue";
 import Project from "~/components//home/Project.vue";
 import Event from "~/components/home/Event.vue";
-import Gallery from "~/components/home/Gallery.vue";
 import News from "~/components/home/News.vue";
 import Feedback from "~/components/home/Feedback.vue";
 import Partner from "~/components/home/Partner.vue";
@@ -37,7 +36,6 @@ export default {
     About,
     Project,
     Event,
-    Gallery,
     News,
     Feedback,
     Partner,
