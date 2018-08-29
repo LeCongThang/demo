@@ -10,28 +10,27 @@
                 </div>
             </div>
         </div>
-
         <div class="row">
             <div class="col-md-4 pd-right-0 left-form" data-aos="fade-right" data-aos-delay="100" data-aos-duration="1500" data-aos-easing="ease-in-out">
                 <div class="register-event">
                     <h4 v-html="$t('home.register_event')"></h4>
-                    <form>
+                    <form @submit.prevent="processForm">
                         <div class="form-group">
-                            <select class="form-control" id="sel1" v-model="eventId">
+                            <select class="form-control" name="eventId" v-model="eventId">
                                 <option v-for="event in events" :key="event.id" :value="event.id">{{event.title_vi}}</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <input type="text" :placeholder="$t('contact.name')" required class="form-control" id="name" v-model="name">
+                            <input type="text" :placeholder="$t('contact.name')" required class="form-control" name="name" v-model="name">
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Email" required class="form-control" id="email" v-model="email">
+                            <input type="email" placeholder="Email" required class="form-control" name="email" v-model="email">
                         </div>
                         <div class="form-group">
-                            <input type="text" :placeholder="$t('contact.phone')" required class="form-control" id="phone" v-model="phone">
+                            <input type="text" :placeholder="$t('contact.phone')" required class="form-control" name="phone" v-model="phone">
                         </div>
                         <div class="btn-page text-center">
-                            <a href="#">{{$t('contact.send_button')}}</a>
+                            <button class="btn btn-danger" type="submit">{{$t('contact.send_button')}}</button>
                         </div>
 
                     </form>
@@ -54,26 +53,44 @@
 </template>
 
 <script>
+import axios from "axios";
+import {
+    environment
+} from "~/plugins/config.js";
 export default {
-    data: function () {
-        return {
-            name: "",
-            email: "",
-            phone: "",
-            eventId: "",
-        };
+    data: {
+        name: "",
+        email: "",
+        phone: "",
+        eventId: ""
     },
     props: ["events", "lang"],
     methods: {
-        RegisterEvent: (e) => {
-            e.preventDefault();
-            let dataSubmit = {
+        processForm: function () {
+            let dataContact = {
                 name: this.name,
                 email: this.email,
                 phone: this.phone,
-                eventId: this.eventId,
+                event_id: this.eventId
             };
-            console.log(dataSubmit);
+            axios.post(environment.apiUrl + "event-register", dataContact, {
+                    headers: {
+                        "Content-type": "application/json"
+                    }
+                })
+                .then(res => {
+                    alert("done");
+                    this.name = "";
+                    this.email = "";
+                    this.phone = "";
+                    this.eventId = "";
+                })
+                .catch(err => {
+                    this.$router.push("/error");
+                });
+        },
+        contactForm: function(){
+            
         }
     }
 };

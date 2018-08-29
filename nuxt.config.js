@@ -84,9 +84,6 @@ module.exports = {
         content: "https://stupefied-almeida-b9a737.netlify.com/resources/images/logo/logo.png"
       }
     ],
-    env: {
-      NODE_ENV: 'dev'
-    },
     link: [{
       rel: 'icon',
       type: 'image/x-icon',
@@ -98,6 +95,9 @@ module.exports = {
       charset: 'UTF-8'
     }, ],
 
+  },
+  env: {
+    NODE_ENV: 'dev'
   },
   /*
    ** Customize the progress bar color

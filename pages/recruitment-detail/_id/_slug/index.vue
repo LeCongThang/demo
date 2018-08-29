@@ -23,15 +23,7 @@
                         <ul>
                             <li>
                                 <a href="#">
-                                            <i class="fa fa-facebook"></i> Like</a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                            <i class="fa fa-twitter"></i> Twitter</a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                            <i class="fa fa-google-plus"></i> +1</a>
+                                            <i class="fa fa-facebook"></i> Share</a>
                             </li>
                         </ul>
                     </div>
@@ -68,6 +60,27 @@ export default {
             }
             return false;
         }
+    },
+    head() {
+        return {
+            title: this.recruitmentData.title_vi,
+            meta: [{
+                    hid: "description",
+                    name: "description",
+                    content: this.recruitmentData.title_vi + " Centralreal.vn"
+                },
+                {
+                    hid: "og:description",
+                    name: "og:description",
+                    content: this.recruitmentData.des_short_vi + + " Centralreal.vn"
+                },
+                {
+                    hid: "og:image",
+                    name: "og:image",
+                    content: this.$store.state.system_config.directory.recruitment + '/' + this.recruitmentData.image
+                }
+            ]
+        };
     },
     methods: {
         async getProjectData(page) {

@@ -295,7 +295,8 @@ export default {
     //     autoplaySpeed: 2000,
     //   });
     // }
-  }
+  },
+   layout: "default"
 };
 </script>
 

@@ -90,15 +90,7 @@
                 <ul>
                     <li>
                         <a href="#">
-                                    <i class="fa fa-facebook"></i> Like</a>
-                    </li>
-                    <li>
-                        <a href="#">
-                                    <i class="fa fa-twitter"></i> Twitter</a>
-                    </li>
-                    <li>
-                        <a href="#">
-                                    <i class="fa fa-google-plus"></i> +1</a>
+                                    <i class="fa fa-facebook"></i> Share</a>
                     </li>
                 </ul>
             </div>
