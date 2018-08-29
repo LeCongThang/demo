@@ -80,8 +80,8 @@
             </div> -->
             <h1 class="text-center" v-if="lang" v-html="project.project.title_vi" data-aos="fade-down" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out"></h1>
             <h1 class="text-center" v-else v-html="project.project.title_en" data-aos="fade-down" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out"></h1>
-            <p v-if="lang" v-html="project.project.description_vi"></p>
-            <p v-else v-html="project.project.description_en"></p>
+            <p v-if="lang" v-html="project.project.description_vi" class="content-des"></p>
+            <p v-else v-html="project.project.description_en" class="content-des"></p>
         </div>
     </div>
     <div class="container">

@@ -2554,13 +2554,22 @@ footer .bottom-footer p {
   border: 3px solid #024e9f;
 }
 
+.content-des {
+  text-align: justify;
+}
+
+.content-des img {
+  width: 100% !important;
+  height: auto;
+}
+
 .row-flex {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  -webkit-box-shadow: 0px 0px 26px -1px rgba(10,9,10,0.52);
-  -moz-box-shadow: 0px 0px 26px -1px rgba(10,9,10,0.52);
-  box-shadow: 0px 0px 26px -1px rgba(10,9,10,0.52);
+  -webkit-box-shadow: 0px 0px 26px -1px rgba(10, 9, 10, 0.52);
+  -moz-box-shadow: 0px 0px 26px -1px rgba(10, 9, 10, 0.52);
+  box-shadow: 0px 0px 26px -1px rgba(10, 9, 10, 0.52);
   padding: 2px;
   border-radius: 5px;
   margin-bottom: 5px;

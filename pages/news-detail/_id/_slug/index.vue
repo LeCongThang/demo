@@ -16,8 +16,8 @@
                     </div>
 
                     <article class="page-content">
-                        <p v-if="lang" v-html="news.news.description_vi"></p>
-                        <p v-else v-html="news.news.description_en"></p>
+                        <p v-if="lang" v-html="news.news.description_vi" class="content-des"></p>
+                        <p v-else v-html="news.news.description_en" class="content-des"></p>
                     </article>
 
                 </div>

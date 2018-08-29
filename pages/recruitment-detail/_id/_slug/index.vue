@@ -16,8 +16,8 @@
             <div class="row">
                 <div class="col-sm-12">
                     <article class="page-content">
-                        <p v-if="lang" v-html="recruitmentData.description_vi"></p>
-                        <p v-else v-html="recruitmentData.description_en"></p>
+                        <p v-if="lang" v-html="recruitmentData.description_vi" class="content-des"></p>
+                        <p v-else v-html="recruitmentData.description_en" class="content-des"></p>
                     </article>
                     <div class="share-likes">
                         <ul>
