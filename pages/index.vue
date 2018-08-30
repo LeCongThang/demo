@@ -10,8 +10,6 @@
       <partner :partners="homeData.partners" :lang="lang" />
       <contact/>
     </section>
-  
-  
   </section>
 </template>
 
@@ -26,10 +24,6 @@ import Partner from "~/components/home/Partner.vue";
 import Contact from "~/components/home/Contact.vue";
 import axios from "axios";
 import { environment } from "~/plugins/config.js";
-const DELAY = 1;
-const POPUP_DELAY_DEFAULT = 5000; //UNIT SECOND
-const SCROLL = 2;
-const REDIRECT = 3;
 export default {
   components: {
     Slider,
@@ -40,12 +34,6 @@ export default {
     Feedback,
     Partner,
     Contact
-  },
-  data: () => {
-    return {
-      popupType: DELAY,
-      popupData: POPUP_DELAY_DEFAULT
-    };
   },
   async asyncData() {
     let [home] = await Promise.all([axios.get(environment.apiUrl + "home")]);
@@ -254,47 +242,7 @@ export default {
       var form_height = $(".left-form").innerHeight();
       $(".regular2 .items-2 .pic-items2 > img").css("height", form_height);
     }
-    switch (this.popupType) {
-      case this.DELAY:
-        setTimeout(function() {
-          $("#admodal")
-            .find(".item")
-            .first()
-            .addClass("active");
-          $("#admodal").modal({
-            backdrop: "static",
-            keyboard: false
-          });
-        }, this.POPUP_DELAY_DEFAULT);
-        break;
-      case this.SCROLL:
-        break;
-      case this.REDIRECT:
-        break;
-    }
-    // var adModal = 1;
-    // if (adModal) {
-
-    //   setTimeout(function() {
-    //     $('#admodal').find('.item').first().addClass('active');
-    //     $('#admodal').modal({
-    //       backdrop: 'static',
-    //       keyboard: false
-    //     });
-
-    //   }, 3000);
-    //   $(".regular6").not('slick-initialized').slick({
-    //     dots: false,
-    //     infinite: 0,
-    //     slidesToShow: 1,
-    //     slidesToScroll: 1,
-    //     speed: 900,
-    //     prevArrow: '<button class="fa fa-angle-left"></button>',
-    //     nextArrow: '<button class="fa fa-angle-right"></button>',
-    //     autoplay: true,
-    //     autoplaySpeed: 2000,
-    //   });
-    // }
+    
   },
    layout: "default"
 };

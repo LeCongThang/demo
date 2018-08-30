@@ -692,88 +692,6 @@ a:hover {
   visibility: visible;
 }
 
-/* .box-news-home {
-  transition: all .5s ease;
-  -webkit-box-shadow: 0px 3px 2px -1px rgba(138, 136, 138, 0.84);
-  -moz-box-shadow: 0px 3px 2px -1px rgba(138, 136, 138, 0.84);
-  box-shadow: 0px 3px 2px -1px rgba(138, 136, 138, 0.84);
-}
-
-.box-news-home:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.22);
-}
-
-.box-news-home .pic-news-home {
-  display: block;
-  overflow: hidden;
-}
-
-.box-news-home .pic-news-home>img {
-  width: 100%;
-  min-height: 100%;
-  transform: scale(1);
-  transition: all .5s ease;
-}
-
-.box-news-home .pic-news-home:hover>img {
-  transform: scale(1.2);
-}
-
-.box-news-home .txt-news-home {
-  border-left: 1px solid #cbcbcb;
-  border-bottom: 1px solid #cbcbcb;
-  border-right: 1px solid #cbcbcb;
-  padding-left: 15px;
-  background-color: white;
-}
-
-.box-news-home .txt-news-home>a>h4 {
-  font-weight: bold;
-  font-size: 16px;
-  color: #444444;
-  transition: all .5s ease;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  line-height: 1.4;
-  margin-bottom: 0;
-}
-
-.box-news-home .txt-news-home p {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-}
-
-.box-news-home:hover img {
-  opacity: .6;
-}
-
-.box-news-home:hover .txt-news-home>a>h4 {
-  color: #ff0000;
-}
-
-.news-home {
-  padding-bottom: 0px;
-}
-
-.news-home .regular3 {
-  margin: 0 -15px;
-}
-
-.news-home .regular3 .items-3 {
-  padding: 0 10px;
-}
-
-.news-home .regular3 .slick-dots li {
-  width: unset;
-  height: unset;
-  margin: 0 10px;
-} */
 .customer-raiting {
   padding-bottom: 50px;
 }
@@ -1007,7 +925,9 @@ a:hover {
 
   .event-form-modal {
     padding-right: 0;
-    margin-top: 1px;
+  }
+  .image-popup{
+    padding-left: 0;
   }
 }
 
@@ -3240,7 +3160,7 @@ h4.des {
 }
 
 .modal-content {
-  margin-top: 25%;
+  margin-top: 20%;
 }
 
 .modal-content .close {

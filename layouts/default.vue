@@ -18,6 +18,21 @@ export default {
     Down,
     Phone,
     Popup
+  },
+  mounted(){
+    var adModal = this.$store.state.system_config.config_popup.is_active;
+    var delay = this.$store.state.system_config.config_popup.delay*1000;
+    if (adModal) {
+
+      setTimeout(function() {
+        $('#admodal').find('.item').first().addClass('active');
+        $('#admodal').modal({
+          backdrop: 'static',
+          keyboard: false
+        });
+
+      }, delay);
+    }
   }
 }
 </script>
