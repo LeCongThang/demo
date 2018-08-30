@@ -26,7 +26,7 @@
                                 <h3>Đăng ký nhận
                                     <strong>thông tin dự án</strong>
                                 </h3>
-                                <form class="row">
+                                <form class="row" @submit.prevent="postNow">
                                     <div class="form-group col-sm-4">
                                         <input type="text" class="form-control" required placeholder="Họ và tên" v-model="name">
                                     </div>
@@ -68,72 +68,68 @@
 
 <script>
 import axios from "axios";
-import {
-    environment
-} from "~/plugins/config.js";
+import { environment } from "~/plugins/config.js";
 export default {
-    data: function () {
-        return {
-            name: "",
-            email: "",
-            phone: "",
-            title: "",
-            contents: ""
-        };
-    },
-    methods: {
-        postNow: function () {
-            let dataContact = {
-                name: this.name,
-                email: this.email,
-                phone: this.phone,
-                title: this.title,
-                contents: this.contents
-            };
-            axios
-                .post(environment.apiUrl + "contact", dataContact, {
-                    headers: {
-                        "Content-type": "application/json"
-                    }
-                })
-                .then(res => {
-                    console.log(res);
-                    if (res.code == 0) {
-                        alert("Fail to send");
-                    } else {
-                        alert("done");
-                        this.name = "";
-                        this.email = "";
-                        this.phone = "";
-                        this.address = "";
-                        this.title = "";
-                        this.contents = "";
-                    }
-                })
-                .catch(err => {
-                    this.$router.push("/error");
-                });
-        }
-    },
-    computed: {
-        lang() {
-            if (this.$store.state.lang == "vi") {
-                return true;
-            }
-            return false;
-        }
-    },
-    head() {
-        return {
-            title: this.$t('links.contact')+"- CENTRALREAL.VN"
-        };
-    },
-    mounted() {
-        var url = $(location).attr("pathname");
-        $("ul.nav > li").removeClass("active");
-        $('a[href="' + url + '"]')
-            .parent()
-            .addClass("active");
+  data: {
+    name: "",
+    email: "",
+    phone: "",
+    title: "",
+    contents: ""
+  },
+  methods: {
+    postNow: function() {
+      let dataContact = {
+        name: this.name,
+        email: this.email,
+        phone: this.phone,
+        title: this.title,
+        content: this.contents
+      };
+      axios
+        .post(environment.apiUrl + "contact", dataContact, {
+          headers: {
+            "Content-type": "application/json"
+          }
+        })
+        .then(res => {
+          console.log(res);
+          if (res.code == 0) {
+            alert("Fail to send");
+          } else {
+            alert("done");
+            this.name = "";
+            this.email = "";
+            this.phone = "";
+            this.address = "";
+            this.title = "";
+            this.contents = "";
+          }
+        })
+        .catch(err => {
+          this.$router.push("/error");
+        });
     }
+  },
+  computed: {
+    lang() {
+      if (this.$store.state.lang == "vi") {
+        return true;
+      }
+      return false;
+    }
+  },
+  head() {
+    return {
+      title: this.$t("links.contact") + "- CENTRALREAL.VN"
+    };
+  },
+  mounted() {
+    var url = $(location).attr("pathname");
+    $("ul.nav > li").removeClass("active");
+    $('a[href="' + url + '"]')
+      .parent()
+      .addClass("active");
+  }
 };
 </script>

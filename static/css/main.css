@@ -26,6 +26,11 @@ a:hover {
   display: inline-block;
   transition: all .5s ease;
 }
+.btn-danger{
+  color: white !important;
+  background-color: red !important;
+  border: none;
+}
 
 @media screen and (max-width: 991px) {
   .container {

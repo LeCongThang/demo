@@ -26,12 +26,6 @@ export default {
 };
 </script>
 <style>
-/* body {
-  background: #33cc99;
-  color: #fff;
-  font-family: "Open Sans", sans-serif;
-  overflow: hidden;
-} */
 .c {
   text-align: center;
   display: block;
@@ -90,28 +84,6 @@ export default {
 .right {
   float: right;
   width: 60%;
-}
-
-hr {
-  padding: 0;
-  border: none;
-  border-top: 5px solid #fff;
-  color: red;
-  text-align: center;
-  margin: 0px auto;
-  width: 420px;
-  height: 10px;
-  z-index: -10;
-}
-
-hr:after {
-  content: "\2022";
-  display: inline-block;
-  position: relative;
-  top: -0.75em;
-  font-size: 2em;
-  padding: 0 0.2em;
-  background: #33cc99;
 }
 
 .cloud {
