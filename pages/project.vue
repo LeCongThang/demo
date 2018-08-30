@@ -58,11 +58,10 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- {{projectData}} -->
-                        <div class="text-center" v-if="projectData.last_page>1">
+                        <div class="text-center paging" v-if="projectData.last_page>1">
                             <div class="btn-group" role="group">
                                 <button type="button" v-on:click="getProjectData(1)" class="btn btn-md btn-default"><i class="fa fa-angle-double-left" aria-hidden="true"></i></button>
-                                <button type="button" v-for="page in projectData.last_page" :key="page" v-on:click="getProjectData(page)" class="btn btn-md btn-default">{{page}}</button>
+                                <button type="button" v-for="page in projectData.last_page" :key="page" v-on:click="getProjectData(page)" :class="`btn btn-md btn-default ${genCurrentPageActive(page)}`">{{page}}</button>
                                 <button type="button" v-on:click="getProjectData(projectData.last_page)" class="btn btn-md btn-default"><i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
                             </div>
                         </div>
@@ -132,13 +131,19 @@ export default {
     methods: {
         async getProjectData(page) {
             this.$nuxt.$loading.start();
-            let {
-                data
-            } = await axios.get(
-                environment.apiUrl + "project?page=" + page
-            );
-            this.projectData = data.data;
+            let [project] = await Promise.all([
+                axios.get(environment.apiUrl + "project?page=" + page)
+            ]);
+            this.projectData = project.data.data;
             this.$nuxt.$loading.finish();
+        },
+        genCurrentPageActive(page){
+            if(this.projectData.current_page==page){
+                return "curent-page";
+            }
+            else{
+                return "";
+            }
         },
         setHeight(index) {
             let height = '360px';

@@ -60,17 +60,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9 wow fadeInLeft" data-wow-delay="0.25s" data-wow-duration="1.5s">
-                    <nuxt-link :to="`/news-detail/${newsData.videos.data[0].id}/${newsData.videos.data[0].slug}`" class="box-news-page">
-                        <img :src="$store.state.system_config.directory.news+'/'+newsData.videos.data[0].image" class="img-responsive" :alt="newsData.videos.data[0].title_vi">
+                    <nuxt-link :to="`/news-detail/${videoData.data[0].id}/${videoData.data[0].slug}`" class="box-news-page">
+                        <img :src="$store.state.system_config.directory.news+'/'+videoData.data[0].image" class="img-responsive" :alt="videoData.data[0].title_vi">
                         <i class="fa fa-4x fa-youtube-play play-button" aria-hidden="true"></i>
                         <h3>
-                            <strong v-if="lang" v-html="newsData.videos.data[0].title_vi"></strong>
-                            <strong v-else v-html="newsData.videos.data[0].title_vi"></strong>
+                            <strong v-if="lang" v-html="videoData.data[0].title_vi"></strong>
+                            <strong v-else v-html="videoData.data[0].title_vi"></strong>
                         </h3>
                     </nuxt-link>
                 </div>
                 <div class="col-md-3 wow fadeInRight" data-wow-delay="0.25s" data-wow-duration="1.5s">
-                    <nuxt-link v-for="(n,index) in newsData.videos.data" :key="n.id" v-if="index>0" :to="`/news-detail/${n.id}/${n.slug}`" class="news-aside">
+                    <nuxt-link v-for="(n,index) in videoData.data" :key="n.id" v-if="index>0" :to="`/news-detail/${n.id}/${n.slug}`" class="news-aside">
                         <img :src="$store.state.system_config.directory.news+'/'+n.image" :alt="n.title_vi" class="img-responsive">
                         <i class="fa fa-2x fa-youtube-play play-button" aria-hidden="true"></i>
                         <h4 v-if="lang" v-html="n.title_vi"></h4>
@@ -87,7 +87,7 @@
     <div class="news-highlight-2">
         <div class="container">
             <div class="row">
-                <div class="col-md-4" v-for="n in newsData.news.data" :key="n.id">
+                <div class="col-md-4" v-for="n in newsData.data" :key="n.id">
 
                     <nuxt-link :to="`/news-detail/${n.id}/${n.slug}`" class="box-222">
                         <img :src="$store.state.system_config.directory.news+'/'+n.image" class="img-responsive" :alt="n.title_vi" style="height:220px !important">
@@ -161,6 +161,13 @@
                 </div>
 
             </div>
+            <div class="text-center paging" v-if="newsData.last_page>1">
+                <div class="btn-group" role="group">
+                    <button type="button" v-on:click="getNewsData(1)" class="btn btn-md btn-default"><i class="fa fa-angle-double-left" aria-hidden="true"></i></button>
+                    <button type="button" v-for="page in newsData.last_page" :key="page" v-on:click="getNewsData(page)" :class="`btn btn-md btn-default ${genCurrentPageActive(page)}`">{{page}}</button>
+                    <button type="button" v-on:click="getNewsData(newsData.last_page)" class="btn btn-md btn-default"><i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -176,7 +183,8 @@ export default {
     async asyncData() {
         let [news] = await Promise.all([axios.get(environment.apiUrl + "news")]);
         return {
-            newsData: news.data.data
+            newsData: news.data.data.news,
+            videoData: news.data.data.videos
         };
     },
     computed: {
@@ -189,20 +197,24 @@ export default {
     },
     head() {
         return {
-            title: this.$t('links.news')+"- CENTRALREAL.VN"
+            title: this.$t('links.news') + "- CENTRALREAL.VN"
         };
     },
     methods: {
         async getNewsData(page) {
             this.$nuxt.$loading.start();
-            let {
-                data
-            } = await axios.get(
-                environment.apiUrl + "news?page=" + page
-            );
-            this.newsData = data.data;
+            let [news] = await Promise.all([axios.get(environment.apiUrl + "news?page=" + page)]);
+            this.newsData = news.data.data.news;
             this.$nuxt.$loading.finish();
-        }
+        },
+        genCurrentPageActive(page){
+            if(this.newsData.current_page==page){
+                return "curent-page";
+            }
+            else{
+                return "";
+            }
+        },
     },
     mounted() {
         var url = $(location).attr("pathname");

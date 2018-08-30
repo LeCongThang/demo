@@ -14,6 +14,8 @@
                     <div class="title-page text-center">
                         <h2 v-html="$t('home.gallery')">
                         </h2>
+                        <p>Hơn 50 dự án Central Real đã và đang phân phối bởi các nhà đầu tư uy tín
+                            <br> chất lượng hàng đầu Việt Nam.</p>
                     </div>
                 </div>
             </div>
@@ -29,7 +31,7 @@
         </div>
     </section>
 
-    <div class="news-highlight gallery-video">
+    <div class="gallery-video">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 ">
@@ -37,6 +39,8 @@
                         <h2>Thư viện
                             <strong>Video</strong>
                         </h2>
+                        <p>Hơn 50 dự án Central Real đã và đang phân phối bởi các nhà đầu tư uy tín
+                            <br> chất lượng hàng đầu Việt Nam.</p>
                     </div>
                 </div>
                 <div class="col-md-9">

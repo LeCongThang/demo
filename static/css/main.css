@@ -443,7 +443,7 @@ a:hover {
 
 .gallery-home {
   padding-bottom: 50px;
-  height: 820px;
+  height: 800px;
 }
 
 @media screen and (max-width: 575px) {
@@ -1398,7 +1398,7 @@ footer .bottom-footer p {
 
 .gallery-page {
   padding: unset;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .gallery-page .ed-pagination {
@@ -2553,7 +2553,11 @@ footer .bottom-footer p {
   border-radius: 5px;
   border: 3px solid #024e9f;
 }
-
+.paging .curent-page {
+  background-color: red;
+  color: white;
+  pointer-events:none;
+}
 .content-des {
   text-align: justify;
 }
@@ -2562,7 +2566,9 @@ footer .bottom-footer p {
   width: 100% !important;
   height: auto;
 }
-
+.paging{
+  padding-bottom: 20px;
+}
 .row-flex {
   display: flex;
   flex-wrap: wrap;
@@ -2584,11 +2590,6 @@ footer .bottom-footer p {
 .txt-partner-page {
   width: 80%;
   color: #444444;
-}
-
-.gallery-page {
-  padding: unset;
-  margin-top: 50px;
 }
 
 .gallery-page .ed-pagination {

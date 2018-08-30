@@ -101,6 +101,16 @@
                                 <img src="/images/icon/grid.png" alt="">
                             </div>
                         </div>
+                        <div class="hav-margin">
+                            <div class="nav-item" style="background-image:url(/images/partner/tp-bank.jpg)">
+                                <img src="/images/icon/grid.png" alt="">
+                            </div>
+                        </div>
+                        <div class="hav-margin">
+                            <div class="nav-item" style="background-image:url(/images/partner/vp-bank.jpg)">
+                                <img src="/images/icon/grid.png" alt="">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -146,9 +156,6 @@
                             <div class="item-img">
                                 <img src="/images/partner/logo-vibbank.jpg" alt="">
                             </div>
-                            <!-- <div class="item-img">
-                                <img src="/images/partner/clients1.jpg" alt="">
-                            </div> -->
                             <div class="item-img">
 
                                 <img src="/images/partner/clients6.jpg" alt="">
@@ -205,6 +212,16 @@
                                 <img src="/images/icon/grid.png" alt="">
                             </div>
                         </div>
+                        <div class="hav-margin">
+                            <div class="nav-item" style="background-image:url(/images/partner/tp-bank.jpg)">
+                                <img src="/images/icon/grid.png" alt="">
+                            </div>
+                        </div>
+                        <div class="hav-margin">
+                            <div class="nav-item" style="background-image:url(/images/partner/vp-bank.jpg)">
+                                <img src="/images/icon/grid.png" alt="">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -234,7 +251,7 @@ export default {
             slidesToShow: 1,
             slidesToScroll: 1,
             dots: true,
-            // autoplay: true,
+            autoplay: true,
             prevArrow: '<button class="fa fa-angle-left"></button>',
             nextArrow: '<button class="fa fa-angle-right"></button>',
             fade: true,
@@ -254,7 +271,7 @@ export default {
             prevArrow: '<button class="fa fa-angle-left"></button>',
             nextArrow: '<button class="fa fa-angle-right"></button>',
             centerMode: true,
-            // autoplay: true,
+            autoplay: true,
             responsive: [{
                     breakpoint: 992,
                     settings: {
