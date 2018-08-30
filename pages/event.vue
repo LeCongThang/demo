@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-md-6  wow animated fadeInLeft">
                     <div class="video-left">
-                        <img :src="$store.state.system_config.directory.news+'/'+event.event_featured[0].image" class="img-responsive" :alt="event.event_featured[0].title_vi" />>
+                        <img :src="$store.state.system_config.directory.news+'/'+event.event_featured[0].image" class="img-responsive" :alt="event.event_featured[0].title_vi" />
                     </div>
                 </div>
                 <div class="col-md-6 wow animated fadeInRight">

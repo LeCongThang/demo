@@ -12,7 +12,11 @@
         </div>
         <div class="row ">
             <div class="col-md-8 news-home-padding video-news" data-aos="fade-right" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
-                <iframe type="video/mp4" frameborder="0" src="https://www.youtube.com/embed/jij97zobmew"></iframe>
+                <!-- <iframe type="video/mp4" frameborder="0" src="https://www.youtube.com/embed/jij97zobmew"></iframe> -->
+                <nuxt-link :to="`/news-detail/${video.id}/${video.slug}`" style="position:relative">
+                    <img class="img-responsive" :src="$store.state.system_config.directory.news+'/'+video.image" :alt="video.title_vi" />
+                    <i class="fa fa-4x fa-youtube-play play-button" aria-hidden="true"></i>
+                </nuxt-link>
             </div>
             <div class="col-md-4 news-home-padding right-col-news" data-aos="fade-left" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
                 <div class="news-item" style="margin-bottom: 8px;">
@@ -61,7 +65,7 @@
 <script>
 export default {
 
-    props: ["news", "lang"]
+    props: ["video", "news", "lang"]
 
 };
 </script>

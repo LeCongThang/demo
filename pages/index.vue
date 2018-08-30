@@ -5,7 +5,7 @@
     <project :projects="homeData.projects" :lang="lang" />
     <event :events="homeData.events" />
     <section class="bg-color">
-      <news :news="homeData.news" :lang="lang" />
+      <news :video="homeData.video" :news="homeData.news" :lang="lang" />
       <feedback :feedbacks="homeData.feed_backs" :lang="lang" />
       <partner :partners="homeData.partners" :lang="lang" />
       <contact/>
@@ -236,8 +236,8 @@ export default {
       // for video in news section
       var right_height = $(".right-col-news").innerHeight() - 8;
       $(".video-news").css("height", right_height);
-      $(".video-news iframe").css("width", "100%");
-      $(".video-news iframe").css("height", right_height);
+      $(".video-news img").css("width", "100%");
+      $(".video-news img").css("height", right_height);
       // for event section
       var form_height = $(".left-form").innerHeight();
       $(".regular2 .items-2 .pic-items2 > img").css("height", form_height);

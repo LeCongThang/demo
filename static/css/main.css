@@ -1347,10 +1347,10 @@ footer .bottom-footer p {
   transform: translate(-50%, -50%);
 }
 
-.news-highlight .news-aside i.play-button {
+.news-highlight .news-aside i.play-button, .play-button {
   color: red;
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
