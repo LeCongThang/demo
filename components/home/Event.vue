@@ -88,9 +88,6 @@ export default {
                 .catch(err => {
                     this.$router.push("/error");
                 });
-        },
-        contactForm: function(){
-            
         }
     }
 };

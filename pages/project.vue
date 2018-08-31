@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 <div class="col-md-3" data-aos="fade-left" data-aos-delay="150" data-aos-duration="1000" data-aos-easing="ease-in-out">
-                    <form id="frmDangKy" class="project-form form-horizontal">
+                    <form id="frmDangKy" @submit.prevent="sendInfo" class="project-form form-horizontal">
                         <input type="hidden" name="_token" id="token" value="wx4gvSzwJvrY83W68FfCTel16gWRGnD6VdJ9rt7Q">
                         <div class="form-group text-center">
                             <h4 style="color: white;font-weight: bold">Liên hệ ngay</h4>
@@ -78,18 +78,25 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-12">
-                                <input type="text" id="name" name="name" class="form-control" placeholder="Họ tên">
+                                <select class="form-control" name="eventId" v-model="eventId">
+                                <option value="1">SUN Group</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="text" id="name" name="name" v-model="name" class="form-control" placeholder="Họ tên">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-12">
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                                <input type="email" class="form-control" id="email" v-model="email" name="email" placeholder="Email">
                             </div>
                         </div>
                         <div class="form-group" style="margin-bottom: 30px">
                             <div class="col-sm-12">
-                                <input type="tel" required="" id="phone" name="phone" class="form-control" placeholder="Số điện thoại" aria-required="true">
+                                <input type="tel" required="" id="phone" name="phone" v-model="phone" class="form-control" placeholder="Số điện thoại" aria-required="true">
                             </div>
                         </div>
                         <div class="form-group">
@@ -112,6 +119,12 @@ import {
     environment
 } from "~/plugins/config.js";
 export default {
+    data: {
+        name: "",
+        email: "",
+        phone: "",
+        eventId: ""
+    },
     async asyncData() {
         let [project] = await Promise.all([
             axios.get(environment.apiUrl + "project")
@@ -137,11 +150,10 @@ export default {
             this.projectData = project.data.data;
             this.$nuxt.$loading.finish();
         },
-        genCurrentPageActive(page){
-            if(this.projectData.current_page==page){
+        genCurrentPageActive(page) {
+            if (this.projectData.current_page == page) {
                 return "curent-page";
-            }
-            else{
+            } else {
                 return "";
             }
         },
@@ -154,6 +166,29 @@ export default {
                 height = height + ';margin-top: -180px';
             }
             return height;
+        },
+        sendInfo: function () {
+            let dataContact = {
+                name: this.name,
+                email: this.email,
+                phone: this.phone,
+                event_id: this.eventId
+            };
+            axios.post(environment.apiUrl + "event-register", dataContact, {
+                    headers: {
+                        "Content-type": "application/json"
+                    }
+                })
+                .then(res => {
+                    alert("done");
+                    this.name = "";
+                    this.email = "";
+                    this.phone = "";
+                    this.eventId = "";
+                })
+                .catch(err => {
+                    this.$router.push("/error");
+                });
         }
     },
     head() {
