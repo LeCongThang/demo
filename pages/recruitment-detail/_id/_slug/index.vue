@@ -77,7 +77,7 @@ export default {
                 {
                     hid: "og:description",
                     name: "og:description",
-                    content: this.recruitmentData.des_short_vi + + " Centralreal.vn"
+                    content: this.recruitmentData.title_vi + " Centralreal.vn"
                 },
                 {
                     hid: "og:image",
@@ -86,18 +86,6 @@ export default {
                 }
             ]
         };
-    },
-    methods: {
-        async getProjectData(page) {
-            this.$nuxt.$loading.start();
-            let {
-                data
-            } = await axios.get(
-                environment.apiUrl + "project?page=" + page
-            );
-            this.projectData = data.data;
-            this.$nuxt.$loading.finish();
-        }
     },
     mounted() {
         var url = "/recruitment";

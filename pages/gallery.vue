@@ -23,7 +23,9 @@
             <div class="row ">
                 <div class="col-sm-12">
                     <div class="ed-gallery">
-                        <div v-for="(g,index) in galleryData.data" :key="g.id" :class="`gallery-${index+1}`" :style="`background: url(${$store.state.system_config.directory.gallery+'/'+g.gallery_images[0].image}) no-repeat center; background-size: cover;`"></div>
+                        <nuxt-link v-for="(g,index) in galleryData.data" :key="g.id" :to="`/gallery-detail/${g.id}/${g.slug}`">
+                            <div :class="`gallery-${index+1}`" :style="`background: url(${$store.state.system_config.directory.gallery+'/'+g.gallery_images[0].image}) no-repeat center; background-size: cover;`"></div>
+                        </nuxt-link>
                     </div>
                 </div>
             </div>
@@ -44,29 +46,36 @@
                     </div>
                 </div>
                 <div class="col-md-9">
-                    <nuxt-link :to="`/news-detail/${videoData.data[0].id}/${videoData.data[0].slug}`" class="box-222">
+                    <nuxt-link :to="`/news-detail/${videoData.data[0].id}/${videoData.data[0].slug}`" class="box-news-page">
                         <img :src="$store.state.system_config.directory.news+'/'+videoData.data[0].image_thumbnail" class="img-responsive" :alt="videoData.data[0].title_vi">
-                        <span class="overload"></span>
-                        <h4>{{lang ? videoData.data[0].title_vi:videoData.data[0].title_en}}</h4>
+                        <i class="fa fa-4x fa-youtube-play play-button" aria-hidden="true"></i>
+                        <h3>
+                            <strong v-if="lang" v-html="videoData.data[0].title_vi"></strong>
+                            <strong v-else v-html="videoData.data[0].title_vi"></strong>
+                        </h3>
                     </nuxt-link>
                 </div>
                 <div class="col-md-3">
-                    <nuxt-link v-for="(v,index) in videoData.data" :key="v.id" v-if="index>0 && index<3" :to="`/news-detail/${v.id}/${v.slug}`" class="news-aside">
-                        <img :src="$store.state.system_config.directory.news+'/'+v.image_thumbnail" class="img-responsive" :alt="v.title_vi">
-                        <h4>{{lang ? v.title_vi:v.title_en}}</h4>
+                    <nuxt-link v-for="(n,index) in videoData.data" :key="n.id" v-if="index>0&&index<3" :to="`/news-detail/${n.id}/${n.slug}`" class="news-aside">
+                        <img :src="$store.state.system_config.directory.news+'/'+n.image_thumbnail" :alt="n.title_vi" class="img-responsive">
+                        <i class="fa fa-2x fa-youtube-play play-button" aria-hidden="true"></i>
+                        <h4 v-if="lang" v-html="n.title_vi"></h4>
+                        <h4 v-else v-html="n.title_en"></h4>
                         <ul>
-                            <li>
-                                <i class="fa fa-calendar"></i>{{v.created_at}}</li>
+                            <li><i class="fa fa-calendar"></i> {{n.created_at}}</li>
                         </ul>
                     </nuxt-link>
                 </div>
-                <div class="col-lg-3">
-                    <nuxt-link v-for="(v,index) in videoData.data" :key="v.id" v-if="index>2" :to="`/news-detail/${v.id}/${v.slug}`" class="news-aside">
-                        <img :src="$store.state.system_config.directory.news+'/'+v.image_thumbnail" class="img-responsive" :alt="v.title_vi">
-                        <h4>{{lang ? v.title_vi:v.title_en}}</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-4" v-for="(n,index) in videoData.data" :key="n.id" v-if="index>=3">
+                    <nuxt-link :to="`/news-detail/${n.id}/${n.slug}`" class="news-aside">
+                        <img :src="$store.state.system_config.directory.news+'/'+n.image_thumbnail" :alt="n.title_vi" class="img-responsive">
+                        <i class="fa fa-3x fa-youtube-play play-button" aria-hidden="true"></i>
+                        <h4 v-if="lang" v-html="n.title_vi"></h4>
+                        <h4 v-else v-html="n.title_en"></h4>
                         <ul>
-                            <li>
-                                <i class="fa fa-calendar"></i>{{v.created_at}}</li>
+                            <li><i class="fa fa-calendar"></i> {{n.created_at}}</li>
                         </ul>
                     </nuxt-link>
                 </div>

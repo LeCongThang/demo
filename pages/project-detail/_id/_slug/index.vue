@@ -13,10 +13,15 @@
 
     <div class="box-pj-dt">
         <div class="container">
-            <h1 class="text-center" style="text-transform:uppercase" v-if="lang" v-html="project.project.title_vi" data-aos="fade-down" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out"></h1>
-            <h1 class="text-center" style="text-transform:uppercase" v-else v-html="project.project.title_en" data-aos="fade-down" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out"></h1>
-            <p v-if="lang" v-html="project.project.description_vi" class="content-des"></p>
-            <p v-else v-html="project.project.description_en" class="content-des"></p>
+            <div class="col-md-9">
+                <h1 class="text-center" style="text-transform:uppercase" v-if="lang" v-html="project.project.title_vi" data-aos="fade-down" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out"></h1>
+                <h1 class="text-center" style="text-transform:uppercase" v-else v-html="project.project.title_en" data-aos="fade-down" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out"></h1>
+                <p v-if="lang" v-html="project.project.description_vi" class="content-des"></p>
+                <p v-else v-html="project.project.description_en" class="content-des"></p>
+            </div>
+            <div class="col-md-3">
+                <form-submit :className="`project-detail-form`" :project="project" :lang="lang"/>
+            </div>
         </div>
     </div>
     <div class="container">
@@ -70,7 +75,11 @@ import axios from "axios";
 import {
     environment
 } from "~/plugins/config.js";
+import FormSubmit from "~/components/project/FormSubmit.vue";
 export default {
+    components: {
+        FormSubmit
+    },
     async asyncData({
         route
     }) {
@@ -121,6 +130,20 @@ export default {
         $("a[href=\"" + url + "\"]")
             .parent()
             .addClass("active");
+        if ($(window).innerWidth() > 1024) {
+            var neo = $('.share-likes').position().top - $('.project-detail-form').innerHeight();
+            console.log(neo);
+            $(window).scroll(function () {
+                console.log($(window).scrollTop());
+                if ($(window).scrollTop() < neo && $(window).scrollTop() > 800) {
+                    $('.project-detail-form').css('top', $(window).scrollTop() - 750)
+                } else if($(window).scrollTop() > neo) {
+                    $('.project-detail-form').css('top', neo - 850)
+                }else {
+                    $('.project-detail-form').css('top', 0)
+                }
+            });
+        }
     }
 };
 </script>
@@ -128,5 +151,13 @@ export default {
 <style>
 .container>.row>img {
     width: 100% !important
+}
+
+.project-detail-form {
+    position: relative;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 32px 24px;
+    box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.2)
 }
 </style>

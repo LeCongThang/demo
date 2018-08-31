@@ -115,7 +115,7 @@ module.exports = {
    */
 
   build: {
-    vendor: ['axios', 'vue-i18n', 'jquery', 'bootstrap', 'slick-carousel', 'aos', 'vue-countup-v2'],
+    vendor: ['axios', 'vue-i18n', 'jquery', 'bootstrap', 'slick-carousel', 'aos', 'vue-countup-v2','v-img'],
     plugins: [
       new webpack.ProvidePlugin({
         $: 'jquery',
@@ -166,7 +166,8 @@ module.exports = {
       src: '~/plugins/aos.js',
       ssr: false
     },
-    // { src: '~plugins/ga.js', ssr: false }
+    { src: '~plugins/ga.js', ssr: false },
+    { src: '~plugins/v-img.js', ssr: false },
   ],
   router: { // customize nuxt.js router (vue-router).
     middleware: ['i18n', 'system_config'], // middleware all pages of the application

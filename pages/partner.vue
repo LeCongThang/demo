@@ -23,39 +23,11 @@
                 <div class="col-md-4">
                     <div class="big-slider">
                         <div class="product-img">
-                            <div class="item-img">
-                                <img src="/images/partner/logo-sungroup.jpg" alt="">
+                            <div class="item-img" v-for="p in partnerData.partner_investor" :key="p.id">
+                                <nuxt-link :to="`/partner-detail/${p.id}/${p.slug}`">
+                                    <img :src="$store.state.system_config.directory.partner+'/'+p.image" alt="centralreal.vn" class="img-responsive">
+                                </nuxt-link>
                             </div>
-                            <div class="item-img">
-                                <img src="/images/partner/logo-vcbank.jpg" alt="">
-                            </div>
-                            <div class="item-img">
-                                <img src="/images/partner/logo-flc.jpg" alt="">
-                            </div>
-                            <div class="item-img">
-                                <img src="/images/partner/ocb-bank-1.jpg" alt="">
-                            </div>
-                            <div class="item-img">
-                                <img src="/images/partner/logo-vibbank.jpg" alt="">
-                            </div>
-                            <div class="item-img">
-
-                                <img src="/images/partner/clients6.jpg" alt="">
-
-                            </div>
-
-                            <div class="item-img">
-
-                                <img src="/images/partner/tp-bank.jpg" alt="">
-
-                            </div>
-
-                            <div class="item-img">
-
-                                <img src="/images/partner/vp-bank.jpg" alt="">
-
-                            </div>
-
                         </div>
                     </div>
                 </div>
@@ -92,37 +64,10 @@
                 <div class="col-md-4 col-sm-12">
                     <div class="big-slider">
                         <div class="product-img">
-                            <div class="item-img">
-                                <img src="/images/partner/logo-sungroup.jpg" alt="">
-                            </div>
-                            <div class="item-img">
-                                <img src="/images/partner/logo-vcbank.jpg" alt="">
-                            </div>
-                            <div class="item-img">
-                                <img src="/images/partner/logo-flc.jpg" alt="">
-                            </div>
-                            <div class="item-img">
-                                <img src="/images/partner/ocb-bank-1.jpg" alt="">
-                            </div>
-                            <div class="item-img">
-                                <img src="/images/partner/logo-vibbank.jpg" alt="">
-                            </div>
-                            <div class="item-img">
-
-                                <img src="/images/partner/clients6.jpg" alt="">
-
-                            </div>
-
-                            <div class="item-img">
-
-                                <img src="/images/partner/tp-bank.jpg" alt="">
-
-                            </div>
-
-                            <div class="item-img">
-
-                                <img src="/images/partner/vp-bank.jpg" alt="">
-
+                            <div class="item-img" v-for="p in partnerData.partner_connect" :key="p.id">
+                                <nuxt-link :to="`/partner-detail/${p.id}/${p.slug}`">
+                                    <img :src="$store.state.system_config.directory.partner+'/'+p.image" alt="centralreal.vn" class="img-responsive">
+                                </nuxt-link>
                             </div>
                         </div>
                     </div>
@@ -198,7 +143,19 @@
 </template>
 
 <script>
+import axios from "axios";
+import {
+    environment
+} from "~/plugins/config.js";
 export default {
+    async asyncData() {
+        let [partner] = await Promise.all([
+            axios.get(environment.apiUrl + "partner")
+        ]);
+        return {
+            partnerData: partner.data.data
+        };
+    },
     computed: {
         lang() {
             if (this.$store.state.lang == "vi") {
@@ -217,40 +174,7 @@ export default {
             slidesToShow: 1,
             slidesToScroll: 1,
             dots: true,
-            autoplay: true,
-            prevArrow: '<button class="fa fa-angle-left"></button>',
-            nextArrow: '<button class="fa fa-angle-right"></button>',
-            fade: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            asNavFor: '.product-nav'
-        });
-        $('.product-nav').not('slick-initialized').slick({
-            slidesToShow: 5,
-            slidesToScroll: 1,
-            asNavFor: '.product-img',
-            dots: false,
-            focusOnSelect: true,
-            swipe: false,
-            infinite: true,
-            adaptiveHeight: true,
-            prevArrow: '<button class="fa fa-angle-left"></button>',
-            nextArrow: '<button class="fa fa-angle-right"></button>',
-            centerMode: true,
-            autoplay: true,
-            responsive: [{
-                    breakpoint: 992,
-                    settings: {
-                        slidesToShow: 3,
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 1,
-                    }
-                },
-            ]
+            autoplay: true
         });
     }
 };

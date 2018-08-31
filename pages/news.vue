@@ -59,7 +59,12 @@
     <div class="news-highlight">
         <div class="container">
             <div class="row">
-                <div class="col-md-9 wow fadeInLeft" data-wow-delay="0.25s" data-wow-duration="1.5s">
+                <div class="title-page text-center">
+                    <h2>Thư viện
+                            <strong>Video</strong>
+                        </h2>
+                </div>
+                <div class="col-md-9">
                     <nuxt-link :to="`/news-detail/${videoData.data[0].id}/${videoData.data[0].slug}`" class="box-news-page">
                         <img :src="$store.state.system_config.directory.news+'/'+videoData.data[0].image_thumbnail" class="img-responsive" :alt="videoData.data[0].title_vi">
                         <i class="fa fa-4x fa-youtube-play play-button" aria-hidden="true"></i>
@@ -69,10 +74,23 @@
                         </h3>
                     </nuxt-link>
                 </div>
-                <div class="col-md-3 wow fadeInRight" data-wow-delay="0.25s" data-wow-duration="1.5s">
-                    <nuxt-link v-for="(n,index) in videoData.data" :key="n.id" v-if="index>0" :to="`/news-detail/${n.id}/${n.slug}`" class="news-aside">
+                <div class="col-md-3">
+                    <nuxt-link v-for="(n,index) in videoData.data" :key="n.id" v-if="index>0&&index<3" :to="`/news-detail/${n.id}/${n.slug}`" class="news-aside">
                         <img :src="$store.state.system_config.directory.news+'/'+n.image_thumbnail" :alt="n.title_vi" class="img-responsive">
                         <i class="fa fa-2x fa-youtube-play play-button" aria-hidden="true"></i>
+                        <h4 v-if="lang" v-html="n.title_vi"></h4>
+                        <h4 v-else v-html="n.title_en"></h4>
+                        <ul>
+                            <li><i class="fa fa-calendar"></i> {{n.created_at}}</li>
+                        </ul>
+                    </nuxt-link>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" v-for="(n,index) in videoData.data" :key="n.id" v-if="index>=3">
+                    <nuxt-link :to="`/news-detail/${n.id}/${n.slug}`" class="news-aside">
+                        <img :src="$store.state.system_config.directory.news+'/'+n.image_thumbnail" :alt="n.title_vi" class="img-responsive">
+                        <i class="fa fa-3x fa-youtube-play play-button" aria-hidden="true"></i>
                         <h4 v-if="lang" v-html="n.title_vi"></h4>
                         <h4 v-else v-html="n.title_en"></h4>
                         <ul>
@@ -87,77 +105,16 @@
     <div class="news-highlight-2">
         <div class="container">
             <div class="row">
+                <div class="title-page text-center">
+                    <h2><strong>{{$t('links.news')}}</strong></h2>
+                </div>
                 <div class="col-md-4" v-for="n in newsData.data" :key="n.id">
-
                     <nuxt-link :to="`/news-detail/${n.id}/${n.slug}`" class="box-222">
                         <img :src="$store.state.system_config.directory.news+'/'+n.image_thumbnail" class="img-responsive" :alt="n.title_vi" style="height:220px !important">
                         <span class="overload"></span>
                         <h4 v-if="lang" v-html="n.title_vi"></h4>
                         <h4 v-else v-html="n.title_en"></h4>
                     </nuxt-link>
-                    <!-- <div class="row wow zoomIn" data-wow-delay="0.25s" data-wow-duration="1.5s">
-                                <div class="col-sm-6">
-                                    <a href="news-detail.html" class="box-small-news">
-                                        <img src="/images/news/pic-4.jpg" class="img-responsive" alt="">
-                                        <h5>Sau gần 2 năm thi công, sân bay Cam Ranh tiêu chuẩn 4 sao...</h5>
-                                    </a>
-                                </div>
-                                <div class="col-sm-6">
-                                    <a href="news-detail.html" class="box-small-news">
-                                        <img src="/images/news/pic-4.jpg" class="img-responsive" alt="">
-                                        <h5>Sau gần 2 năm thi công, sân bay Cam Ranh tiêu chuẩn 4 sao...</h5>
-                                    </a>
-                                </div>
-                                <div class="col-sm-6">
-                                    <a href="news-detail.html" class="box-small-news">
-                                        <img src="/images/news/pic-4.jpg" class="img-responsive" alt="">
-                                        <h5>Sau gần 2 năm thi công, sân bay Cam Ranh tiêu chuẩn 4 sao...</h5>
-                                    </a>
-                                </div>
-                                <div class="col-sm-6">
-                                    <a href="news-detail.html" class="box-small-news">
-                                        <img src="/images/news/pic-4.jpg" class="img-responsive" alt="">
-                                        <h5>Sau gần 2 năm thi công, sân bay Cam Ranh tiêu chuẩn 4 sao...</h5>
-                                    </a>
-                                </div>
-                                <div class="col-sm-6">
-                                    <a href="news-detail.html" class="box-small-news">
-                                        <img src="/images/news/pic-4.jpg" class="img-responsive" alt="">
-                                        <h5>Sau gần 2 năm thi công, sân bay Cam Ranh tiêu chuẩn 4 sao...</h5>
-                                    </a>
-                                </div>
-                                <div class="col-sm-6">
-                                    <a href="news-detail.html" class="box-small-news">
-                                        <img src="/images/news/pic-4.jpg" class="img-responsive" alt="">
-                                        <h5>Sau gần 2 năm thi công, sân bay Cam Ranh tiêu chuẩn 4 sao...</h5>
-                                    </a>
-                                </div>
-                                <div class="col-sm-12">
-                                    <div class="ed-pagination">
-                                        <ul class="pagination setting-ul">
-                                            <li class="disabled">
-                                                <span>
-                                                    <i class="fa fa-angle-left"></i>
-                                                </span>
-                                            </li>
-                                            <li class="active">
-                                                <span>1</span>
-                                            </li>
-                                            <li>
-                                                <a href="#">2</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">3</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" rel="next">
-                                                    <i class="fa fa-angle-right"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div> -->
                 </div>
 
             </div>

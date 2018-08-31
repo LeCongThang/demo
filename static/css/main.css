@@ -1350,9 +1350,9 @@ footer .bottom-footer p {
 .news-highlight .news-aside i.play-button, .play-button {
   color: red;
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-40%, -50%);
 }
 
 .gallery-video-2 .box-news-page img {

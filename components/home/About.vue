@@ -13,7 +13,7 @@
             <div class="col-md-5" data-aos="fade-right" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
                 <div class="txt-left-about-ed2">
                     <h5>Chúng tôi là ai</h5>
-                    <h1 style="margin-top:10px;">CÔNG TY CP ĐẦU TƯ PHÁT TRIỂN CENTRAL REAL</h1>
+                    <h1 style="margin-top:10px;">{{lang ? $store.state.system_config.config.name_vi:$store.state.system_config.config.name_en}}</h1>
                     <p v-if="lang" v-html="aboutus.content_vi"></p>
                     <p v-else v-html="aboutus.content_en"></p>
                 </div>
