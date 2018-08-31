@@ -132,7 +132,7 @@
                 <div class="col-sm-4" v-for="(r,index) in event.product_featured" :key="r.id" data-aos="fade-up" :data-aos-delay="(index+1)*150" data-aos-duration="1000" data-aos-easing="ease-in-out">
                     <div class="box-event-page">
                         <nuxt-link :to="`/project-detail/${r.id}/${r.slug}`">
-                            <img :src="$store.state.system_config.directory.project+'/'+r.image" class="img-responsive" :alt="r.title_vi">
+                            <img :src="$store.state.system_config.directory.project+'/'+r.image" class="img-responsive project-related" :alt="r.title_vi">
                         </nuxt-link>
                         <div class="txt-box-event-page">
                             <nuxt-link :to="`/project-detail/${r.id}/${r.slug}`">
