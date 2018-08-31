@@ -130,11 +130,9 @@ export default {
         $("a[href=\"" + url + "\"]")
             .parent()
             .addClass("active");
-        if ($(window).innerWidth() > 1024) {
+        if ($( window ).width() > 1024) {
             var neo = $('.share-likes').position().top - $('.project-detail-form').innerHeight();
-            console.log(neo);
             $(window).scroll(function () {
-                console.log($(window).scrollTop());
                 if ($(window).scrollTop() < neo && $(window).scrollTop() > 800) {
                     $('.project-detail-form').css('top', $(window).scrollTop() - 750)
                 } else if($(window).scrollTop() > neo) {

@@ -2,7 +2,7 @@
 <div>
     <section class="gallery-home">
         <div class="container">
-            <div class="row wow animated fadeInUp">
+            <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <div class="title-page text-center">
                         <h2 v-html="$t('home.project')">
@@ -31,7 +31,7 @@
                                             </li>
                                         </ul>
                                         <div class="btn-page text-center">
-                                            <nuxt-link :to="`/project-detail/${project.id}/${project.slug}`">Xem thêm</nuxt-link>
+                                            <nuxt-link :to="`/project-detail/${project.id}/${project.slug}`">{{$t('common.readmore')}}</nuxt-link>
                                         </div>
                                     </div>
                                 </div>

@@ -27,9 +27,9 @@
                         </ul>
                     </div>
                     <div class="row">
-                        <div class="col-md-4 prodcont new" v-for="(p,index) in projectData.projects.data" :key="p.id" data-aos="fade-up" :data-aos-delay="(index+1)*50" data-aos-duration="1000" data-aos-easing="ease-in-out">
+                        <div class="col-md-4" v-for="(p,index) in projectData.projects.data" :key="p.id" data-aos="fade-up" :data-aos-delay="index*50" data-aos-duration="1000" data-aos-easing="ease-in-out">
                             <div :class="`each-item filter ${index+1}`">
-                                <nuxt-link :to="`/project-detail/${p.id}/${p.slug}`" class="pic-prj" :style="`background:url(${$store.state.system_config.directory.project+'/'+p.image});background-size:cover;width:100%;height:${setHeight(index)};`">
+                                <nuxt-link :to="`/project-detail/${p.id}/${p.slug}`" :class="`pic-prj ${setHeight(index)}`" :style="`background:url(${$store.state.system_config.directory.project+'/'+p.image});background-size:cover;width:100%;`">
                                 </nuxt-link>
                                 <nuxt-link class="project-title" :to="`/project-detail/${p.id}/${p.slug}`">
                                     <h4>
@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <form-submit :className="`project-form`" :project="projectData.projects.data" :lang="lang"/>
+                    <form-submit :className="`project-form`" :project="projectData.projects.data" :lang="lang" />
                 </div>
                 <hr id="neo" style="border-top:1px solid rgb(209, 209, 209);">
             </div>
@@ -120,14 +120,14 @@ export default {
             }
         },
         setHeight(index) {
-            let height = '360px';
+            let classes = 'img-project-height-36';
             if (index % 2 != 0) {
-                height = '180px';
+                classes = 'img-project-height-18';
             }
             if (index == 4) {
-                height = height + ';margin-top: -180px';
+                classes = 'img-project-height-36 padding-18';
             }
-            return height;
+            return classes;
         }
     },
     head() {
@@ -141,14 +141,14 @@ export default {
         $("a[href=\"" + url + "\"]")
             .parent()
             .addClass("active");
-        if ($(window).innerWidth() > 1024) {
+        if ($( window ).width() > 1024) {
             var neo = $('.top-footer').offset().top - 770;
             $(window).scroll(function () {
                 if ($(window).scrollTop() <= neo && $(window).scrollTop() >= 370) {
                     $('.project-form').css('top', $(window).scrollTop() - 370)
-                } else if($(window).scrollTop() > neo) {
+                } else if ($(window).scrollTop() > neo) {
                     $('.project-form').css('top', neo - 330)
-                }else {
+                } else {
                     $('.project-form').css('top', 0)
                 }
 
@@ -180,5 +180,20 @@ export default {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 32px 24px;
     box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.2)
+}
+
+.img-project-height-36 {
+    height: 360px;
+    ;
+}
+
+.img-project-height-18 {
+    height: 180px;
+}
+
+@media (min-width: 1024px) {
+    .padding-18 {
+        margin-top: -180px;
+    }
 }
 </style>

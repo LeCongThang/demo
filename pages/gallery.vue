@@ -7,7 +7,7 @@
         </div>
     </div>
 
-    <section class="gallery-home gallery-page">
+    <!-- <section class="gallery-home">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
@@ -24,15 +24,47 @@
                 <div class="col-sm-12">
                     <div class="ed-gallery">
                         <nuxt-link v-for="(g,index) in galleryData.data" :key="g.id" :to="`/gallery-detail/${g.id}/${g.slug}`">
-                            <div :class="`gallery-${index+1}`" :style="`background: url(${$store.state.system_config.directory.gallery+'/'+g.gallery_images[0].image}) no-repeat center; background-size: cover;`"></div>
+                            <div :class="`gallery-${index+1} home-gallery`" :style="`background: url(${$store.state.system_config.directory.gallery+'/'+g.gallery_images[0].image}) no-repeat center; background-size: cover;`"></div>
                         </nuxt-link>
                     </div>
                 </div>
             </div>
 
         </div>
+    </section> -->
+<section class="gallery-home">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="title-page text-center">
+                        <h2 v-html="$t('home.project')">
+                        </h2>
+                        <p>Hơn 50 dự án Central Real đã và đang phân phối bởi các nhà đầu tư uy tín
+                            <br> chất lượng hàng đầu Việt Nam.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="ed-gallery">
+                        <div v-for="(g,index) in galleryData.data" :key="g.id">
+                            <div :class="`gallery-${index+1} home-gallery`" :data-aos="setAnimate(index)" data-aos-delay="400" data-aos-duration="1500" data-aos-easing="ease-in-out" :style="`background: url(${$store.state.system_config.directory.gallery+'/'+g.gallery_images[0].image}) no-repeat center; background-size: cover;`">
+                                <div class="caption">
+                                    <div :class="setClass(index)">
+                                        <h3 class="title boldtext" v-if="lang" v-html="g.title_vi"></h3>
+                                        <h3 class="title boldtext" v-else v-html="g.title_en"></h3>
+                                        <div class="btn-page text-center">
+                                            <nuxt-link :to="`/gallery-detail/${g.id}/${g.slug}`">{{$t('common.readmore')}}</nuxt-link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-
     <div class="gallery-video">
         <div class="container">
             <div class="row">
@@ -97,6 +129,45 @@ export default {
             galleryData: gallery.data.data,
             videoData: video.data.data
         };
+    },
+    methods: {
+        setAnimate: (index) => {
+            let animateName = '';
+            switch (index) {
+                case 0:
+                    animateName = "fade-right";
+                    break;
+                case 1:
+                    animateName = "fade-down";
+                    break;
+                case 2:
+                    animateName = "fade-up";
+                    break;
+                case 3:
+                    animateName = "fade-left";
+                    break;
+                case 4:
+                    animateName = "fade-right";
+                    break;
+                case 5:
+                    animateName = "fade-left";
+                    break;
+
+            }
+            return animateName;
+        },
+        setClass: (index) => {
+            let className = '';
+            switch (index) {
+                case 4:
+                    className = "cc cc1";
+                    break;
+                default:
+                    className = "cc";
+                    break;
+            }
+            return className;
+        }
     },
     computed: {
         lang() {
