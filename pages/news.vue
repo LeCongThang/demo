@@ -61,7 +61,7 @@
             <div class="row">
                 <div class="col-md-9 wow fadeInLeft" data-wow-delay="0.25s" data-wow-duration="1.5s">
                     <nuxt-link :to="`/news-detail/${videoData.data[0].id}/${videoData.data[0].slug}`" class="box-news-page">
-                        <img :src="$store.state.system_config.directory.news+'/'+videoData.data[0].image" class="img-responsive" :alt="videoData.data[0].title_vi">
+                        <img :src="$store.state.system_config.directory.news+'/'+videoData.data[0].image_thumbnail" class="img-responsive" :alt="videoData.data[0].title_vi">
                         <i class="fa fa-4x fa-youtube-play play-button" aria-hidden="true"></i>
                         <h3>
                             <strong v-if="lang" v-html="videoData.data[0].title_vi"></strong>
@@ -71,7 +71,7 @@
                 </div>
                 <div class="col-md-3 wow fadeInRight" data-wow-delay="0.25s" data-wow-duration="1.5s">
                     <nuxt-link v-for="(n,index) in videoData.data" :key="n.id" v-if="index>0" :to="`/news-detail/${n.id}/${n.slug}`" class="news-aside">
-                        <img :src="$store.state.system_config.directory.news+'/'+n.image" :alt="n.title_vi" class="img-responsive">
+                        <img :src="$store.state.system_config.directory.news+'/'+n.image_thumbnail" :alt="n.title_vi" class="img-responsive">
                         <i class="fa fa-2x fa-youtube-play play-button" aria-hidden="true"></i>
                         <h4 v-if="lang" v-html="n.title_vi"></h4>
                         <h4 v-else v-html="n.title_en"></h4>
@@ -90,7 +90,7 @@
                 <div class="col-md-4" v-for="n in newsData.data" :key="n.id">
 
                     <nuxt-link :to="`/news-detail/${n.id}/${n.slug}`" class="box-222">
-                        <img :src="$store.state.system_config.directory.news+'/'+n.image" class="img-responsive" :alt="n.title_vi" style="height:220px !important">
+                        <img :src="$store.state.system_config.directory.news+'/'+n.image_thumbnail" class="img-responsive" :alt="n.title_vi" style="height:220px !important">
                         <span class="overload"></span>
                         <h4 v-if="lang" v-html="n.title_vi"></h4>
                         <h4 v-else v-html="n.title_en"></h4>
