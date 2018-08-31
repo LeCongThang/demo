@@ -4,7 +4,7 @@
         <div class="row" data-aos="fade-down" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
             <div class="col-md-8 col-md-offset-2">
                 <div class="title-page text-center">
-                    <h2 v-html="$t('home.about')"></h2>
+                    <nuxt-link to="/aboutus"><h2 v-html="$t('home.about')"></h2></nuxt-link>
                     <p>Chào mừng bạn đến với Central Real. Chúng tôi Cam kết mang đến những sản phẩm BĐS nghỉ dưỡng ưu việt, tạo ra giá trị thực cho khách hàng, nhân sự, nhà đầu tư và đối tác, thông qua đó mang lại lợi ích cho cộng đồng.</p>
                 </div>
             </div>

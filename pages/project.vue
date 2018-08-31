@@ -203,8 +203,7 @@ export default {
             .parent()
             .addClass("active");
         if ($(window).innerWidth() > 1024) {
-            var neo = $('.top-footer').offset().top - 700;
-            console.log(neo)
+            var neo = $('.top-footer').offset().top - 750;
             $(window).scroll(function () {
                 if ($(window).scrollTop() <= neo && $(window).scrollTop() >= 370)
                     $('.project-form').css('top', $(window).scrollTop() - 370)

@@ -16,34 +16,11 @@
                 <div class="col-md-6 wow animated fadeInRight">
                     <div class="txt-right-event">
                         <h4>{{lang ? event.event_featured[0].title_vi:event.event_featured[0].title_en}}</h4>
-                        <!-- <ul>
-                            <li>
-                                <i class="fa fa-check"></i> Tên thương mại:
-                                <strong>Sun Premier Village The Eden Bay</strong>`
-                            </li>
-                            <li>
-                                <i class="fa fa-check"></i> Chủ đầu tư:
-                                <strong>Tập đoàn Sun Group</strong>
-                            </li>
-                            <li>
-                                <i class="fa fa-check"></i> Quy mô dự án:
-                                <strong>8ha</strong>
-                            </li>
-                            <li>
-                                <i class="fa fa-check"></i> Mật độ xây dựng:
-                                <strong>13.7%</strong>
-                            </li>
-                            <li>
-                                <i class="fa fa-check"></i> Loại hình sản phẩm:
-                                <strong>51 căn biệt thự nghỉ dưỡng</strong>
-                            </li>
-                            <li>
-                                <i class="fa fa-check"></i> Hình thức sở hữu:
-                                <strong>lâu dài</strong>
-                            </li>
-                        </ul> -->
                         <p v-if="lang" v-html="event.event_featured[0].description_vi"></p>
                         <p v-else v-html="event.event_featured[0].description_en"></p>
+                        <div class="btn-page">
+                            <nuxt-link :to="`/news-detail/${event.event_featured[0].id}/${event.event_featured[0].slug}`">{{$t('common.readmore')}}</nuxt-link>
+                        </div>
                     </div>
                 </div>
             </div>

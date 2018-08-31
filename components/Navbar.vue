@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <ul class="header-top-right ed-ul">
-                        <li><i class="fa fa-envelope"></i> {{$store.state.system_config.config.email}}</li>
+                        <li><i class="fa fa-envelope"></i> {{$store.state.system_config.config.email_header}}</li>
                         <li><a v-on:click="changeLanguage('vi')"><img src="/images/icon/vn.png" alt=""></a></li>
                         <li><a v-on:click="changeLanguage('en')"><img src="/images/icon/en.png" alt=""></a></li>
                     </ul>

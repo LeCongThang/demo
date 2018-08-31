@@ -1,6 +1,12 @@
 const webpack = require('webpack')
 module.exports = {
   /*
+  ** Setup env for site
+   */
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://centralreal.cf',
+  },
+  /*
    ** Headers of the page
    */
   head: {
@@ -96,9 +102,7 @@ module.exports = {
     }, ],
 
   },
-  env: {
-    NODE_ENV: 'dev'
-  },
+
   /*
    ** Customize the progress bar color
    */

@@ -13,73 +13,8 @@
 
     <div class="box-pj-dt">
         <div class="container">
-            <!-- <div class="box-pj-0 row">
-                <div class="col-sm-6 padding-0 wow animated fadeInLeft">
-                    <img :src="$store.state.system_config.directory.project+'/'+project.image_about" class="img-responsive" :alt="project.title_vi">
-                </div>
-                <div class="col-sm-6 padding-0 wow animated fadeInRight">
-                    <ul class="box-pj-1">
-                        <li>
-                            <h3>Giới thiệu</h3>
-                        </li>
-                        <p v-if="lang" v-html="project.des_about_vi"></p>
-                        <p v-else v-html="project.des_about_en"></p>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="box-pj-0 row">
-                <div class="col-sm-6 padding-0 visible-xs-block wow animated fadeInRight">
-                    <img :src="$store.state.system_config.directory.project+'/'+project.image_location" class="img-responsive" :alt="project.title_vi">
-                </div>
-                <div class="col-sm-6 padding-0  wow animated fadeInLeft">
-                    <ul class="box-pj-1">
-                        <li>
-                            <h3>Vị trí</h3>
-                        </li>
-                        <p v-if="lang" v-html="project.des_location_vi"></p>
-                        <p v-else v-html="project.des_location_en"></p>
-                    </ul>
-                </div>
-                <div class="col-sm-6 padding-0 hidden-xs wow animated fadeInRight">
-                    <img :src="$store.state.system_config.directory.project+'/'+project.image_location" class="img-responsive" :alt="project.title_vi">
-                </div>
-            </div>
-
-            <div class="box-pj-0 row">
-                <div class="col-sm-6 padding-0 wow animated fadeInLeft">
-                    <img :src="$store.state.system_config.directory.project+'/'+project.image_utility" class="img-responsive" :alt="project.title_vi">
-                </div>
-                <div class="col-sm-6 padding-0 wow animated fadeInRight">
-                    <ul class="box-pj-1">
-                        <li>
-                            <h3>Tiện ích</h3>
-                        </li>
-                        <p v-if="lang" v-html="project.des_utility_vi"></p>
-                        <p v-else v-html="project.des_utility_en"></p>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="box-pj-0 row">
-                <div class="col-sm-6 padding-0 visible-xs-block wow animated fadeInRight ">
-                    <img :src="$store.state.system_config.directory.project+'/'+project.image_flat" class="img-responsive" :alt="project.title_vi">
-                </div>
-                <div class="col-sm-6 padding-0  wow animated fadeInLeft">
-                    <ul class="box-pj-1">
-                        <li>
-                            <h3>Mặt bằng</h3>
-                        </li>
-                        <p v-if="lang" v-html="project.des_flat_vi"></p>
-                        <p v-else v-html="project.des_flat_en"></p>
-                    </ul>
-                </div>
-                <div class="col-sm-6 padding-0 hidden-xs wow animated fadeInRight ">
-                    <img :src="$store.state.system_config.directory.project+'/'+project.image_flat" class="img-responsive" :alt="project.title_vi">
-                </div>
-            </div> -->
-            <h1 class="text-center" v-if="lang" v-html="project.project.title_vi" data-aos="fade-down" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out"></h1>
-            <h1 class="text-center" v-else v-html="project.project.title_en" data-aos="fade-down" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out"></h1>
+            <h1 class="text-center" style="text-transform:uppercase" v-if="lang" v-html="project.project.title_vi" data-aos="fade-down" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out"></h1>
+            <h1 class="text-center" style="text-transform:uppercase" v-else v-html="project.project.title_en" data-aos="fade-down" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out"></h1>
             <p v-if="lang" v-html="project.project.description_vi" class="content-des"></p>
             <p v-else v-html="project.project.description_en" class="content-des"></p>
         </div>
@@ -89,8 +24,8 @@
             <div class="col-sm-12 share-likes">
                 <ul>
                     <li>
-                        <a href="#">
-                                    <i class="fa fa-facebook"></i> Share</a>
+                        <a target="_blank" :href="`https://www.facebook.com/sharer/sharer.php?u=http://centralreal.cf${this.$route.fullPath}`">
+                                        <i class="fa fa-facebook"></i> Share</a>
                     </li>
                 </ul>
             </div>
@@ -112,7 +47,7 @@
                 <div class="col-sm-4" v-for="r in project.projects_rela" :key="r.id" data-aos="fade-up" :data-aos-delay="(index+1)*150" data-aos-duration="1000" data-aos-easing="ease-in-out">
                     <div class="box-event-page">
                         <nuxt-link :to="`/project-detail/${r.id}/${r.slug}`">
-                            <img :src="$store.state.system_config.directory.project+'/'+r.image" class="img-responsive" :alt="r.title_vi">
+                            <img :src="$store.state.system_config.directory.project+'/'+r.image" class="img-responsive project-related" :alt="r.title_vi">
                         </nuxt-link>
                         <div class="txt-box-event-page">
                             <nuxt-link :to="`/project-detail/${r.id}/${r.slug}`">
@@ -163,6 +98,11 @@ export default {
                     content: this.project.project.des_short_vi
                 },
                 {
+                    hid: "og:title",
+                    name: "og:title",
+                    content: this.project.project.title_vi
+                },
+                {
                     hid: "og:description",
                     name: "og:description",
                     content: this.project.project.des_short_vi
@@ -170,7 +110,7 @@ export default {
                 {
                     hid: "og:image",
                     name: "og:image",
-                    content: this.$store.state.system_config.directory.project + '/' + this.project.image_thumbnail
+                    content: this.$store.state.system_config.directory.project + '/' + this.project.project.image_thumbnail
                 }
             ]
         };

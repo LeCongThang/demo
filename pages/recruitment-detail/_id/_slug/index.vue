@@ -22,8 +22,8 @@
                     <div class="share-likes">
                         <ul>
                             <li>
-                                <a href="#">
-                                            <i class="fa fa-facebook"></i> Share</a>
+                                <a target="_blank" :href="`https://www.facebook.com/sharer/sharer.php?u=http://centralreal.cf${this.$route.fullPath}`">
+                                        <i class="fa fa-facebook"></i> Share</a>
                             </li>
                         </ul>
                     </div>
@@ -68,6 +68,11 @@ export default {
                     hid: "description",
                     name: "description",
                     content: this.recruitmentData.title_vi + " Centralreal.vn"
+                },
+                {
+                    hid: "og:title",
+                    name: "og:title",
+                    content: this.recruitmentData.title_vi
                 },
                 {
                     hid: "og:description",

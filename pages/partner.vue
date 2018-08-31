@@ -15,7 +15,6 @@
                         <h2>Đối tác
                             <strong>chủ đầu tư</strong>
                         </h2>
-                        <p class="customhr"></p>
                     </div>
                 </div>
             </div>
@@ -68,53 +67,6 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="product-nav">
-                        <div class="hav-margin">
-                            <div class="nav-item" style="background-image:url(/images/partner/logo-sungroup.jpg)">
-                                <img src="/images/icon/grid.png" alt="">
-                            </div>
-                        </div>
-                        <div class="hav-margin">
-                            <div class="nav-item" style="background-image:url(/images/partner/logo-vcbank.jpg)">
-                                <img src="/images/icon/grid.png" alt="">
-                            </div>
-                        </div>
-                        <div class="hav-margin">
-                            <div class="nav-item" style="background-image:url(/images/partner/logo-flc.jpg)">
-                                <img src="/images/icon/grid.png" alt="">
-                            </div>
-                        </div>
-                        <div class="hav-margin">
-                            <div class="nav-item" style="background-image:url(/images/partner/ocb-bank-1.jpg)">
-                                <img src="/images/icon/grid.png" alt="">
-                            </div>
-                        </div>
-                        <div class="hav-margin">
-                            <div class="nav-item" style="background-image:url(/images/partner/logo-vibbank.jpg)">
-                                <img src="/images/icon/grid.png" alt="">
-                            </div>
-                        </div>
-                        <div class="hav-margin">
-                            <div class="nav-item" style="background-image:url(/images/partner/clients6.jpg)">
-                                <img src="/images/icon/grid.png" alt="">
-                            </div>
-                        </div>
-                        <div class="hav-margin">
-                            <div class="nav-item" style="background-image:url(/images/partner/tp-bank.jpg)">
-                                <img src="/images/icon/grid.png" alt="">
-                            </div>
-                        </div>
-                        <div class="hav-margin">
-                            <div class="nav-item" style="background-image:url(/images/partner/vp-bank.jpg)">
-                                <img src="/images/icon/grid.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
 
@@ -126,7 +78,6 @@
                         <h2>Đối tác
                             <strong>sàn liên kết</strong>
                         </h2>
-                        <p class="customhr"></p>
                     </div>
                 </div>
             </div>
@@ -179,49 +130,64 @@
 
             </div>
 
+        </div>
+    </div>
+    <div class="partner-page">
+        <div class="container">
             <div class="row">
-                <div class="col-sm-12">
-                    <div class="product-nav">
-                        <div class="hav-margin">
-                            <div class="nav-item" style="background-image:url(/images/partner/logo-sungroup.jpg)">
-                                <img src="/images/icon/grid.png" alt="">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="title-page text-center">
+                        <h2>Đối tác
+                            <strong>Ngân Hàng</strong>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row row-flex">
+                <div class="col-md-4">
+                    <div class="big-slider">
+                        <div class="product-img">
+                            <div class="item-img">
+                                <img src="/images/partner/logo-sungroup.jpg" alt="">
                             </div>
-                        </div>
-                        <div class="hav-margin">
-                            <div class="nav-item" style="background-image:url(/images/partner/logo-vcbank.jpg)">
-                                <img src="/images/icon/grid.png" alt="">
+                            <div class="item-img">
+                                <img src="/images/partner/logo-vcbank.jpg" alt="">
                             </div>
-                        </div>
-                        <div class="hav-margin">
-                            <div class="nav-item" style="background-image:url(/images/partner/logo-flc.jpg)">
-                                <img src="/images/icon/grid.png" alt="">
+                            <div class="item-img">
+                                <img src="/images/partner/logo-flc.jpg" alt="">
                             </div>
-                        </div>
-                        <div class="hav-margin">
-                            <div class="nav-item" style="background-image:url(/images/partner/ocb-bank-1.jpg)">
-                                <img src="/images/icon/grid.png" alt="">
+                            <div class="item-img">
+                                <img src="/images/partner/ocb-bank-1.jpg" alt="">
                             </div>
-                        </div>
-                        <div class="hav-margin">
-                            <div class="nav-item" style="background-image:url(/images/partner/logo-vibbank.jpg)">
-                                <img src="/images/icon/grid.png" alt="">
+                            <div class="item-img">
+                                <img src="/images/partner/logo-vibbank.jpg" alt="">
                             </div>
-                        </div>
-                        <div class="hav-margin">
-                            <div class="nav-item" style="background-image:url(/images/partner/clients6.jpg)">
-                                <img src="/images/icon/grid.png" alt="">
+                            <div class="item-img">
+
+                                <img src="/images/partner/clients6.jpg" alt="">
+
                             </div>
-                        </div>
-                        <div class="hav-margin">
-                            <div class="nav-item" style="background-image:url(/images/partner/tp-bank.jpg)">
-                                <img src="/images/icon/grid.png" alt="">
+
+                            <div class="item-img">
+
+                                <img src="/images/partner/tp-bank.jpg" alt="">
+
                             </div>
-                        </div>
-                        <div class="hav-margin">
-                            <div class="nav-item" style="background-image:url(/images/partner/vp-bank.jpg)">
-                                <img src="/images/icon/grid.png" alt="">
+
+                            <div class="item-img">
+
+                                <img src="/images/partner/vp-bank.jpg" alt="">
+
                             </div>
+
                         </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="txt-partner-page">
+                        <p>CentralReal tự hào khi được các chủ đầu tư uy tín trong và ngoài nước tin tưởng chọn hợp tác và phát triển nhiều dự án bất động sản đa dạng trên thị trường. CentralReal xác định luôn song hành cùng Chủ Đầu Tư mang đến những giá
+                            trị Bất Đông Sản tốt nhất cho khách hàng và tối ưu hoá giá trị đầu tư.</p>
                     </div>
                 </div>
             </div>

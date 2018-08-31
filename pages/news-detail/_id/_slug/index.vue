@@ -9,10 +9,11 @@
                         <ul class="ed-ul-news-dt">
                             <li>
                                 <i class="fa fa-calendar"></i> {{news.news.created_at}}</li>
-                            <!-- <li>
-                                <i class="fa fa-user-o"></i> admin</li> -->
                         </ul>
-                        <img :src="$store.state.system_config.directory.news+'/'+news.news.image" :alt="news.news.title_vi" class="img-responsive" width="100%">
+                        <!-- {{news.news}} -->
+                        <div v-if="news.news.post_type !== 2">
+                            <img :data-id="news.news.post_type" :src="$store.state.system_config.directory.news+'/'+news.news.image" :alt="news.news.title_vi" class="img-responsive" width="100%">
+                        </div>
                     </div>
 
                     <article class="page-content">
@@ -27,7 +28,7 @@
                             <strong>xem nhiều</strong>
                         </h4>
                     </div>
-                    <nuxt-link  class="news-aside" v-for="n in news.news_featured" :key="n.id" :to="`/news-detail/${n.id}/${n.slug}`">
+                    <nuxt-link class="news-aside" v-for="n in  news.news.post_type == 2 ?  news.news_featured.slice(0, 2): news.news_featured" :key="n.id" :to="`/news-detail/${n.id}/${n.slug}`">
                         <img :src="$store.state.system_config.directory.news+'/'+n.image" :alt="n.title_vi" class="img-responsive">
                         <h4>{{lang?n.title_vi:n.title_en}}</h4>
                         <ul>
@@ -38,7 +39,7 @@
                 <div class="col-sm-12 share-likes">
                     <ul>
                         <li>
-                            <a href="#">
+                            <a target="_blank" :href="`https://www.facebook.com/sharer/sharer.php?u=http://centralreal.cf${this.$route.fullPath}`">
                                         <i class="fa fa-facebook"></i> Share</a>
                         </li>
                     </ul>
@@ -59,7 +60,7 @@
                             <div class="col-sm-4" v-for="(r,index) in news.project_featured" :key="r.id" data-aos="fade-up" :data-aos-delay="(index+1)*150" data-aos-duration="1000" data-aos-easing="ease-in-out">
                                 <div class="box-event-page">
                                     <nuxt-link :to="`/project-detail/${r.id}/${r.slug}`">
-                                        <img :src="$store.state.system_config.directory.project+'/'+r.image" class="img-responsive" :alt="r.title_vi">
+                                        <img :src="$store.state.system_config.directory.project+'/'+r.image" class="img-responsive project-related" :alt="r.title_vi">
                                     </nuxt-link>
                                     <div class="txt-box-event-page">
                                         <nuxt-link :to="`/project-detail/${r.id}/${r.slug}`">
@@ -112,6 +113,11 @@ export default {
                     content: this.news.news.des_short_vi
                 },
                 {
+                    hid: "og:title",
+                    name: "og:title",
+                    content: this.news.news.title_vi
+                },
+                {
                     hid: "og:description",
                     name: "og:description",
                     content: this.news.news.des_short_vi
@@ -123,6 +129,13 @@ export default {
                 }
             ]
         };
+    },
+    mounted() {
+        var url = "/news";
+        $("ul.nav > li").removeClass("active");
+        $("a[href=\"" + url + "\"]")
+            .parent()
+            .addClass("active");
     },
     middleware: 'news_detail'
 };

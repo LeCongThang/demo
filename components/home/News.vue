@@ -20,7 +20,7 @@
             </div>
             <div class="col-md-4 news-home-padding right-col-news" data-aos="fade-left" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
                 <div class="news-item" style="margin-bottom: 8px;">
-                    <img :src="$store.state.system_config.directory.news+'/'+news[0].image_thumbnail" class="img-responsive">
+                    <img :src="$store.state.system_config.directory.news+'/'+news[0].image_thumbnail" :alt="news[0].title_vi" class="img-responsive news-in-home">
                     <div class="overlay">
                         <nuxt-link :to="`/news-detail/${news[0].id}/${news[0].slug}`" class="title" v-if="lang" v-html="news[0].title_vi"></nuxt-link>
                         <nuxt-link :to="`/news-detail/${news[0].id}/${news[0].slug}`" class="title" v-else v-html="news[0].title_en"></nuxt-link>
@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="news-item">
-                    <img :src="$store.state.system_config.directory.news+'/'+news[1].image_thumbnail" class="img-responsive">
+                    <img :src="$store.state.system_config.directory.news+'/'+news[1].image_thumbnail" class="img-responsive news-in-home" :alt="news[1].title_vi">
                     <div class="overlay">
                         <nuxt-link :to="`/news-detail/${news[1].id}/${news[1].slug}`" class="title" v-if="lang" v-html="news[1].title_vi"></nuxt-link>
                         <nuxt-link :to="`/news-detail/${news[1].id}/${news[1].slug}`" class="title" v-else v-html="news[1].title_en"></nuxt-link>
@@ -42,7 +42,7 @@
             </div>
             <div class="col-md-4 news-home-padding" v-for="(n,index) in news" :key="n.id" v-if="index>1">
                 <div class="news-item">
-                    <img :src="$store.state.system_config.directory.news+'/'+n.image_thumbnail" class="img-responsive">
+                    <img :src="$store.state.system_config.directory.news+'/'+n.image_thumbnail" class="img-responsive news-in-home" :alt="n.title_vi">
                     <div class="overlay">
                         <nuxt-link :to="`/news-detail/${n.id}/${n.slug}`" class="title" v-if="lang" v-html="n.title_vi"></nuxt-link>
                         <nuxt-link :to="`/news-detail/${n.id}/${n.slug}`" class="title" v-else v-html="n.title_en"></nuxt-link>
@@ -69,3 +69,10 @@ export default {
 
 };
 </script>
+<style>
+.news-in-home{
+    width: 100%;
+    height: 220px;
+}
+</style>
+

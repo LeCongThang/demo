@@ -20,7 +20,7 @@
                         <li v-if="lang"><i class="fa fa-map-marker"></i> {{$store.state.system_config.config.address_vi}}</li>
                         <li v-else><i class="fa fa-map-marker"></i> {{$store.state.system_config.config.address_en}}</li>
                         <li><i class="fa fa-phone"></i> {{$store.state.system_config.config.phone}}</li>
-                        <li><i class="fa fa-envelope"></i> {{$store.state.system_config.email}} <i class="fa fa-globe"></i> www.centralreal.vn</li>
+                        <li><i class="fa fa-envelope"></i> {{$store.state.system_config.config.email}} <i class="fa fa-globe"></i> www.centralreal.vn</li>
                     </ul>
 
                     <div class="share-social">
