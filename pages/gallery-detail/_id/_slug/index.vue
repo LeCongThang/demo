@@ -3,8 +3,8 @@
     <div class="container">
         <div class="row">
             <h1 class="text-center" style="text-transform:uppercase">{{lang ? gallery.title_vi : gallery.title_en}}</h1>
-            <div class="col-md-4" v-for="g in gallery.gallery_images" :key="g.id">
-                <img v-img:my-group :src="$store.state.system_config.directory.gallery+'/'+g.image" :alt="gallery.title_vi" class="img-responsive" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out"/>
+            <div class="col-md-4 no-padding" v-for="g in gallery.gallery_images" :key="g.id">
+                <img v-img:my-group :src="$store.state.system_config.directory.gallery+'/'+g.image" :alt="gallery.title_vi" class="img-responsive img-gallery" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out"/>
             </div>
             <div class="col-sm-12 share-likes">
                     <ul>
@@ -79,3 +79,13 @@ export default {
 
 }
 </script>
+<style>
+.img-gallery{
+    height: 250px;
+    
+}
+.no-padding{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+</style>
