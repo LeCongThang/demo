@@ -111,12 +111,16 @@
             </div>
         </div>
     </div>
-
+    <contact/>
 </section>
 </template>
 
 <script>
+import Contact from "~/components/home/Contact.vue";
 export default {
+    components: {
+        Contact
+    },
     mounted() {
         var url = "/recruitment";
         $("ul.nav > li").removeClass("active");
@@ -126,7 +130,6 @@ export default {
         const id = this.$route.params.id;
         $("#menu" + id).addClass("in active");
         $("ul.recruitment > li.menu" + id).addClass("active");
-        
     }
 };
 </script>

@@ -4,18 +4,19 @@
         <div class="row">
             <h1 class="text-center" style="text-transform:uppercase">{{lang ? gallery.title_vi : gallery.title_en}}</h1>
             <div class="col-md-4 no-padding" v-for="g in gallery.gallery_images" :key="g.id">
-                <img v-img:my-group :src="$store.state.system_config.directory.gallery+'/'+g.image" :alt="gallery.title_vi" class="img-responsive img-gallery" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out"/>
+                <img v-img:my-group :src="$store.state.system_config.directory.gallery+'/'+g.image" :alt="gallery.title_vi" class="img-responsive img-gallery" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out" />
             </div>
             <div class="col-sm-12 share-likes">
-                    <ul>
-                        <li>
-                            <a target="_blank" :href="`https://www.facebook.com/sharer/sharer.php?u=http://centralreal.cf${this.$route.fullPath}`">
+                <ul>
+                    <li>
+                        <a target="_blank" :href="`https://www.facebook.com/sharer/sharer.php?u=http://centralreal.cf${this.$route.fullPath}`">
                                         <i class="fa fa-facebook"></i> Share</a>
-                        </li>
-                    </ul>
-                </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
+    <contact/>
 </section>
 </template>
 
@@ -24,19 +25,25 @@ import axios from "axios";
 import {
     environment
 } from "~/plugins/config.js";
+import Contact from "~/components/home/Contact.vue";
 export default {
+    components: {
+        Contact
+    },
     async asyncData({
         route
     }) {
         let {
             data
-        } = await axios.get(environment.apiUrl + "gallery/" + route.params.id);
+        } = await axios.get(
+            environment.apiUrl + "gallery/" + route.params.id
+        );
         return {
             gallery: data.data
         };
     },
     mounted() {
-        var url = '/gallery';
+        var url = "/gallery";
         $("ul.nav > li").removeClass("active");
         $('a[href="' + url + '"]')
             .parent()
@@ -71,21 +78,18 @@ export default {
                 {
                     hid: "og:image",
                     name: "og:image",
-                    content: this.$store.state.system_config.directory.gallery + '/' + this.gallery.gallery_images[0].image
+                    content: this.$store.state.system_config.directory.gallery +
+                        "/" +
+                        this.gallery.gallery_images[0].image
                 }
             ]
         };
     }
-
-}
+};
 </script>
+
 <style>
-.img-gallery{
+.img-gallery {
     height: 250px;
-    
-}
-.no-padding{
-    padding-left: 0px;
-    padding-right: 0px;
 }
 </style>

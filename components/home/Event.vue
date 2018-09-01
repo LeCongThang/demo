@@ -16,8 +16,8 @@
                     <h4 v-html="$t('home.register_event')"></h4>
                     <form @submit.prevent="processForm">
                         <div class="form-group">
-                            <select class="form-control" name="eventId" v-model="eventId">
-                                <option v-for="event in events" :key="event.id" :value="event.id">{{event.title_vi}}</option>
+                            <select class="form-control" v-model="eventId">
+                                <option v-for="(event,index) in events" :key="event.id" :selected="index == 0 ? true : false" :value="event.id">{{event.title_vi}}</option>
                             </select>
                         </div>
                         <div class="form-group">

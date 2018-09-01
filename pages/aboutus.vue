@@ -12,7 +12,7 @@
             <div class="col-sm-12">
                 <div class="video-about">
                     <div class="ed-video" data-aos="fade-right" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
-                        <iframe width="80%" height="550" src="https://www.youtube.com/embed/VYgGgpHE7EA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <iframe width="80%" height="550" src="https://www.youtube.com/embed/CiXMABVFXAw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     </div>
                     <div class="txt-intro-about wow fadeInRight" data-aos="fade-left" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
                         <p style="text-align: justify;">Là một doanh nghiệp hoạt động nhiều năm trong lĩnh vực bất động sản, theo phương châm hoạt động “Trao niềm tin – Xây hạnh phúc”, CentralReal luôn nỗ lực phát triển hướng đến giá trị gia tăng bền vững cho khách hàng, chủ đầu tư,
@@ -271,7 +271,7 @@
             </div>
         </div>
     </div>
-
+    <contact/>
 </section>
 </template>
 
@@ -281,9 +281,11 @@ import {
     environment
 } from "~/plugins/config.js";
 import ICountUp from "vue-countup-v2";
+import Contact from "~/components/home/Contact.vue";
 export default {
     components: {
-        ICountUp
+        ICountUp,
+        Contact
     },
     async asyncData() {
         let [about] = await Promise.all([axios.get(environment.apiUrl + "about")]);

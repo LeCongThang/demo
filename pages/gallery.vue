@@ -6,38 +6,12 @@
             <h4>{{$t('links.library')}}</h4>
         </div>
     </div>
-
-    <!-- <section class="gallery-home">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                    <div class="title-page text-center">
-                        <h2 v-html="$t('home.gallery')">
-                        </h2>
-                        <p>Hơn 50 dự án Central Real đã và đang phân phối bởi các nhà đầu tư uy tín
-                            <br> chất lượng hàng đầu Việt Nam.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row ">
-                <div class="col-sm-12">
-                    <div class="ed-gallery">
-                        <nuxt-link v-for="(g,index) in galleryData.data" :key="g.id" :to="`/gallery-detail/${g.id}/${g.slug}`">
-                            <div :class="`gallery-${index+1} home-gallery`" :style="`background: url(${$store.state.system_config.directory.gallery+'/'+g.gallery_images[0].image}) no-repeat center; background-size: cover;`"></div>
-                        </nuxt-link>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section> -->
 <section class="gallery-home">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <div class="title-page text-center">
-                        <h2 v-html="$t('home.project')">
+                        <h2 v-html="$t('home.gallery')">
                         </h2>
                         <p>Hơn 50 dự án Central Real đã và đang phân phối bởi các nhà đầu tư uy tín
                             <br> chất lượng hàng đầu Việt Nam.</p>
@@ -114,6 +88,7 @@
             </div>
         </div>
     </div>
+    <contact/>
 </section>
 </template>
 
@@ -122,7 +97,11 @@ import axios from "axios";
 import {
     environment
 } from "~/plugins/config.js";
+import Contact from "~/components/home/Contact.vue";
 export default {
+    components:{
+        Contact
+    },
     async asyncData() {
         let [gallery, video] = await Promise.all([axios.get(environment.apiUrl + "gallery"), axios.get(environment.apiUrl + "video")]);
         return {

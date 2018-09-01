@@ -94,13 +94,7 @@
                     <div class="big-slider">
                         <div class="product-img">
                             <div class="item-img">
-                                <img src="/images/partner/logo-sungroup.jpg" alt="">
-                            </div>
-                            <div class="item-img">
                                 <img src="/images/partner/logo-vcbank.jpg" alt="">
-                            </div>
-                            <div class="item-img">
-                                <img src="/images/partner/logo-flc.jpg" alt="">
                             </div>
                             <div class="item-img">
                                 <img src="/images/partner/ocb-bank-1.jpg" alt="">
@@ -109,21 +103,10 @@
                                 <img src="/images/partner/logo-vibbank.jpg" alt="">
                             </div>
                             <div class="item-img">
-
-                                <img src="/images/partner/clients6.jpg" alt="">
-
-                            </div>
-
-                            <div class="item-img">
-
                                 <img src="/images/partner/tp-bank.jpg" alt="">
-
                             </div>
-
                             <div class="item-img">
-
                                 <img src="/images/partner/vp-bank.jpg" alt="">
-
                             </div>
 
                         </div>
@@ -139,6 +122,7 @@
 
         </div>
     </div>
+    <contact/>
 </section>
 </template>
 
@@ -147,7 +131,11 @@ import axios from "axios";
 import {
     environment
 } from "~/plugins/config.js";
+import Contact from "~/components/home/Contact.vue";
 export default {
+    components: {
+        Contact
+    },
     async asyncData() {
         let [partner] = await Promise.all([
             axios.get(environment.apiUrl + "partner")

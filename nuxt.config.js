@@ -1,7 +1,7 @@
 const webpack = require('webpack')
 module.exports = {
   /*
-  ** Setup env for site
+   ** Setup env for site
    */
   env: {
     baseUrl: process.env.BASE_URL || 'http://centralreal.cf',
@@ -115,7 +115,7 @@ module.exports = {
    */
 
   build: {
-    vendor: ['axios', 'vue-i18n', 'jquery', 'bootstrap', 'slick-carousel', 'aos', 'vue-countup-v2','v-img'],
+    vendor: ['axios', 'vue-i18n', 'jquery', 'bootstrap', 'slick-carousel', 'aos', 'vue-countup-v2', 'v-img'],
     plugins: [
       new webpack.ProvidePlugin({
         $: 'jquery',
@@ -133,9 +133,6 @@ module.exports = {
     },
     {
       src: '~/static/css/animate.css'
-    },
-    {
-      src: '~/static/css/jquery.fancybox.min.css'
     },
     {
       src: 'slick-carousel/slick/slick.css'
@@ -159,15 +156,17 @@ module.exports = {
       ssr: false
     },
     {
-      src: '~/static/js/jquery.fancybox.min.js',
-      ssr: false
-    },
-    {
       src: '~/plugins/aos.js',
       ssr: false
     },
-    { src: '~plugins/ga.js', ssr: false },
-    { src: '~plugins/v-img.js', ssr: false },
+    {
+      src: '~plugins/ga.js',
+      ssr: false
+    },
+    {
+      src: '~plugins/v-img.js',
+      ssr: false
+    },
   ],
   router: { // customize nuxt.js router (vue-router).
     middleware: ['i18n', 'system_config'], // middleware all pages of the application

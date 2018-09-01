@@ -20,7 +20,7 @@
                 <p v-else v-html="project.project.description_en" class="content-des"></p>
             </div>
             <div class="col-md-3">
-                <form-submit :className="`project-detail-form`" :project="project" :lang="lang"/>
+                <form-submit :className="`project-detail-form`" :project="project" :lang="lang" />
             </div>
         </div>
     </div>
@@ -66,7 +66,7 @@
             </div>
         </div>
     </div>
-
+    <contact/>
 </section>
 </template>
 
@@ -76,9 +76,11 @@ import {
     environment
 } from "~/plugins/config.js";
 import FormSubmit from "~/components/project/FormSubmit.vue";
+import Contact from "~/components/home/Contact.vue";
 export default {
     components: {
-        FormSubmit
+        FormSubmit,
+        Contact
     },
     async asyncData({
         route
@@ -130,18 +132,23 @@ export default {
         $("a[href=\"" + url + "\"]")
             .parent()
             .addClass("active");
-        if ($( window ).width() > 1024) {
-            var neo = $('.share-likes').position().top - $('.project-detail-form').innerHeight();
-            $(window).scroll(function () {
-                if ($(window).scrollTop() < neo && $(window).scrollTop() > 800) {
-                    $('.project-detail-form').css('top', $(window).scrollTop() - 750)
-                } else if($(window).scrollTop() > neo) {
-                    $('.project-detail-form').css('top', neo - 850)
-                }else {
-                    $('.project-detail-form').css('top', 0)
+        if (process.browser) {
+            window.onNuxtReady((app) => {
+                if ($(window).width() > 1024) {
+                    var neo = $('.share-likes').position().top - $('.project-detail-form').innerHeight();
+                    $(window).scroll(function () {
+                        if ($(window).scrollTop() < neo && $(window).scrollTop() > 800) {
+                            $('.project-detail-form').css('top', $(window).scrollTop() - 750)
+                        } else if ($(window).scrollTop() > neo) {
+                            $('.project-detail-form').css('top', neo - 900)
+                        } else {
+                            $('.project-detail-form').css('top', 0)
+                        }
+                    });
                 }
-            });
+            })
         }
+
     }
 };
 </script>

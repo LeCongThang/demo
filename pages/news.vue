@@ -55,23 +55,45 @@
             <h4>{{$t('links.news')}}</h4>
         </div>
     </div>
+    <div class="news-highlight-2">
+        <div class="container">
+            <div class="row">
+                <div class="title-page text-center">
+                    <h2><strong>{{$t('links.news')}}</strong></h2>
+                </div>
+                <div class="col-md-4" v-for="n in newsData.data" :key="n.id">
+                    <nuxt-link :to="`/news-detail/${n.id}/${n.slug}`" class="box-222">
+                        <img :src="$store.state.system_config.directory.news+'/'+n.image_thumbnail" class="img-responsive" :alt="n.title_vi" style="height:220px !important">
+                        <span class="overload"></span>
+                        <h4 v-if="lang" v-html="n.title_vi"></h4>
+                        <h4 v-else v-html="n.title_en"></h4>
+                    </nuxt-link>
+                </div>
 
+            </div>
+            <div class="text-center paging" v-if="newsData.last_page>1">
+                <div class="btn-group" role="group">
+                    <button type="button" v-on:click="getNewsData(1)" class="btn btn-md btn-default"><i class="fa fa-angle-double-left" aria-hidden="true"></i></button>
+                    <button type="button" v-for="page in newsData.last_page" :key="page" v-on:click="getNewsData(page)" :class="`btn btn-md btn-default ${genCurrentPageActive(page)}`">{{page}}</button>
+                    <button type="button" v-on:click="getNewsData(newsData.last_page)" class="btn btn-md btn-default"><i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="news-highlight">
         <div class="container">
             <div class="row">
                 <div class="title-page text-center">
-                    <h2>Thư viện
-                            <strong>Video</strong>
-                        </h2>
+                    <h2><strong>Video</strong></h2>
                 </div>
                 <div class="col-md-9">
                     <nuxt-link :to="`/news-detail/${videoData.data[0].id}/${videoData.data[0].slug}`" class="box-news-page">
                         <img :src="$store.state.system_config.directory.news+'/'+videoData.data[0].image_thumbnail" class="img-responsive" :alt="videoData.data[0].title_vi">
                         <i class="fa fa-4x fa-youtube-play play-button" aria-hidden="true"></i>
-                        <h3>
+                        <h4>
                             <strong v-if="lang" v-html="videoData.data[0].title_vi"></strong>
                             <strong v-else v-html="videoData.data[0].title_vi"></strong>
-                        </h3>
+                        </h4>
                     </nuxt-link>
                 </div>
                 <div class="col-md-3">
@@ -101,33 +123,7 @@
             </div>
         </div>
     </div>
-
-    <div class="news-highlight-2">
-        <div class="container">
-            <div class="row">
-                <div class="title-page text-center">
-                    <h2><strong>{{$t('links.news')}}</strong></h2>
-                </div>
-                <div class="col-md-4" v-for="n in newsData.data" :key="n.id">
-                    <nuxt-link :to="`/news-detail/${n.id}/${n.slug}`" class="box-222">
-                        <img :src="$store.state.system_config.directory.news+'/'+n.image_thumbnail" class="img-responsive" :alt="n.title_vi" style="height:220px !important">
-                        <span class="overload"></span>
-                        <h4 v-if="lang" v-html="n.title_vi"></h4>
-                        <h4 v-else v-html="n.title_en"></h4>
-                    </nuxt-link>
-                </div>
-
-            </div>
-            <div class="text-center paging" v-if="newsData.last_page>1">
-                <div class="btn-group" role="group">
-                    <button type="button" v-on:click="getNewsData(1)" class="btn btn-md btn-default"><i class="fa fa-angle-double-left" aria-hidden="true"></i></button>
-                    <button type="button" v-for="page in newsData.last_page" :key="page" v-on:click="getNewsData(page)" :class="`btn btn-md btn-default ${genCurrentPageActive(page)}`">{{page}}</button>
-                    <button type="button" v-on:click="getNewsData(newsData.last_page)" class="btn btn-md btn-default"><i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <contact/>
 </section>
 </template>
 
@@ -136,7 +132,11 @@ import axios from "axios";
 import {
     environment
 } from "~/plugins/config.js";
+import Contact from "~/components/home/Contact.vue";
 export default {
+    components: {
+        Contact
+    },
     async asyncData() {
         let [news] = await Promise.all([axios.get(environment.apiUrl + "news")]);
         return {
@@ -164,11 +164,10 @@ export default {
             this.newsData = news.data.data.news;
             this.$nuxt.$loading.finish();
         },
-        genCurrentPageActive(page){
-            if(this.newsData.current_page==page){
+        genCurrentPageActive(page) {
+            if (this.newsData.current_page == page) {
                 return "curent-page";
-            }
-            else{
+            } else {
                 return "";
             }
         },

@@ -57,7 +57,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-4" v-for="(r,index) in news.project_featured" :key="r.id" data-aos="fade-up" :data-aos-delay="(index+1)*150" data-aos-duration="1000" data-aos-easing="ease-in-out">
+                            <div class="col-sm-4" v-for="(r) in news.project_featured" :key="r.id">
                                 <div class="box-event-page">
                                     <nuxt-link :to="`/project-detail/${r.id}/${r.slug}`">
                                         <img :src="$store.state.system_config.directory.project+'/'+r.image" class="img-responsive project-related" :alt="r.title_vi">
@@ -77,6 +77,7 @@
             </div>
         </div>
     </div>
+    <contact/>
 </section>
 </template>
 
@@ -85,7 +86,11 @@ import axios from "axios";
 import {
     environment
 } from "~/plugins/config.js";
+import Contact from "~/components/home/Contact.vue";
 export default {
+    components:{
+        Contact
+    },
     async asyncData({
         route
     }) {

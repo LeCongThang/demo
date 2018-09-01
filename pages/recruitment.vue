@@ -93,6 +93,7 @@
             </div>
         </div>
     </div>
+    <contact/>
 </section>
 </template>
 
@@ -101,7 +102,11 @@ import axios from "axios";
 import {
     environment
 } from "~/plugins/config.js";
+import Contact from "~/components/home/Contact.vue";
 export default {
+    components:{
+        Contact
+    },
     async asyncData() {
         let [recruitment] = await Promise.all([axios.get(environment.apiUrl + "recruitment")]);
         return {

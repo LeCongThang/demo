@@ -7,7 +7,7 @@
     </div>
     <div class="project-page" style="padding-top: 30px;">
         <div class="container">
-            <div class="row">
+            <div class="row main-content">
                 <div class="col-md-9">
                     <div class="ed-filter">
                         <button class="active filter-button" data-filter="all">Tất cả</button>
@@ -67,13 +67,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 sidebar__inner">
                     <form-submit :className="`project-form`" :project="projectData.projects.data" :lang="lang" />
                 </div>
                 <hr id="neo" style="border-top:1px solid rgb(209, 209, 209);">
             </div>
         </div>
     </div>
+    <contact/>
 </section>
 </template>
 
@@ -83,9 +84,11 @@ import {
     environment
 } from "~/plugins/config.js";
 import FormSubmit from "~/components/project/FormSubmit.vue";
+import Contact from "~/components/home/Contact.vue";
 export default {
     components: {
-        FormSubmit
+        FormSubmit,
+        Contact
     },
     async asyncData() {
         let [project] = await Promise.all([
@@ -141,20 +144,23 @@ export default {
         $("a[href=\"" + url + "\"]")
             .parent()
             .addClass("active");
-        if ($( window ).width() > 1024) {
-            var neo = $('.top-footer').offset().top - 770;
-            $(window).scroll(function () {
-                if ($(window).scrollTop() <= neo && $(window).scrollTop() >= 370) {
-                    $('.project-form').css('top', $(window).scrollTop() - 370)
-                } else if ($(window).scrollTop() > neo) {
-                    $('.project-form').css('top', neo - 330)
-                } else {
-                    $('.project-form').css('top', 0)
+        if (process.browser) {
+            window.onNuxtReady((app) => {
+                if ($(window).width() > 1024) {
+                    var neo = $('.top-footer').offset().top - 770;
+                    $(window).scroll(function () {
+                        if ($(window).scrollTop() <= neo && $(window).scrollTop() >= 370) {
+                            $('.project-form').css('top', $(window).scrollTop() - 370)
+                        } else if ($(window).scrollTop() > neo) {
+                            $('.project-form').css('top', neo - 330)
+                        } else {
+                            $('.project-form').css('top', 0)
+                        }
+
+                    });
                 }
-
-            });
+            })
         }
-
     }
 };
 </script>
@@ -175,7 +181,7 @@ export default {
 }
 
 .project-form {
-    position: relative;
+    /* position: relative; */
     top: 0;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 32px 24px;

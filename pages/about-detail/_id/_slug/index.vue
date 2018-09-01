@@ -93,8 +93,9 @@
                                         <div class="txt-box-recuitment">
                                             <h4><b>Võ Văn Hải</b></h4>
                                             <h6>GIÁM ĐỐC ĐIỀU HÀNH</h6>
-                                            <a href="tel:0909932525">0909 932 525</a><br>
-                                            <a href="mailto:leehai@ccr.vn">leehai@ccr.vn</a>
+                                            <div class="btn-page text-center">
+                                                <nuxt-link to="">{{$t('common.readmore')}}</nuxt-link>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -105,8 +106,9 @@
                                         <div class="txt-box-recuitment">
                                             <h4><b>Leo Vũ</b></h4>
                                             <h6>GIÁM ĐỐC KINH DOANH & TIẾP THỊ</h6>
-                                            <a href="tel:0912422424">0912 422 424</a><br>
-                                            <a href="mailto:leovu@centralreal.vn">leovu@centralreal.vn</a>
+                                            <div class="btn-page text-center">
+                                                <nuxt-link to="">{{$t('common.readmore')}}</nuxt-link>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -116,8 +118,9 @@
                                         <div class="txt-box-recuitment">
                                             <h4><b>Phan Thị Hồng</b></h4>
                                             <h6>GIÁM ĐỐC KHỐI SALE MASTER</h6>
-                                            <a href="tel:0917270818">0917 270 818</a><br>
-                                            <a href="mailto:rosehongbds@gmail.com">rosehongbds@gmail.com</a>
+                                            <div class="btn-page text-center">
+                                                <nuxt-link to="">{{$t('common.readmore')}}</nuxt-link>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -127,8 +130,9 @@
                                         <div class="txt-box-recuitment">
                                             <h4><b>Nguyễn Trần Lộc</b></h4>
                                             <h6>QUẢN TRỊ KINH DOANH KỸ THUẬT</h6>
-                                            <a href="tel:0945537007">0945 537 007</a><br>
-                                            <a href="mailto:kenloc@ccr.vn">kenloc@ccr.vn</a>
+                                            <div class="btn-page text-center">
+                                                <nuxt-link to="">{{$t('common.readmore')}}</nuxt-link>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -139,29 +143,32 @@
             </div>
         </div>
     </div>
-
+    <contact/>
 </section>
 </template>
 
 <script>
+import Contact from "~/components/home/Contact.vue";
 export default {
-  mounted() {
-      var url = "/aboutus";
+    components: {
+        Contact
+    },
+    mounted() {
+        var url = "/aboutus";
         $("ul.nav > li").removeClass("active");
-        $("a[href=\"" + url + "\"]")
+        $('a[href="' + url + '"]')
             .parent()
             .addClass("active");
-    const id = this.$route.params.id;
-    $('#menu'+id).addClass('active in');
-    $('li.menu'+id).addClass('active');
-    
-  }
+        const id = this.$route.params.id;
+        $("#menu" + id).addClass("active in");
+        $("li.menu" + id).addClass("active");
+    }
 };
 </script>
 
 <style>
 .leader {
-  border: 1px solid rgba(43, 47, 52, 0.1);
-  padding: 3px;
+    border: 1px solid rgba(43, 47, 52, 0.1);
+    padding: 3px;
 }
 </style>
