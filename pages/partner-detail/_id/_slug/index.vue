@@ -23,6 +23,28 @@
                     </ul>
                 </div>
             </div>
+            <div class="col-sm-12 event-highlight-page">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="title-page text-center">
+                                <h2>Đối tác
+                                    <strong>Liên Quan</strong>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3" v-for="(p) in partnerData.partner_related" :key="p.id">
+                            <div class="box-event-page">
+                                <nuxt-link :to="`/partner-detail/${p.id}/${p.slug}`">
+                                    <img :src="$store.state.system_config.directory.partner+'/'+p.image" class="img-responsive" :alt="p.name">
+                                </nuxt-link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <contact/>
@@ -36,7 +58,7 @@ import {
 } from "~/plugins/config.js";
 import Contact from "~/components/home/Contact.vue";
 export default {
-    components:{
+    components: {
         Contact
     },
     async asyncData({

@@ -2,9 +2,9 @@
 <section class="wrapper">
     <div class="container">
         <div class="row">
-            <h1 class="text-center" style="text-transform:uppercase">{{lang ? gallery.title_vi : gallery.title_en}}</h1>
-            <div class="col-md-4 no-padding" v-for="g in gallery.gallery_images" :key="g.id">
-                <img v-img:my-group :src="$store.state.system_config.directory.gallery+'/'+g.image" :alt="gallery.title_vi" class="img-responsive img-gallery" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out" />
+            <h1 class="text-center" style="text-transform:uppercase">{{lang ? gallery.gallery.title_vi : gallery.gallery.title_en}}</h1>
+            <div class="col-md-4 no-padding" v-for="g in gallery.gallery.gallery_images" :key="g.id">
+                <img v-img:my-group :src="$store.state.system_config.directory.gallery+'/'+g.image" :alt="gallery.gallery.title_vi" class="img-responsive img-gallery" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out" />
             </div>
             <div class="col-sm-12 share-likes">
                 <ul>
@@ -13,6 +13,34 @@
                                         <i class="fa fa-facebook"></i> Share</a>
                     </li>
                 </ul>
+            </div>
+            <div class="col-sm-12 event-highlight-page">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="title-page text-center">
+                                <h2>Thu Viện
+                                    <strong>Liên Quan</strong>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4" v-for="(p) in gallery.gallery_related" :key="p.id">
+                            <div class="box-event-page">
+                                <nuxt-link :to="`/gallery-detail/${p.id}/${p.slug}`">
+                                    <img :src="$store.state.system_config.directory.gallery+'/'+p.gallery_images[0].image" class="img-responsive project-related" :alt="p.name">
+                                </nuxt-link>
+                                <div class="txt-box-event-page">
+                                        <nuxt-link :to="`/gallery-detail/${p.id}/${p.slug}`">
+                                            <h4>{{lang?p.title_vi:p.title_en}}</h4>
+                                        </nuxt-link>
+                                        
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -59,28 +87,28 @@ export default {
     },
     head() {
         return {
-            title: this.gallery.title_vi,
+            title: this.gallery.gallery.title_vi,
             meta: [{
                     hid: "description",
                     name: "description",
-                    content: this.gallery.title_vi + " Centralreal.vn"
+                    content: this.gallery.gallery.title_vi + " Centralreal.vn"
                 },
                 {
                     hid: "og:title",
                     name: "og:title",
-                    content: this.gallery.title_vi
+                    content: this.gallery.gallery.title_vi
                 },
                 {
                     hid: "og:description",
                     name: "og:description",
-                    content: this.gallery.title_vi + " Centralreal.vn"
+                    content: this.gallery.gallery.title_vi + " Centralreal.vn"
                 },
                 {
                     hid: "og:image",
                     name: "og:image",
                     content: this.$store.state.system_config.directory.gallery +
                         "/" +
-                        this.gallery.gallery_images[0].image
+                        this.gallery.gallery.gallery_images[0].image
                 }
             ]
         };
