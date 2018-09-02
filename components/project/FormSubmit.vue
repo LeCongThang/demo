@@ -9,7 +9,7 @@
     </div>
     <div class="form-group">
         <div class="col-sm-12">
-            <select class="form-control" name="eventId" v-model="eventId">
+            <select class="form-control" name="eventId" v-model="eventId" tabindex="-1">
                 <option v-for="p in project" :key="p.id" :value="p.id">{{p.title_vi}}</option>
             </select>
         </div>

@@ -93,22 +93,11 @@
                 <div class="col-md-4">
                     <div class="big-slider">
                         <div class="product-img">
-                            <div class="item-img">
-                                <img src="/images/partner/logo-vcbank.jpg" alt="">
+                            <div class="item-img" v-for="p in partnerData.partner_bank" :key="p.id">
+                                <nuxt-link :to="`/partner-detail/${p.id}/${p.slug}`">
+                                    <img :src="$store.state.system_config.directory.partner+'/'+p.image" alt="centralreal.vn" class="img-responsive">
+                                </nuxt-link>
                             </div>
-                            <div class="item-img">
-                                <img src="/images/partner/ocb-bank-1.jpg" alt="">
-                            </div>
-                            <div class="item-img">
-                                <img src="/images/partner/logo-vibbank.jpg" alt="">
-                            </div>
-                            <div class="item-img">
-                                <img src="/images/partner/tp-bank.jpg" alt="">
-                            </div>
-                            <div class="item-img">
-                                <img src="/images/partner/vp-bank.jpg" alt="">
-                            </div>
-
                         </div>
                     </div>
                 </div>

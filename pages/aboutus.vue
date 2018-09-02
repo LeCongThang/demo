@@ -12,11 +12,17 @@
             <div class="col-sm-12">
                 <div class="video-about">
                     <div class="ed-video" data-aos="fade-right" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
-                        <iframe width="80%" height="550" src="https://www.youtube.com/embed/CiXMABVFXAw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <!-- <iframe width="80%" height="550" src="https://www.youtube.com/embed/CiXMABVFXAw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+                        <div v-if="aboutus.is_show">
+                        <iframe width="80%" height="550" :src="aboutus.embed_link" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     </div>
-                    <div class="txt-intro-about wow fadeInRight" data-aos="fade-left" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
-                        <p style="text-align: justify;">Là một doanh nghiệp hoạt động nhiều năm trong lĩnh vực bất động sản, theo phương châm hoạt động “Trao niềm tin – Xây hạnh phúc”, CentralReal luôn nỗ lực phát triển hướng đến giá trị gia tăng bền vững cho khách hàng, chủ đầu tư,
-                            cho chính doanh nghiệp và cho xã hội.</p>
+                    <div v-else>
+                        <img :src="$store.state.system_config.directory.about+'/'+aboutus.image" width="80%" alt="Centralreal.vn" />
+                    </div>
+                    </div>
+                    <div class="txt-intro-about" data-aos="fade-left" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
+                        <p style="text-align: justify;" v-if="lang" v-html="aboutus.content_vi"></p>
+                        <p style="text-align: justify;" v-else v-html="aboutus.content_en"></p>
                     </div>
                 </div>
             </div>

@@ -1879,12 +1879,12 @@ footer .bottom-footer p {
 
 .video-about .txt-intro-about {
   position: absolute;
-  right: 50px;
-  top: 50%;
-  width: 25%;
+  right: 0;
+  top: 30%;
+  width: 35%;
   transform: translateY(-50%);
   background: #ff0000;
-  padding: 30px 15px;
+  padding: 30px 15px 15px;
   text-align: center;
   border: 10px solid #fff;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.175);
@@ -2370,7 +2370,6 @@ footer .bottom-footer p {
 }
 
 .big-slider .product-img {
-  padding-left: 10px;
   position: relative;
 }
 
@@ -2890,9 +2889,8 @@ h4.des {
 .txt-partner-page {
   width: 80%;
   color: #333333;
-  background: url(../images/backgroud/border.png) no-repeat;
-  background-size: cover;
-  padding: 37px;
+  border: 3px solid #024e9f;
+  padding: 30px;
   margin: auto;
 }
 
@@ -3176,4 +3174,10 @@ h4.des {
 .no-padding{
   padding-left: 0px;
   padding-right: 0px;
+}
+select > option[value=""] {
+  display: none;
+}
+.slick-dotted.slick-slider{
+  margin:15px 0 10px;
 }
