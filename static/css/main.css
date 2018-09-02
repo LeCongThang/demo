@@ -3175,9 +3175,6 @@ h4.des {
   padding-left: 0px;
   padding-right: 0px;
 }
-select > option[value=""] {
-  display: none;
-}
-.slick-dotted.slick-slider{
+.product-img.slick-slider{
   margin:15px 0 10px;
 }
