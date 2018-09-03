@@ -23,7 +23,7 @@
                                     </a>
                         </li>
                         <li class="menu3">
-                            <a data-toggle="tab" href="#menu3">Thương hiệu Cantral Real
+                            <a data-toggle="tab" href="#menu3">Thương hiệu Central Real
                                         <i class="fa fa-angle-right"></i>
                                     </a>
                         </li>
@@ -87,51 +87,14 @@
                         </div>
                         <div id="menu4" class="tab-pane fade">
                             <div class="row">
-                                <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
+                                <div class="col-md-3 col-sm-6" v-for="l in leadership" :key="l.id" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1000" data-aos-easing="ease-in-out">
                                     <div class="text-center leader">
-                                        <img src="/images/about/ban-lanh-dao-01.png" class="img-responsive">
+                                        <img :src="$store.state.system_config.directory.people+'/'+l.avatar" :alt="l.name_vi" class="img-responsive">
                                         <div class="txt-box-recuitment">
-                                            <h4><b>Võ Văn Hải</b></h4>
-                                            <h6>GIÁM ĐỐC ĐIỀU HÀNH</h6>
+                                            <h4><b>{{lang ? l.name_vi : l.name_en}}</b></h4>
+                                            <h6>{{lang ? l.position_vi : l.position_en}}</h6>
                                             <div class="btn-page text-center">
-                                                <nuxt-link to="">{{$t('common.readmore')}}</nuxt-link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1000" data-aos-easing="ease-in-out">
-                                    <div class="text-center leader">
-                                        <img src="/images/about/ban-lanh-dao-03.png" class="img-responsive">
-                                        <div class="txt-box-recuitment">
-                                            <h4><b>Leo Vũ</b></h4>
-                                            <h6>GIÁM ĐỐC KINH DOANH & TIẾP THỊ</h6>
-                                            <div class="btn-page text-center">
-                                                <nuxt-link to="">{{$t('common.readmore')}}</nuxt-link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-in-out">
-                                    <div class="text-center leader">
-                                        <img src="/images/about/ban-lanh-dao-02.png" class="img-responsive">
-                                        <div class="txt-box-recuitment">
-                                            <h4><b>Phan Thị Hồng</b></h4>
-                                            <h6>GIÁM ĐỐC KHỐI SALE MASTER</h6>
-                                            <div class="btn-page text-center">
-                                                <nuxt-link to="">{{$t('common.readmore')}}</nuxt-link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000" data-aos-easing="ease-in-out">
-                                    <div class="text-center leader">
-                                        <img src="/images/about/ban-lanh-dao-04.png" class="img-responsive">
-                                        <div class="txt-box-recuitment">
-                                            <h4><b>Nguyễn Trần Lộc</b></h4>
-                                            <h6>QUẢN TRỊ KINH DOANH KỸ THUẬT</h6>
-                                            <div class="btn-page text-center">
-                                                <nuxt-link to="">{{$t('common.readmore')}}</nuxt-link>
+                                                <nuxt-link :to="`/leadership/${l.id}/${l.slug}`">{{$t('common.readmore')}}</nuxt-link>
                                             </div>
                                         </div>
                                     </div>
@@ -148,8 +111,28 @@
 </template>
 
 <script>
+import axios from "axios";
+import {
+    environment
+} from "~/plugins/config.js";
 import Contact from "~/components/home/Contact.vue";
 export default {
+    async asyncData() {
+        let {
+            data
+        } = await axios.get(environment.apiUrl + "leadership");
+        return {
+            leadership: data.data
+        };
+    },
+    computed: {
+        lang() {
+            if (this.$store.state.lang == "vi") {
+                return true;
+            }
+            return false;
+        }
+    },
     components: {
         Contact
     },

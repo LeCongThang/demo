@@ -58,11 +58,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="text-center paging" v-if="projectData.last_page>1">
+                        <div class="text-center paging" v-if="projectData.projects.last_page>1">
                             <div class="btn-group" role="group">
                                 <button type="button" v-on:click="getProjectData(1)" class="btn btn-md btn-default"><i class="fa fa-angle-double-left" aria-hidden="true"></i></button>
-                                <button type="button" v-for="page in projectData.last_page" :key="page" v-on:click="getProjectData(page)" :class="`btn btn-md btn-default ${genCurrentPageActive(page)}`">{{page}}</button>
-                                <button type="button" v-on:click="getProjectData(projectData.last_page)" class="btn btn-md btn-default"><i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+                                <button type="button" v-for="page in projectData.projects.last_page" :key="page" v-on:click="getProjectData(page)" :class="`btn btn-md btn-default ${genCurrentPageActive(page)}`">{{page}}</button>
+                                <button type="button" v-on:click="getProjectData(projectData.projects.last_page)" class="btn btn-md btn-default"><i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
                             </div>
                         </div>
                     </div>
@@ -116,7 +116,7 @@ export default {
             this.$nuxt.$loading.finish();
         },
         genCurrentPageActive(page) {
-            if (this.projectData.current_page == page) {
+            if (this.projectData.projects.current_page == page) {
                 return "curent-page";
             } else {
                 return "";

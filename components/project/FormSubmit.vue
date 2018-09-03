@@ -57,9 +57,9 @@ export default {
                 name: this.name,
                 email: this.email,
                 phone: this.phone,
-                event_id: this.eventId
+                project_id: this.eventId
             };
-            axios.post(environment.apiUrl + "event-register", dataContact, {
+            axios.post(environment.apiUrl + "project-register", dataContact, {
                     headers: {
                         "Content-type": "application/json"
                     }

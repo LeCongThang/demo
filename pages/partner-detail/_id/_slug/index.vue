@@ -2,8 +2,8 @@
 <section class="wrapper">
     <div class="banner-partner-page">
         <div class="banner-partner-page-1">
-            <h4>{{partnerData.name}}</h4>
-            <img :src="$store.state.system_config.directory.partner+'/'+partnerData.partner.image" alt="centralreal">
+            <h4>{{partnerData.partner.name}}</h4>
+            <img :src="$store.state.system_config.directory.partner+'/'+partnerData.partner.image" alt="centralreal" style="max-width:300px;">
         </div>
 
     </div>
@@ -69,6 +69,32 @@ export default {
         ]);
         return {
             partnerData: partner.data.data
+        };
+    },
+    head() {
+        return {
+            title: this.partnerData.partner.name,
+            meta: [{
+                    hid: "description",
+                    name: "description",
+                    content: this.partnerData.partner.description_vi
+                },
+                {
+                    hid: "og:title",
+                    name: "og:title",
+                    content: this.partnerData.partner.name
+                },
+                {
+                    hid: "og:description",
+                    name: "og:description",
+                    content: this.partnerData.partner.description_vi
+                },
+                {
+                    hid: "og:image",
+                    name: "og:image",
+                    content: this.$store.state.system_config.directory.partner + '/' + this.partnerData.partner.image
+                }
+            ]
         };
     },
     computed: {

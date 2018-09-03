@@ -55,12 +55,9 @@
             <h4>{{$t('links.news')}}</h4>
         </div>
     </div>
-    <div class="news-highlight-2">
+    <div class="news-highlight">
         <div class="container">
             <div class="row">
-                <div class="title-page text-center">
-                    <h2><strong>{{$t('links.news')}}</strong></h2>
-                </div>
                 <div class="col-md-4" v-for="n in newsData.data" :key="n.id">
                     <nuxt-link :to="`/news-detail/${n.id}/${n.slug}`" class="box-222">
                         <img :src="$store.state.system_config.directory.news+'/'+n.image_thumbnail" class="img-responsive" :alt="n.title_vi" style="height:220px !important">

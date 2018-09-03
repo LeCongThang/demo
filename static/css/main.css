@@ -2027,10 +2027,6 @@ footer .bottom-footer p {
   color: #fff;
 }
 
-.event-1 {
-  padding: 50px 0;
-}
-
 @media screen and (max-width: 991px) {
   .event-1 .video-left {
     margin-bottom: 30px;
@@ -2180,7 +2176,7 @@ footer .bottom-footer p {
 }
 
 .news-highlight {
-  padding: 50px 0;
+  padding: 10px 0;
 }
 
 .news-highlight .box-news-page {

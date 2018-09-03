@@ -33,8 +33,7 @@
                 </div>
                 <div class="col-md-8">
                     <div class="txt-partner-page">
-                        <p>CentralReal tự hào khi được các chủ đầu tư uy tín trong và ngoài nước tin tưởng chọn hợp tác và phát triển nhiều dự án bất động sản đa dạng trên thị trường. CentralReal xác định luôn song hành cùng Chủ Đầu Tư mang đến những giá
-                            trị Bất Đông Sản tốt nhất cho khách hàng và tối ưu hoá giá trị đầu tư.</p>
+                        <p>{{lang ? $store.state.system_config.config.partner_invester_vi: $store.state.system_config.config.partner_invester_en}}</p>
                     </div>
                 </div>
             </div>
@@ -57,8 +56,7 @@
             <div class="row row-flex">
                 <div class="col-md-8 col-sm-12">
                     <div class="txt-partner-page">
-                        <p>Với hơn 4 năm kinh nghiệm phát triển, phân phối thành công nhiều dự án, cùng việc ý thức được tầm quan trọng của những “cộng sự”, DKRV đã xây dựng, hợp tác và phát triển mạng lưới lên đến hơn 300 đối tác sàn liên kết trên toàn
-                            quốc tạo nên một DKRV có nội lực vững bền sẵn sàng chinh phục mọi thách thức từ thị trường, chủ đầu tư và khách hàng.</p>
+                        <p>{{lang ? $store.state.system_config.config.partner_connect_vi: $store.state.system_config.config.partner_connect_en}}</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-12">
@@ -103,8 +101,7 @@
                 </div>
                 <div class="col-md-8">
                     <div class="txt-partner-page">
-                        <p>CentralReal tự hào khi được các chủ đầu tư uy tín trong và ngoài nước tin tưởng chọn hợp tác và phát triển nhiều dự án bất động sản đa dạng trên thị trường. CentralReal xác định luôn song hành cùng Chủ Đầu Tư mang đến những giá
-                            trị Bất Đông Sản tốt nhất cho khách hàng và tối ưu hoá giá trị đầu tư.</p>
+                        <p>{{lang ? $store.state.system_config.config.partner_bank_vi: $store.state.system_config.config.partner_bank_en}}</p>
                     </div>
                 </div>
             </div>
