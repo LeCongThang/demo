@@ -1,5 +1,5 @@
 <template>
-<form id="frmDangKy" @submit.prevent="sendInfo" :class="`${className} form-horizontal`">
+<form @submit.prevent="sendInfo" class="project-form form-horizontal`" v-sticky data-aos="fade-left" :data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
     <input type="hidden" name="_token" id="token" value="wx4gvSzwJvrY83W68FfCTel16gWRGnD6VdJ9rt7Q">
     <div class="form-group text-center">
         <h4 style="color: white;font-weight: bold">Liên hệ ngay</h4>
@@ -49,7 +49,7 @@ export default {
         name: "",
         email: "",
         phone: "",
-        eventId: ""
+        eventId: "",
     },
     methods: {
         sendInfo: function () {

@@ -12,7 +12,7 @@
     </div>
 
     <div class="box-pj-dt">
-        <div class="container">
+        <div class="container" sticky-container>
             <div class="col-md-9">
                 <h1 class="text-center" style="text-transform:uppercase" v-if="lang" v-html="project.project.title_vi" data-aos="fade-down" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out"></h1>
                 <h1 class="text-center" style="text-transform:uppercase" v-else v-html="project.project.title_en" data-aos="fade-down" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out"></h1>
@@ -132,23 +132,6 @@ export default {
         $("a[href=\"" + url + "\"]")
             .parent()
             .addClass("active");
-        if (process.browser) {
-            window.onNuxtReady((app) => {
-                if ($(window).width() > 1024) {
-                    var neo = $('.share-likes').position().top - $('.project-detail-form').innerHeight();
-                    $(window).scroll(function () {
-                        if ($(window).scrollTop() < neo && $(window).scrollTop() > 800) {
-                            $('.project-detail-form').css('top', $(window).scrollTop() - 750)
-                        } else if ($(window).scrollTop() > neo) {
-                            $('.project-detail-form').css('top', neo - 900)
-                        } else {
-                            $('.project-detail-form').css('top', 0)
-                        }
-                    });
-                }
-            })
-        }
-
     }
 };
 </script>
@@ -156,13 +139,5 @@ export default {
 <style>
 .container>.row>img {
     width: 100% !important
-}
-
-.project-detail-form {
-    position: relative;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 32px 24px;
-    box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.2)
 }
 </style>

@@ -115,7 +115,7 @@ module.exports = {
    */
 
   build: {
-    vendor: ['axios', 'vue-i18n', 'jquery', 'bootstrap', 'slick-carousel', 'aos', 'vue-countup-v2', 'v-img'],
+    vendor: ['axios', 'vue-i18n', 'jquery', 'bootstrap', 'slick-carousel', 'aos', 'vue-countup-v2', 'v-img','vue-sticky-directive'],
     plugins: [
       new webpack.ProvidePlugin({
         $: 'jquery',
@@ -165,6 +165,10 @@ module.exports = {
     },
     {
       src: '~plugins/v-img.js',
+      ssr: false
+    },
+    {
+      src: '~plugins/vue-sticky.js',
       ssr: false
     },
   ],

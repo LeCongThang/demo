@@ -7,7 +7,7 @@
     </div>
     <div class="project-page" style="padding-top: 30px;">
         <div class="container">
-            <div class="row main-content">
+            <div class="row main-content" sticky-container>
                 <div class="col-md-9">
                     <div class="ed-filter">
                         <button class="active filter-button" data-filter="all">Tất cả</button>
@@ -67,7 +67,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 sidebar__inner">
+                <div class="col-md-3">
                     <form-submit :className="`project-form`" :project="projectData.projects.data" :lang="lang" />
                 </div>
                 <hr id="neo" style="border-top:1px solid rgb(209, 209, 209);">
@@ -144,23 +144,6 @@ export default {
         $("a[href=\"" + url + "\"]")
             .parent()
             .addClass("active");
-        if (process.browser) {
-            window.onNuxtReady((app) => {
-                if ($(window).width() > 1024) {
-                    var neo = $('.top-footer').offset().top - 770;
-                    $(window).scroll(function () {
-                        if ($(window).scrollTop() <= neo && $(window).scrollTop() >= 370) {
-                            $('.project-form').css('top', $(window).scrollTop() - 370)
-                        } else if ($(window).scrollTop() > neo) {
-                            $('.project-form').css('top', neo - 330)
-                        } else {
-                            $('.project-form').css('top', 0)
-                        }
-
-                    });
-                }
-            })
-        }
     }
 };
 </script>
@@ -178,14 +161,6 @@ export default {
 
 .project-title h4 strong {
     text-transform: uppercase;
-}
-
-.project-form {
-    /* position: relative; */
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 32px 24px;
-    box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.2)
 }
 
 .img-project-height-36 {

@@ -23,7 +23,8 @@
     "slick-carousel": "^1.8.1",
     "v-img": "^0.2.0",
     "vue-countup-v2": "^1.0.3",
-    "vue-i18n": "^8.0.0"
+    "vue-i18n": "^8.0.0",
+    "vue-sticky-directive": "0.0.6"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
