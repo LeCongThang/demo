@@ -1163,14 +1163,10 @@ footer .top-footer .logo-ft>li>i {
   .kenit-alo-phone span {
     width: 120px;
   }
-
-  .gallery-home .ed-gallery .home-gallery .caption {
-    top: 0;
-  }
   .gallery-home .ed-gallery .home-gallery .caption {
     padding-left: 20px;
     padding-right: 20px;
-    height: 40px;
+    height: 35px;
     position: relative;
     bottom: 0;
     left: 0;
@@ -1187,6 +1183,24 @@ footer .top-footer .logo-ft>li>i {
   font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
+}
+.gallery-home .ed-gallery .home-gallery:focus .caption {
+  height: 100%;
+  display: table;
+}
+
+.gallery-home .ed-gallery .home-gallery:focus .caption .title {
+  border-bottom: 1px solid white;
+}
+
+.gallery-home .ed-gallery .home-gallery:focus .caption .cc {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  float: left;
+  -ms-transform: translate(-25%, -50%);
+  transform: translate(-25%, -50%);
 }
 .gallery-home .ed-gallery .home-gallery:hover .caption .cc1 {
   margin: 0;
