@@ -62,7 +62,7 @@ export default {
         name: "",
         email: "",
         phone: "",
-        eventId: ""
+        eventId: 0
     },
     props: ["events", "lang"],
     methods: {

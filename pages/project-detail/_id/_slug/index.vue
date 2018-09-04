@@ -20,7 +20,7 @@
                 <p v-else v-html="project.project.description_en" class="content-des"></p>
             </div>
             <div class="col-md-3">
-                <form-submit :className="`project-detail-form`" :project="[project.project]" :lang="lang" />
+                <form-submit :project="[project.project]" :lang="lang" />
             </div>
         </div>
     </div>

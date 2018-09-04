@@ -1,41 +1,66 @@
 <template>
-<form @submit.prevent="sendInfo" class="project-form form-horizontal`" v-sticky data-aos="fade-left" :data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
-    <input type="hidden" name="_token" id="token" value="wx4gvSzwJvrY83W68FfCTel16gWRGnD6VdJ9rt7Q">
-    <div class="form-group text-center">
-        <h4 style="color: white;font-weight: bold">Liên hệ ngay</h4>
-        <h3 class="maudo">094 915 2424</h3>
-        <h5 style="color: white;">‎Hotline: 028 7307 5555</h5>
-        <p style="color: white;">Nhập thông tin để được tư vấn miễn phí và nhanh nhất.</p>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-12">
-            <select class="form-control" name="eventId" v-model="eventId" tabindex="-1">
+<div>
+    <!-- <form @submit.prevent="sendInfo" class="project-form form-horizontal`" v-sticky="stickyEnabled" sticky-offset="offset" sticky-side="both">
+        <div class="form-group text-center">
+            <h4 style="color: white;font-weight: bold">Liên hệ ngay</h4>
+            <h3 class="maudo">094 915 2424</h3>
+            <h5 style="color: white;">‎Hotline: 028 7307 5555</h5>
+            <p style="color: white;">Nhập thông tin để được tư vấn miễn phí và nhanh nhất.</p>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <select class="form-control" name="eventId" v-model="eventId" tabindex="-1">
                 <option v-for="p in project" :key="p.id" :value="p.id">{{p.title_vi}}</option>
             </select>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-12">
-            <input type="text" id="name" name="name" v-model="name" class="form-control" placeholder="Họ tên">
+        <div class="form-group">
+            <div class="col-sm-12">
+                <input type="text" id="name" name="name" v-model="name" class="form-control" placeholder="Họ tên">
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <div class="col-sm-12">
-            <input type="email" class="form-control" id="email" v-model="email" name="email" placeholder="Email">
+        <div class="form-group">
+            <div class="col-sm-12">
+                <input type="email" class="form-control" id="email" v-model="email" name="email" placeholder="Email">
+            </div>
         </div>
-    </div>
-    <div class="form-group" style="margin-bottom: 30px">
-        <div class="col-sm-12">
-            <input type="tel" required="" id="phone" name="phone" v-model="phone" class="form-control" placeholder="Số điện thoại" aria-required="true">
+        <div class="form-group" style="margin-bottom: 30px">
+            <div class="col-sm-12">
+                <input type="tel" required="" id="phone" name="phone" v-model="phone" class="form-control" placeholder="Số điện thoại" aria-required="true">
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-12">
-            <button type="submit" id="btnGui" class="btn btn-danger form-control upper">Đăng ký</button>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <button type="submit" id="btnGui" class="btn btn-danger form-control upper">Đăng ký</button>
+            </div>
         </div>
-    </div>
-</form>
+    </form> -->
+    <aside class="form-contact-prj" v-sticky="stickyEnabled" sticky-offset="offset" sticky-side="both">
+        <h4>ĐĂNG KÝ NGAY</h4>
+        <h3 class="phone maudo">094 915 2424</h3>
+        <h5>Hotline: 19000000</h5>
+        <p>Nhập trông tin tư vấn miễn phí và nhanh nhất.</p>
+        <form>
+            <div class="form-group">
+                <select class="form-control" id="sel1" name="eventId">
+                    <option v-for="p in project" :key="p.id" :value="p.id">{{p.title_vi}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="text" id="name" name="name" v-model="name" class="form-control" :placeholder="$t('contact.name')">
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" id="email" v-model="email" name="email" placeholder="Email">
+            </div>
+            <div class="form-group" style="margin-bottom: 30px">
+                <input type="tel" required="" id="phone" name="phone" v-model="phone" class="form-control" :placeholder="$t('contact.phone')" aria-required="true">
+            </div>
+
+            <button type="submit">Đăng ký</button>
+        </form>
+    </aside>
+</div>
 </template>
 
 <script>
@@ -44,12 +69,17 @@ import {
     environment
 } from "~/plugins/config.js";
 export default {
-    props:['className','project', 'lang'],
+    props: ['project', 'lang'],
     data: {
         name: "",
         email: "",
         phone: "",
-        eventId: "",
+        eventId: 0,
+        offset: {
+            top: 50,
+            bottom: 30
+        },
+        stickyEnabled: true,
     },
     methods: {
         sendInfo: function () {

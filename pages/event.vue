@@ -21,25 +21,24 @@
                 <div class="col-md-4 pd-right-0 left-form">
                     <div class="register-event">
                         <h4 v-html="$t('home.register_event')"></h4>
-                        <form>
+                        <form @submit.prevent="processForm">
                             <div class="form-group">
-                                <select class="form-control">
-                                    <option v-for="(event,index) in event.event_featured" :key="event.id" :selected="index == 0 ? true : false" :value="event.id">{{lang ? event.title_vi : event.title_en}}</option>
-                                </select>
+                                <select class="form-control" v-model="eventId">
+                                <option v-for="(event,index) in event.event_featured" :key="event.id" :selected="index == 0 ? true : false" :value="event.id">{{event.title_vi}}</option>
+                            </select>
                             </div>
                             <div class="form-group">
-                                <input type="text" placeholder="Họ và tên" class="form-control" id="name">
+                                <input type="text" :placeholder="$t('contact.name')" required class="form-control" name="name" v-model="name">
                             </div>
                             <div class="form-group">
-                                <input type="email" placeholder="Email" class="form-control" id="email">
+                                <input type="email" placeholder="Email" required class="form-control" name="email" v-model="email">
                             </div>
                             <div class="form-group">
-                                <input type="text" placeholder="Số điện thoại" class="form-control" id="name">
+                                <input type="text" :placeholder="$t('contact.phone')" required class="form-control" name="phone" v-model="phone">
                             </div>
                             <div class="btn-page text-center">
-                                <a href="#">Gửi</a>
+                                <button class="btn btn-danger" type="submit">{{$t('contact.send_button')}}</button>
                             </div>
-
                         </form>
                     </div>
                 </div>
@@ -120,6 +119,12 @@ import {
 } from "~/plugins/config.js";
 import Contact from "~/components/home/Contact.vue";
 export default {
+    data: {
+        name: "",
+        email: "",
+        phone: "",
+        eventId: 0
+    },
     components: {
         Contact
     },
@@ -145,6 +150,29 @@ export default {
                 return "";
             }
         },
+        processForm: function () {
+            let dataContact = {
+                name: this.name,
+                email: this.email,
+                phone: this.phone,
+                event_id: this.eventId
+            };
+            axios.post(environment.apiUrl + "event-register", dataContact, {
+                    headers: {
+                        "Content-type": "application/json"
+                    }
+                })
+                .then(res => {
+                    alert("done");
+                    this.name = "";
+                    this.email = "";
+                    this.phone = "";
+                    this.eventId = "";
+                })
+                .catch(err => {
+                    this.$router.push("/error");
+                });
+        }
     },
     computed: {
         lang() {

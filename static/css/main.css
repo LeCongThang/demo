@@ -1562,36 +1562,36 @@ footer .bottom-footer p {
   color: #ff0000;
 }
 
-.project-page .form-contact-prj {
+.form-contact-prj {
   background: #9a9a9a;
   padding: 50px 30px;
   transition: all .5s ease;
   text-align: center;
 }
 
-.project-page .form-contact-prj>h4 {
+.form-contact-prj>h4 {
   color: #fff;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 18px;
 }
 
-.project-page .form-contact-prj>h5 {
+.form-contact-prj>h5 {
   font-size: 16px;
   color: #fff;
   font-weight: 300;
 }
 
-.project-page .form-contact-prj p {
+.form-contact-prj p {
   color: #ebebeb;
 }
 
-.project-page .form-contact-prj form input {
+.form-contact-prj form input {
   background: #fff;
   border-radius: 0;
 }
 
-.project-page .form-contact-prj form button {
+.form-contact-prj form button {
   background: #ff0000;
   color: #fff;
   width: 100%;
@@ -1600,7 +1600,7 @@ footer .bottom-footer p {
   transition: all .5s ease;
 }
 
-.project-page .form-contact-prj form button:hover {
+.form-contact-prj form button:hover {
   background: #fff;
   border: 1px solid #ff0000;
   color: #ff0000;
@@ -3177,5 +3177,8 @@ h4.des {
 .project-form {
   background-color: rgba(0, 0, 0, 0.5);
   padding: 32px 24px;
-  box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.2)
+  box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: auto;
+  position: relative;
 }
