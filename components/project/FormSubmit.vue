@@ -39,11 +39,11 @@
     <aside class="form-contact-prj" v-sticky="stickyEnabled" sticky-offset="offset" sticky-side="both">
         <h4>ĐĂNG KÝ NGAY</h4>
         <h3 class="phone maudo">094 915 2424</h3>
-        <h5>Hotline: 19000000</h5>
+        <h5>Hotline: 028 7307 5555</h5>
         <p>Nhập trông tin tư vấn miễn phí và nhanh nhất.</p>
-        <form>
+        <form @submit.prevent="sendInfo">
             <div class="form-group">
-                <select class="form-control" id="sel1" name="eventId">
+                <select class="form-control" id="sel1" name="eventId" v-model="eventId">
                     <option v-for="p in project" :key="p.id" :value="p.id">{{p.title_vi}}</option>
                 </select>
             </div>
