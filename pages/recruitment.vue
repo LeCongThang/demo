@@ -75,13 +75,13 @@
                             </nuxt-link>
                         </li>
                         <li>
-                            <p>Nhân Viên
+                            <p>{{lang ? "Nhân Viên" : "Employee"}}
                                 <span>{{lang ? "Hạn nộp" : "Expire"}}  {{r.date}}</span>
                             </p>
                         </li>
                         <li>
                             <div class="btn-page">
-                                <nuxt-link :to="`/recruitment-detail/${r.id}/${r.slug}`">Xem chi tiết</nuxt-link>
+                                <nuxt-link :to="`/recruitment-detail/${r.id}/${r.slug}`">{{$t('common.readmore')}}</nuxt-link>
                             </div>
                         </li>
                     </ul>
