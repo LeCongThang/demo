@@ -1167,6 +1167,36 @@ footer .top-footer .logo-ft>li>i {
   .gallery-home .ed-gallery .home-gallery .caption {
     top: 0;
   }
+  .gallery-home .ed-gallery .home-gallery .caption {
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 40px;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .7);
+    width: 100%;
+    color: white;
+    text-align: left;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    overflow: hidden;
+}
+.gallery-home .ed-gallery .home-gallery .caption .title {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.gallery-home .ed-gallery .home-gallery:hover .caption .cc1 {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 15% !important;
+  float: left;
+  -ms-transform: translate(-15%, -50%);
+  transform: translate(-15%, -50%);
+}
 }
 
 footer .top-footer .logo-ft li {
