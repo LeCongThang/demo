@@ -22,7 +22,16 @@
     "partner":"Đối tác<strong> tiêu biểu</strong>",
     "news":"Tin tức <strong>nổi bật</strong>",
     "feedback":"Khách hàng<strong> đánh giá</strong>",
-    "gallery":"Thư viện <strong>hình ảnh</strong>"
+    "gallery":"Thư viện <strong>hình ảnh</strong>",
+    "culture":"Company <strong>culture</strong>",
+    "service":"Our <strong>Service</strong>",
+    "investor":"Đối tác <strong>Chủ đầu tư</strong>",
+    "affiliation":"Đối tác <strong>sàn liên kết</strong>",
+    "bank":"Đối tác <strong>ngân hàng</strong>",
+    "why":"Tại sao chọn <strong>Central real</strong>",
+    "recruitment_info":"Thông tin <strong>tuyển dụng</strong>",
+    "register_now":"ĐĂNG KÝ NGAY",
+    "put_info":"Nhập trông tin tư vấn miễn phí và nhanh nhất."
   },
   "about": {
     "title": "About",

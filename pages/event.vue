@@ -11,8 +11,8 @@
                 <div class="col-md-6 col-md-offset-3">
                     <div class="title-page text-center">
                         <h2 v-html="$t('home.register_event')"></h2>
-                        <p>Hơn 50 dự án Central Real đã và đang phân phối bởi các nhà đầu tư uy tín
-                            <br> chất lượng hàng đầu Việt Nam.</p>
+                        <p v-if="lang" v-html="$store.state.system_config.config.title_news_vi"></p>
+                        <p v-else v-html="$store.state.system_config.config.title_news_en"></p>
                     </div>
                 </div>
             </div>
@@ -57,9 +57,9 @@
     <div class="event-1">
         <div class="container">
             <div class="title-page text-center">
-                <h2><strong>Sự kiện</strong></h2>
-                <p>Hơn 50 dự án Central Real đã và đang phân phối bởi các nhà đầu tư uy tín
-                    <br> chất lượng hàng đầu Việt Nam.</p>
+                <h2><strong>{{$t('links.event')}}</strong></h2>
+                <p v-if="lang" v-html="$store.state.system_config.config.title_news_vi"></p>
+                <p v-else v-html="$store.state.system_config.config.title_news_en"></p>
             </div>
             <div v-for="(event,index) in event.event.data" :key="event.id">
                 <div class="row" v-if="(index)%2===0">

@@ -12,9 +12,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 wow animated fadeInUp">
                     <div class="title-page text-center">
-                        <h2>Tại sao chọn
-                            <strong>Central real</strong>
-                        </h2>
+                        <h2 v-html="$t('home.why')"></h2>
                         <p>Chúng tôi mong muốn mang đến cơ hội phát triển nghề nghiệp cho bạn trong lĩnh vực kinh doanh bất động sản. Sự lựa chọn của bạn sẽ là cơ hội cho chúng tôi được học hỏi, chia sẽ và phát triển cùng bạn.</p>
                     </div>
                 </div>
@@ -47,9 +45,7 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <div class="title-page text-center">
-                        <h2>Thông tin
-                            <strong>tuyển dụng</strong>
-                        </h2>
+                        <h2 v-html="$t('home.recruitment_info')"></h2>
                     </div>
 
                 </div>
@@ -80,7 +76,7 @@
                         </li>
                         <li>
                             <p>Nhân Viên
-                                <span>Hạn nộp {{r.date}}</span>
+                                <span>{{lang ? "Hạn nộp" : "Expire"}}  {{r.date}}</span>
                             </p>
                         </li>
                         <li>

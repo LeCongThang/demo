@@ -5,7 +5,8 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="title-page text-center">
                     <h2 v-html="$t('home.feedback')"></h2>
-                    <p>Chào mừng bạn đến với Central Real. Chúng tôi Cam kết mang đến những sản phẩm BĐS nghỉ dưỡng ưu việt, tạo ra giá trị thực cho khách hàng, nhân sự, nhà đầu tư và đối tác, thông qua đó mang lại lợi ích cho cộng đồng.</p>
+                    <p v-if="lang" v-html="$store.state.system_config.config.title_comment_vi"></p>
+                    <p v-else v-html="$store.state.system_config.config.title_comment_en"></p>
                 </div>
             </div>
         </div>
@@ -24,7 +25,8 @@
                                     <span class="fa fa-star checked"></span>
                                     <span class="fa fa-star checked"></span>
                                 </div>
-                                <p v-html="feedback.content_vi"></p>
+                                <p v-if="lang" v-html="feedback.content_vi"></p>
+                                <p v-else v-html="feedback.content_en"></p>
                             </div>
                         </div>
                     </div>

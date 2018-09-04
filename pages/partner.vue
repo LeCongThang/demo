@@ -12,9 +12,7 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <div class="title-page text-center">
-                        <h2>Đối tác
-                            <strong>chủ đầu tư</strong>
-                        </h2>
+                        <h2 v-html="$t('home.investor')"></h2>
                     </div>
                 </div>
             </div>
@@ -46,9 +44,7 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <div class="title-page text-center">
-                        <h2>Đối tác
-                            <strong>sàn liên kết</strong>
-                        </h2>
+                        <h2 v-html="$t('home.affiliation')"></h2>
                     </div>
                 </div>
             </div>
@@ -80,9 +76,7 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <div class="title-page text-center">
-                        <h2>Đối tác
-                            <strong>Ngân Hàng</strong>
-                        </h2>
+                        <h2 v-html="$t('home.bank')"></h2>
                     </div>
                 </div>
             </div>

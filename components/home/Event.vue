@@ -5,8 +5,8 @@
             <div class="col-md-6 col-md-offset-3">
                 <div class="title-page text-center">
                     <h2 v-html="$t('home.event')"></h2>
-                    <p>Hơn 50 dự án Central Real đã và đang phân phối bởi các nhà đầu tư uy tín
-                        <br> chất lượng hàng đầu Việt Nam.</p>
+                    <p v-if="lang" v-html="$store.state.system_config.config.title_news_vi"></p>
+                    <p v-else v-html="$store.state.system_config.config.title_news_en"></p>
                 </div>
             </div>
         </div>

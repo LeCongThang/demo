@@ -23,27 +23,25 @@
                     <div class="col-sm-12">
                         <div class="box-big">
                             <div class="box-small">
-                                <h3>Đăng ký nhận
-                                    <strong>thông tin dự án</strong>
-                                </h3>
+                                <h3 v-html="$t('home.contact')"></h3>
                                 <form class="row" @submit.prevent="postNow">
                                     <div class="form-group col-sm-4">
-                                        <input type="text" class="form-control" required placeholder="Họ và tên" v-model="name">
+                                        <input type="text" class="form-control" required :placeholder="$t('contact.name')" v-model="name">
                                     </div>
                                     <div class="form-group col-sm-4">
                                         <input type="email" class="form-control" required placeholder="Email" v-model="email">
                                     </div>
                                     <div class="form-group col-sm-4">
-                                        <input type="text" class="form-control" required placeholder="Số điện thoại" v-model="phone">
+                                        <input type="text" class="form-control" required :placeholder="$t('contact.phone')" v-model="phone">
                                     </div>
                                     <div class="form-group col-sm-12">
-                                        <input type="text" placeholder="Tiêu đề" required class="form-control" v-model="title">
+                                        <input type="text" :placeholder="$t('contact.title')" required class="form-control" v-model="title">
                                     </div>
                                     <div class="form-group col-sm-12">
-                                        <textarea class="form-control" rows="5" required id="comment" placeholder="Nội dung" v-model="contents"></textarea>
+                                        <textarea class="form-control" rows="5" required id="comment" :placeholder="$t('contact.content')" v-model="contents"></textarea>
                                     </div>
 
-                                    <button type="submit">Gửi tin nhắn</button>
+                                    <button type="submit">{{$t('contact.send_button')}}</button>
                                 </form>
                             </div>
                         </div>

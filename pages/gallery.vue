@@ -6,15 +6,15 @@
             <h4>{{$t('links.library')}}</h4>
         </div>
     </div>
-<section class="gallery-home">
+    <section class="gallery-home">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <div class="title-page text-center">
                         <h2 v-html="$t('home.gallery')">
                         </h2>
-                        <p>Hơn 50 dự án Central Real đã và đang phân phối bởi các nhà đầu tư uy tín
-                            <br> chất lượng hàng đầu Việt Nam.</p>
+                        <p v-if="lang" v-html="$store.state.system_config.config.title_gallery_vi"></p>
+                        <p v-else v-html="$store.state.system_config.config.title_gallery_en"></p>
                     </div>
                 </div>
             </div>
@@ -44,11 +44,10 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 ">
                     <div class="title-page text-center">
-                        <h2>Thư viện
-                            <strong>Video</strong>
+                        <h2><strong>Video</strong>
                         </h2>
-                        <p>Hơn 50 dự án Central Real đã và đang phân phối bởi các nhà đầu tư uy tín
-                            <br> chất lượng hàng đầu Việt Nam.</p>
+                        <p v-if="lang" v-html="$store.state.system_config.config.title_gallery_vi"></p>
+                        <p v-else v-html="$store.state.system_config.config.title_gallery_en"></p>
                     </div>
                 </div>
                 <div class="col-md-9">
@@ -99,7 +98,7 @@ import {
 } from "~/plugins/config.js";
 import Contact from "~/components/home/Contact.vue";
 export default {
-    components:{
+    components: {
         Contact
     },
     async asyncData() {

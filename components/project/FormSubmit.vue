@@ -1,46 +1,10 @@
 <template>
 <div>
-    <!-- <form @submit.prevent="sendInfo" class="project-form form-horizontal`" v-sticky="stickyEnabled" sticky-offset="offset" sticky-side="both">
-        <div class="form-group text-center">
-            <h4 style="color: white;font-weight: bold">Liên hệ ngay</h4>
-            <h3 class="maudo">094 915 2424</h3>
-            <h5 style="color: white;">‎Hotline: 028 7307 5555</h5>
-            <p style="color: white;">Nhập thông tin để được tư vấn miễn phí và nhanh nhất.</p>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-12">
-                <select class="form-control" name="eventId" v-model="eventId" tabindex="-1">
-                <option v-for="p in project" :key="p.id" :value="p.id">{{p.title_vi}}</option>
-            </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-12">
-                <input type="text" id="name" name="name" v-model="name" class="form-control" placeholder="Họ tên">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-sm-12">
-                <input type="email" class="form-control" id="email" v-model="email" name="email" placeholder="Email">
-            </div>
-        </div>
-        <div class="form-group" style="margin-bottom: 30px">
-            <div class="col-sm-12">
-                <input type="tel" required="" id="phone" name="phone" v-model="phone" class="form-control" placeholder="Số điện thoại" aria-required="true">
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-12">
-                <button type="submit" id="btnGui" class="btn btn-danger form-control upper">Đăng ký</button>
-            </div>
-        </div>
-    </form> -->
     <aside class="form-contact-prj" v-sticky="stickyEnabled" sticky-offset="offset" sticky-side="both">
-        <h4>ĐĂNG KÝ NGAY</h4>
+        <h4>{{$t('home.register_now')}}</h4>
         <h3 class="phone maudo">094 915 2424</h3>
         <h5>Hotline: 028 7307 5555</h5>
-        <p>Nhập trông tin tư vấn miễn phí và nhanh nhất.</p>
+        <p>{{$t('home.put_info')}}</p>
         <form @submit.prevent="sendInfo">
             <div class="form-group">
                 <select class="form-control" id="sel1" name="eventId" v-model="eventId">
@@ -57,7 +21,7 @@
                 <input type="tel" required="" id="phone" name="phone" v-model="phone" class="form-control" :placeholder="$t('contact.phone')" aria-required="true">
             </div>
 
-            <button type="submit">Đăng ký</button>
+            <button type="submit">{{$t('contact.send_button')}}</button>
         </form>
     </aside>
 </div>

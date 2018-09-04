@@ -34,7 +34,7 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 wow fadeInDown">
                     <div class="title-page text-center">
-                        <h2>Về
+                        <h2>{{lang ? "Về": "About"}}
                             <strong>Central real</strong>
                         </h2>
                     </div>
@@ -117,41 +117,42 @@
                     <div class="box-ic-about">
                         <img src="images/icon/ic-ab-1.png" alt="">
                         <br/>
-                        <ICountUp :startVal="startVal" :endVal="endVal" :decimals="decimals" :duration="duration" :options="options" @ready="onReady" />
+                        <ICountUp :startVal="startVal" :endVal="endVal" :decimals="decimals" :duration="duration" :options="options" @ready="onReadyClient" />
                         <span>+</span>
                         <br/>
-                        <h4>Nhân sự</h4>
+                        <h4>{{lang ? "Nhân sự" : "Employees"}}</h4>
                     </div>
                 </div>
                 <div class="col-sm-2">
                     <div class="box-ic-about">
                         <img src="images/icon/ic-ab-2.png" alt=""><br/>
-                        <ICountUp :startVal="startVal" :endVal="endVal" :decimals="decimals" :duration="duration" :options="options" @ready="onReady" /><span>+</span>
+                        <ICountUp :startVal="startVal" :endVal="endVal" :decimals="decimals" :duration="duration" :options="options" @ready="onReadyProject" /><span>+</span>
+
                         <br/>
-                        <h4>Dự án</h4>
+                        <h4>{{lang ? "Dự án" : "Projects"}}</h4>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="box-ic-about">
                         <img class="pic-middle" src="images/icon/ic-ab-3.png" alt="">
-                        <h4>Khách hàng hài lòng</h4>
+                        <h4>{{lang ? "Khách hàng hài lòng" : "Customer satisfactions"}}</h4>
                     </div>
                 </div>
                 <div class="col-sm-2">
                     <div class="box-ic-about">
                         <img src="images/icon/ic-ab-4.png" alt=""><br/>
-                        <ICountUp :startVal="startVal" :endVal="endVal" :decimals="decimals" :duration="duration" :options="options" @ready="onReady" /><span>+</span>
+                        <ICountUp :startVal="startVal" :endVal="endVal" :decimals="decimals" :duration="duration" :options="options" @ready="onReadyPartner" /><span>+</span>   
                         <br/>
-                        <h4>Đối tác</h4>
+                        <h4>{{lang ? "Đối tác" : "Partners" }}</h4>
                     </div>
                 </div>
                 <div class="col-sm-2">
                     <div class="box-ic-about">
                         <img src="images/icon/ic-ab-5.png" alt="">
                         <br/>
-                        <ICountUp :startVal="startVal" :endVal="endVal" :decimals="decimals" :duration="duration" :options="options" @ready="onReady" /><span>%</span>
+                        <ICountUp :startVal="startVal" :endVal="endVal" :decimals="decimals" :duration="duration" :options="options" @ready="onReadyRelation" /><span>%</span>
                         <br/>
-                        <h4>Dự án</h4>
+                        <h4>{{lang ? "Tổng số sàn liên kết" : "Affiliation partners"}}</h4>
                     </div>
                 </div>
             </div>
@@ -173,9 +174,7 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3" data-aos="fade-down" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
                     <div class="title-page text-center">
-                        <h2>Chúng tôi có
-                            <strong>dịch vụ</strong>
-                        </h2>
+                        <h2 v-html="$t('home.service')"></h2>
                     </div>
                 </div>
             </div>
@@ -189,7 +188,7 @@
                 <div class="col-sm-4" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
                     <nuxt-link to="/project" class="box-we-service text-center">
                         <img src="images/about/biet-thu-bien.jpg" class="img-responsive">
-                        <h4>Biệt thự biển</h4>
+                        <h4>{{lang ? "Biệt thự biển" : "Beach villa"}}</h4>
                     </nuxt-link>
                 </div>
                 <div class="col-sm-4" data-aos="fade-left" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
@@ -207,9 +206,7 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
                     <div class="title-page text-center">
-                        <h2>Văn hóa
-                            <strong>công ty</strong>
-                        </h2>
+                        <h2 v-html="$t('home.culture')"></h2>
                     </div>
                 </div>
             </div>
@@ -310,7 +307,7 @@ export default {
     data() {
         return {
             startVal: 0,
-            endVal: 10,
+            endVal: 1,
             decimals: 0,
             duration: 2.5,
             options: {
@@ -324,9 +321,21 @@ export default {
         };
     },
     methods: {
-        onReady: function (instance, CountUp) {
+        onReadyClient: function (instance, CountUp) {
             const that = this;
-            instance.update(that.endVal + 90);
+            instance.update(this.aboutus.clients);
+        },
+        onReadyProject: function (instance, CountUp) {
+            const that = this;
+            instance.update(this.aboutus.transports);
+        },
+        onReadyPartner: function (instance, CountUp) {
+            const that = this;
+            instance.update(this.aboutus.projects);
+        },
+        onReadyRelation: function (instance, CountUp) {
+            const that = this;
+            instance.update(this.aboutus.awards);
         }
     },
     head() {

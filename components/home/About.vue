@@ -5,14 +5,15 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="title-page text-center">
                     <nuxt-link to="/aboutus"><h2 v-html="$t('home.about')"></h2></nuxt-link>
-                    <p>Chào mừng bạn đến với Central Real. Chúng tôi Cam kết mang đến những sản phẩm BĐS nghỉ dưỡng ưu việt, tạo ra giá trị thực cho khách hàng, nhân sự, nhà đầu tư và đối tác, thông qua đó mang lại lợi ích cho cộng đồng.</p>
+                    <p v-if="lang" v-html="$store.state.system_config.config.title_about_vi"></p>
+                    <p v-else v-html="$store.state.system_config.config.title_about_en"></p>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-5" data-aos="fade-right" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
                 <div class="txt-left-about-ed2">
-                    <h5>Chúng tôi là ai</h5>
+                    <h5>{{lang ? "Chúng tôi là ai" : "Who we are"}}</h5>
                     <h1 style="margin-top:10px;">{{lang ? $store.state.system_config.config.name_vi:$store.state.system_config.config.name_en}}</h1>
                     <p v-if="lang" v-html="aboutus.content_vi"></p>
                     <p v-else v-html="aboutus.content_en"></p>
@@ -43,7 +44,7 @@
                         :options="options"
                         @ready="onReadyClient"
                     />
-                    <h4 class="des">Tổng số nhân viên</h4>
+                    <h4 class="des">{{lang ? "Tổng số nhân viên" : "Employees"}}</h4>
                 </div>
             </div>
             <div class="col-sm-3">
@@ -57,7 +58,7 @@
                         :options="options"
                         @ready="onReadyProject"
                     />
-                    <h4 class="des">Tổng số dự án</h4>
+                    <h4 class="des">{{lang ? "Tổng số dự án" : "Projects"}}</h4>
                 </div>
             </div>
             <div class="col-sm-3">
@@ -71,7 +72,7 @@
                         :options="options"
                         @ready="onReadyPartner"
                     />
-                    <h4 class="des">Tổng số đối tác</h4>
+                    <h4 class="des">{{lang ? "Tổng số đối tác" : "Partners" }}</h4>
                 </div>
             </div>
             <div class="col-sm-3">
@@ -85,7 +86,7 @@
                         :options="options"
                         @ready="onReadyRelation"
                     />
-                    <h4 class="des">Tổng số sàn liên kết</h4>
+                    <h4 class="des">{{lang ? "Tổng số sàn liên kết" : "Affiliation partners"}}</h4>
                 </div>
             </div>
         </div>
