@@ -10,6 +10,9 @@ module.exports = {
    ** Headers of the page
    */
   head: {
+    htmlAttrs: {
+      lang: 'vi',
+    },
     title: 'CENTRALREAL.VN',
     meta: [{
         charset: "utf-8"

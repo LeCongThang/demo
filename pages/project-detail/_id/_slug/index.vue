@@ -115,14 +115,17 @@ export default {
                     content: this.project.project.keywords
                 },
                 {
+                    hid: "og:title",
                     property: "og:title",
                     content: this.project.project.title_vi
                 },
                 {
+                    hid: "og:description",
                     property: "og:description",
                     content: this.project.project.des_short_vi
                 },
                 {
+                    hid: "og:image",
                     property: "og:image",
                     content: this.$store.state.system_config.directory.project + '/' + this.project.project.image_thumbnail
                 }
