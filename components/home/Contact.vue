@@ -60,8 +60,7 @@ export default {
         email: "",
         phone: "",
         title: "",
-        contents: "",
-        url: process.env.baseUrl
+        contents: ""
     },
     methods: {
         contactForm: function () {
@@ -70,7 +69,7 @@ export default {
                 email: this.email,
                 phone: this.phone,
                 title: this.title,
-                content: this.contents + ". Thông tin liên hệ đã được khách hàng được gửi tại trang: " + process.env.baseUrl + this.$route.fullPath
+                content: this.contents + ". Thông tin liên hệ đã được khách hàng được gửi tại trang: http://centralreal.cf" + this.$route.fullPath
             };
             axios
                 .post(environment.apiUrl + "contact", dataContact, {
