@@ -69,27 +69,27 @@ module.exports = {
       },
       {
         hid: "og:url",
-        property: "og:url",
-        content: "http://centralreal.cf"
+        name: "og:url",
+        content: "centralreal.cf"
       },
       {
         hid: "og:type",
-        property: "og:type",
+        name: "og:type",
         content: "website"
       },
       {
         hid: "og:title",
-        property: "og:title",
+        name: "og:title",
         content: "Centralreal.VN"
       },
       {
         hid: "og:description",
-        property: "og:description",
+        name: "og:description",
         content: "CentralReal - Hệ Thống Phân Phối BĐS Nghỉ Dưỡng Hàng Đầu Việt Nam"
       },
       {
         hid: "og:image",
-        property: "og:image",
+        name: "og:image",
         content: "https://centralreal.cf/images/logo/logo.png"
       }
     ],

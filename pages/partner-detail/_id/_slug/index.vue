@@ -82,17 +82,17 @@ export default {
                 },
                 {
                     hid: "og:title",
-                    property: "og:title",
+                    name: "og:title",
                     content: this.partnerData.partner.name
                 },
                 {
                     hid: "og:description",
-                    property: "og:description",
+                    name: "og:description",
                     content: this.partnerData.partner.description_vi
                 },
                 {
                     hid: "og:image",
-                    property: "og:image",
+                    name: "og:image",
                     content: this.$store.state.system_config.directory.partner + '/' + this.partnerData.partner.image
                 }
             ]

@@ -120,17 +120,17 @@ export default {
                 },
                 {
                     hid: "og:title",
-                    property: "og:title",
+                    name: "og:title",
                     content: this.news.news.title_vi
                 },
                 {
                     hid: "og:description",
-                    property: "og:description",
+                    name: "og:description",
                     content: this.news.news.des_short_vi
                 },
                 {
                     hid: "og:image",
-                    property: "og:image",
+                    name: "og:image",
                     content: this.$store.state.system_config.directory.news + '/' + this.news.news.image_thumbnail
                 }
             ]

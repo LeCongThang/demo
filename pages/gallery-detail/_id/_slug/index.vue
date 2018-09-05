@@ -96,17 +96,17 @@ export default {
                 },
                 {
                     hid: "og:title",
-                    property: "og:title",
+                    name: "og:title",
                     content: this.gallery.gallery.title_vi
                 },
                 {
                     hid: "og:description",
-                    property: "og:description",
+                    name: "og:description",
                     content: this.gallery.gallery.title_vi + " Centralreal.vn"
                 },
                 {
                     hid: "og:image",
-                    property: "og:image",
+                    name: "og:image",
                     content: this.$store.state.system_config.directory.gallery +
                         "/" +
                         this.gallery.gallery.gallery_images[0].image

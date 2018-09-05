@@ -68,12 +68,12 @@ export default {
                 },
                 {
                     hid: "og:title",
-                    property: "og:title",
+                    name: "og:title",
                     content: this.education.title_vi
                 },
                 {
                     hid: "og:description",
-                    property: "og:description",
+                    name: "og:description",
                     content: this.education.title_vi + " Centralreal.vn"
                 }
             ]
