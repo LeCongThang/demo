@@ -135,7 +135,7 @@ module.exports = {
       src: '~/static/css/font-awesome.min.css'
     },
     {
-      src: '~/static/css/animate.css'
+      src: '~/static/css/animate.min.css'
     },
     {
       src: 'slick-carousel/slick/slick.css'

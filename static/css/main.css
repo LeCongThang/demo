@@ -2097,52 +2097,6 @@ footer .bottom-footer p {
   text-transform: uppercase;
   margin: 10px 0 15px;
 }
-
-.event-3 {
-  background: url(../images/backgroud/event-2.jpg) no-repeat;
-  background-size: cover;
-  padding: 30px;
-  margin-bottom: 50px;
-}
-
-.event-3 .box-event-2 {
-  padding: 17px 30px;
-}
-
-.event-3 .box-event-2>h4 {
-  color: #fff;
-  font-size: 25px;
-  text-transform: uppercase;
-  text-align: center;
-  margin: 0;
-  margin-bottom: 30px;
-}
-
-.event-3 .box-event-2 form input,
-.event-3 .box-event-2 form select {
-  border-radius: 0;
-  height: 35px;
-}
-
-.event-3 .box-event-2 form select {
-  cursor: pointer;
-}
-
-.event-3 .box-event-2 form button {
-  text-transform: uppercase;
-  color: #fff;
-  border-radius: 0;
-  border: 0;
-  transition: all .5s ease;
-  background: #ff0000;
-  padding: 5px 15px 3px;
-}
-
-.event-3 .box-event-2 form button:hover {
-  color: #ff0000;
-  background: #fff;
-}
-
 .event-highlight-page {
   margin-bottom: 50px;
 }
