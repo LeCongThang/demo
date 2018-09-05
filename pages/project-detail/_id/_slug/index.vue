@@ -29,8 +29,7 @@
             <div class="col-sm-12 share-likes">
                 <ul>
                     <li>
-                        <a target="_blank" :href="`https://www.facebook.com/sharer/sharer.php?u=http://centralreal.cf${this.$route.fullPath}`">
-                                        <i class="fa fa-facebook"></i> Share</a>
+                        <share :url="this.$route.fullPath"/>
                     </li>
                 </ul>
             </div>
@@ -77,10 +76,12 @@ import {
 } from "~/plugins/config.js";
 import FormSubmit from "~/components/project/FormSubmit.vue";
 import Contact from "~/components/home/Contact.vue";
+import Share from "~/components/Share.vue";
 export default {
     components: {
         FormSubmit,
-        Contact
+        Contact,
+        Share
     },
     async asyncData({
         route
