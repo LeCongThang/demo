@@ -90,22 +90,7 @@ module.exports = {
       {
         hid: "og:image",
         property: "og:image",
-        content: "https://stupefied-almeida-b9a737.netlify.com/resources/images/logo/logo.png"
-      },
-      {
-        hid: "og:image:type",
-        property: "og:image:type",
-        content: "image/jpeg"
-      },
-      {
-        hid: "og:image:width",
-        property: "og:image:width",
-        content: "600"
-      },
-      {
-        hid: "og:image:height",
-        property: "og:image:height",
-        content: "320"
+        content: "https://centralreal.cf/images/logo/logo.png"
       }
     ],
     link: [{
@@ -133,7 +118,7 @@ module.exports = {
    */
 
   build: {
-    vendor: ['axios', 'vue-i18n', 'jquery', 'bootstrap', 'slick-carousel', 'aos', 'vue-countup-v2', 'v-img','vue-sticky-directive'],
+    vendor: ['axios', 'vue-i18n', 'jquery', 'bootstrap', 'slick-carousel', 'aos', 'vue-countup-v2', 'v-img', 'vue-sticky-directive'],
     plugins: [
       new webpack.ProvidePlugin({
         $: 'jquery',
