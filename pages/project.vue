@@ -67,7 +67,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 hidden-xs">
                     <form-submit :className="`project-form`" :project="projectData.projects.data" :lang="lang" />
                 </div>
                 <hr id="neo" style="border-top:1px solid rgb(209, 209, 209);">
