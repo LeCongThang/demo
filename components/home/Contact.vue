@@ -19,7 +19,7 @@
                             <h2 v-html="$t('home.contact')"></h2>
                         </div>
                         <form class="row" @submit.prevent="contactForm">
-                            
+
                             <div class="form-group col-sm-12">
                                 <input type="text" required :placeholder="$t('contact.name')" class="form-control" v-model="name">
                             </div>
@@ -30,10 +30,10 @@
                                 <input type="text" required :placeholder="$t('contact.phone')" class="form-control" v-model="phone">
                             </div>
                             <div class="form-group col-sm-12">
-                                <input type="text" :placeholder="$t('contact.title')" class="form-control" v-model="title">
+                                <input type="text" required :placeholder="$t('contact.title')" class="form-control" v-model="title">
                             </div>
                             <div class="form-group col-sm-12">
-                                <textarea rows="3" :placeholder="$t('contact.content')" id="comment" class="form-control" v-model="contents"></textarea>
+                                <textarea rows="3" required :placeholder="$t('contact.content')" id="comment" class="form-control" v-model="contents"></textarea>
                             </div>
                             <div class="form-group col-sm-12 text-center">
                                 <button type="submit">{{$t('contact.send_button')}}</button>
@@ -45,6 +45,7 @@
             </div>
         </div>
     </div>
+
 </section>
 </template>
 
@@ -59,7 +60,8 @@ export default {
         email: "",
         phone: "",
         title: "",
-        contents: ""
+        contents: "",
+        url: process.env.baseUrl
     },
     methods: {
         contactForm: function () {
@@ -68,7 +70,7 @@ export default {
                 email: this.email,
                 phone: this.phone,
                 title: this.title,
-                content: this.contents
+                content: this.contents + ". Thông tin liên hệ đã được khách hàng được gửi tại trang: " + process.env.baseUrl + this.$route.fullPath
             };
             axios
                 .post(environment.apiUrl + "contact", dataContact, {
@@ -77,7 +79,6 @@ export default {
                     }
                 })
                 .then(res => {
-                    console.log(res);
                     if (res.code == 0) {
                         alert("Fail to send");
                     } else {

@@ -17,7 +17,7 @@
                 <div class="share-likes">
                     <ul>
                         <li>
-                            <a target="_blank" :href="`https://www.facebook.com/sharer/sharer.php?u=http://centralreal.cf${this.$route.fullPath}`">
+                            <a target="_blank" :href="`https://www.facebook.com/sharer/sharer.php?u=${process.env.baseUrl}${this.$route.fullPath}`">
                                         <i class="fa fa-facebook"></i> Share</a>
                         </li>
                     </ul>
