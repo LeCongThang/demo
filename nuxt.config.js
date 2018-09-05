@@ -67,7 +67,7 @@ module.exports = {
       {
         hid: "og:url",
         property: "og:url",
-        content: "http://centralreal.vn"
+        content: "http://centralreal.cf"
       },
       {
         hid: "og:type",
