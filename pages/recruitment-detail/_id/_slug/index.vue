@@ -76,17 +76,17 @@ export default {
                 },
                 {
                     hid: "og:title",
-                    name: "og:title",
+                    property: "og:title",
                     content: this.recruitmentData.title_vi
                 },
                 {
                     hid: "og:description",
-                    name: "og:description",
+                    property: "og:description",
                     content: this.recruitmentData.title_vi + " Centralreal.vn"
                 },
                 {
                     hid: "og:image",
-                    name: "og:image",
+                    property: "og:image",
                     content: this.$store.state.system_config.directory.recruitment + '/' + this.recruitmentData.image
                 }
             ]

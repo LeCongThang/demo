@@ -116,17 +116,17 @@ export default {
                 },
                 {
                     hid: "og:title",
-                    name: "og:title",
+                    property: "og:title",
                     content: this.project.project.title_vi
                 },
                 {
                     hid: "og:description",
-                    name: "og:description",
+                    property: "og:description",
                     content: this.project.project.des_short_vi
                 },
                 {
                     hid: "og:image",
-                    name: "og:image",
+                    property: "og:image",
                     content: this.$store.state.system_config.directory.project + '/' + this.project.project.image_thumbnail
                 }
             ]

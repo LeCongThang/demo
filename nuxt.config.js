@@ -66,28 +66,43 @@ module.exports = {
       },
       {
         hid: "og:url",
-        name: "og:url",
-        content: "centralreal.vn"
+        property: "og:url",
+        content: "http://centralreal.vn"
       },
       {
         hid: "og:type",
-        name: "og:type",
+        property: "og:type",
         content: "website"
       },
       {
         hid: "og:title",
-        name: "og:title",
+        property: "og:title",
         content: "Centralreal.VN"
       },
       {
         hid: "og:description",
-        name: "og:description",
+        property: "og:description",
         content: "CentralReal - Hệ Thống Phân Phối BĐS Nghỉ Dưỡng Hàng Đầu Việt Nam"
       },
       {
         hid: "og:image",
-        name: "og:image",
+        property: "og:image",
         content: "https://stupefied-almeida-b9a737.netlify.com/resources/images/logo/logo.png"
+      },
+      {
+        hid: "og:image:type",
+        property: "og:image:type",
+        content: "image/jpeg"
+      },
+      {
+        hid: "og:image:width",
+        property: "og:image:width",
+        content: "600"
+      },
+      {
+        hid: "og:image:height",
+        property: "og:image:height",
+        content: "320"
       }
     ],
     link: [{
