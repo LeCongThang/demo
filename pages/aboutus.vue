@@ -12,7 +12,6 @@
             <div class="col-sm-12">
                 <div class="video-about">
                     <div class="ed-video" data-aos="fade-right" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
-                        <!-- <iframe width="80%" height="550" src="https://www.youtube.com/embed/CiXMABVFXAw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
                         <div v-if="aboutus.is_show">
                         <iframe width="80%" height="550" :src="aboutus.embed_link" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     </div>
@@ -179,22 +178,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4" data-aos="fade-right" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
+                <div class="col-sm-4" v-for="c in category" :key="c.id" data-aos="fade-right" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
                     <nuxt-link to="/project" class="box-we-service text-center">
-                        <img src="images/about/condotel.jpg" class="img-responsive">
-                        <h4>condotel</h4>
-                    </nuxt-link>
-                </div>
-                <div class="col-sm-4" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
-                    <nuxt-link to="/project" class="box-we-service text-center">
-                        <img src="images/about/biet-thu-bien.jpg" class="img-responsive">
-                        <h4>{{lang ? "Biệt thự biển" : "Beach villa"}}</h4>
-                    </nuxt-link>
-                </div>
-                <div class="col-sm-4" data-aos="fade-left" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
-                    <nuxt-link to="/project" class="box-we-service text-center">
-                        <img src="images/about/shophouse.jpg" class="img-responsive">
-                        <h4>shophouse</h4>
+                        <img :src="$store.state.system_config.directory.category+'/'+c.image" :alt="c.title_vi" class="img-responsive">
+                        <h4>{{lang ? c.title_vi : c.title_en}}</h4>
                     </nuxt-link>
                 </div>
             </div>
@@ -211,64 +198,12 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
+                <div class="col-sm-4" v-for="c in culture" :key="c.id" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
                     <div class="box-traditional">
-                        <img src="images/about/tran-1.jpg" class="img-responsive" alt="">
-                        <h4>Lòng biết ơn</h4>
-                        <ul>
-                            <li>
-                                <i class="fa fa-check"></i> Chơi với những người năng lượng cao</li>
-                            <li>
-                                <i class="fa fa-check"></i> Chia sẻ status tích cực mỗi ngày</li>
-                            <li>
-                                <i class="fa fa-check"></i> Ngưỡng mộ người thành công, quý tài năng của họ</li>
-                            <li>
-                                <i class="fa fa-check"></i> Làm tốt mọi việc hơn so với trước đây</li>
-                            <li>
-                                <i class="fa fa-check"></i> Tập trung phát triển và nâng cao giá trị của bản thân</li>
-                            <li>
-                                <i class="fa fa-check"></i> Sống biết ơn</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-4" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
-                    <div class="box-traditional">
-                        <img src="images/about/tran-2.jpg" class="img-responsive" alt="">
-                        <h4>Sự tin tưởng</h4>
-                        <ul>
-                            <li>
-                                <i class="fa fa-check"></i> Luôn tin tưởng vào chính mình</li>
-                            <li>
-                                <i class="fa fa-check"></i> Luôn vui vẻ tràn đầy nhiệt huyết</li>
-                            <li>
-                                <i class="fa fa-check"></i> Dành ít nhất 30 phút mỗi ngày để đọc sách</li>
-                            <li>
-                                <i class="fa fa-check"></i> Tập thể dục ít nhất 20-30 phút mỗi ngày</li>
-                            <li>
-                                <i class="fa fa-check"></i> Luôn nói với bản thân mình những lời nói tích cực</li>
-                            <li>
-                                <i class="fa fa-check"></i> Luôn nói với người khách những lời nói tích cực</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-4" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
-                    <div class="box-traditional">
-                        <img src="images/about/tran-3.jpg" class="img-responsive" alt="">
-                        <h4>Lòng nhiệt huyết</h4>
-                        <ul>
-                            <li>
-                                <i class="fa fa-check"></i> Làm điều mình thích</li>
-                            <li>
-                                <i class="fa fa-check"></i> Thích điều mình làm</li>
-                            <li>
-                                <i class="fa fa-check"></i> Có hoài bão, mục tiêu rõ ràng</li>
-                            <li>
-                                <i class="fa fa-check"></i> Kết thúc tất cả những gì bạn đã bắt đầu</li>
-                            <li>
-                                <i class="fa fa-check"></i> Nói được làm được</li>
-                            <li>
-                                <i class="fa fa-check"></i> Sẵn sàng đương đầu với khó khăn, thử thách</li>
-                        </ul>
+                        <img :src="$store.state.system_config.directory.culture+'/'+c.image" class="img-responsive" :alt="c.title_vi">
+                        <h4>{{lang ? c.title_vi : c.title_en}}</h4>
+                        <p v-if="lang" v-html="c.description_vi"></p>
+                        <p v-else v-html="c.description_en"></p>
                     </div>
                 </div>
             </div>
@@ -291,9 +226,14 @@ export default {
         Contact
     },
     async asyncData() {
-        let [about] = await Promise.all([axios.get(environment.apiUrl + "about")]);
+        let [about, category, culture] = await Promise.all([axios.get(environment.apiUrl + "about"),
+        axios.get(environment.apiUrl + "category"),
+        axios.get(environment.apiUrl + "culture")
+        ]);
         return {
-            aboutus: about.data.data
+            aboutus: about.data.data,
+            category: category.data.data,
+            culture:culture.data.data
         };
     },
     computed: {

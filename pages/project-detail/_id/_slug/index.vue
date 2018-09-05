@@ -110,6 +110,11 @@ export default {
                     content: this.project.project.des_short_vi
                 },
                 {
+                    hid: "keywords",
+                    name: "keywords",
+                    content: this.project.project.keywords
+                },
+                {
                     hid: "og:title",
                     name: "og:title",
                     content: this.project.project.title_vi
