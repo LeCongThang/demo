@@ -28,7 +28,7 @@
                             <strong>xem nhiều</strong>
                         </h4>
                     </div>
-                    <nuxt-link class="news-aside" v-for="n in  news.news.post_type == 2 ?  news.news_featured.slice(0, 2): news.news_featured" :key="n.id" :to="`/news-detail/${n.id}/${n.slug}`">
+                    <nuxt-link class="news-aside" v-for="n in  news.news.post_type == 2 ?  news.news_featured.slice(0, 2): news.news_featured" :key="n.id" :to="`/event-detail/${n.id}/${n.slug}`">
                         <img :src="$store.state.system_config.directory.news+'/'+n.image" :alt="n.title_vi" class="img-responsive">
                         <h4>{{lang?n.title_vi:n.title_en}}</h4>
                         <ul>
