@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-9">
                     <div class="news-detail-page">
-                        <h1 style="text-align:justify;font-size:24px">{{lang? news.news.title_vi:news.news.title_en}}</h1>
+                        <h1 style="text-align:justify;font-size:24px; color:#024e9f;font-weight:bold;">{{lang? news.news.title_vi:news.news.title_en}}</h1>
                         <ul class="ed-ul-news-dt">
                             <li>
                                 <i class="fa fa-calendar"></i> {{news.news.created_at}}</li>
