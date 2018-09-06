@@ -24,9 +24,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="titile-news" style="margin-top: 78px;">
-                        <h4>Tin
-                            <strong>xem nhiều</strong>
-                        </h4>
+                        <h4>{{$t('home.news')}}</h4>
                     </div>
                     <nuxt-link class="news-aside" v-for="n in  news.news.post_type == 2 ?  news.news_featured.slice(0, 2): news.news_featured" :key="n.id" :to="`/event-detail/${n.id}/${n.slug}`">
                         <img :src="$store.state.system_config.directory.news+'/'+n.image" :alt="n.title_vi" class="img-responsive">
@@ -49,9 +47,7 @@
                         <div class="row">
                             <div class="col-md-6 col-md-offset-3">
                                 <div class="title-page text-center">
-                                    <h2>Dự án
-                                        <strong>nổi bật</strong>
-                                    </h2>
+                                    <h2>{{$t('home.project_feature')}}</h2>
                                 </div>
                             </div>
                         </div>

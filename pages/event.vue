@@ -65,7 +65,7 @@
                 <div class="row" v-if="(index)%2===0">
                     <div class="col-md-6 no-padding">
                         <div class="video-left">
-                            <img :src="$store.state.system_config.directory.news+'/'+event.image" class="img-responsive" :alt="event.title_vi" />
+                            <img :src="$store.state.system_config.directory.news+'/'+event.image_thumbnail" class="img-responsive" :alt="event.title_vi" />
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -92,7 +92,7 @@
                     </div>
                     <div class="col-md-6 no-padding">
                         <div class="video-left">
-                            <img :src="$store.state.system_config.directory.news+'/'+event.image" class="img-responsive" :alt="event.title_vi" />
+                            <img :src="$store.state.system_config.directory.news+'/'+event.image_thumbnail" class="img-responsive" :alt="event.title_vi" />
                         </div>
                     </div>
                 </div>

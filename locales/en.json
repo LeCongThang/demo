@@ -23,15 +23,16 @@
     "news":"Featured <strong>news</strong>",
     "feedback":"Customer<strong> feedbacks</strong>",
     "gallery":"<strong>Gallery</strong>",
-    "culture":"Company <strong>culture</strong>",
-    "service":"Our <strong>Service</strong>",
-    "investor":"Investor <strong>partner</strong>",
-    "affiliation":"Affiliation <strong>partner</strong>",
-    "bank":"Bank <strong>partner</strong>",
+    "culture":"Company <strong>cultures</strong>",
+    "service":"Our <strong>Services</strong>",
+    "investor":"Investor <strong>partners</strong>",
+    "affiliation":"Affiliation <strong>partners</strong>",
+    "bank":"Bank <strong>partners</strong>",
     "why":"Why choose <strong>Central real</strong>",
     "recruitment_info":"Employment <strong>information</strong>",
     "register_now":"REGISTER NOW",
-    "put_info":"Enter your  information for free counseling in the fastest way."
+    "put_info":"Enter your  information for free counseling in the fastest way.",
+    "project_feature":"Featured <strong>projects</strong>"
   },
   "about": {
     "title": "About",
