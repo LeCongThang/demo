@@ -3,7 +3,7 @@
     <slider :sliders="homeData.sliders" />
     <about :aboutus="homeData.about" :lang="lang" />
     <project :projects="homeData.projects" :lang="lang" />
-    <event :events="homeData.events" />
+    <event :events="homeData.events" :lang="lang" />
     <section class="bg-color">
       <news :video="homeData.video" :news="homeData.news" :lang="lang" />
       <feedback :feedbacks="homeData.feed_backs" :lang="lang" />
