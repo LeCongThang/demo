@@ -128,6 +128,11 @@ export default {
                     hid: "og:image",
                     name: "og:image",
                     content: this.$store.state.system_config.directory.news + '/' + this.news.news.image_thumbnail
+                },
+                {
+                    hid: "og:image",
+                    property: "og:image",
+                    content: this.$store.state.system_config.directory.news + '/' + this.news.news.image_thumbnail
                 }
             ]
         };
