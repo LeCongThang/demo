@@ -74,7 +74,7 @@
                             <p v-if="lang" v-html="event.des_short_vi"></p>
                             <p v-else v-html="event.des_short_en"></p>
                             <div class="btn-page">
-                                <nuxt-link :to="`/event-detail/${event.id}/${event.slug}`">{{$t('common.readmore')}}</nuxt-link>
+                                <nuxt-link :to="`/chi-tiet-su-kien/${event.slug}`">{{$t('common.readmore')}}</nuxt-link>
                             </div>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                             <p v-if="lang" v-html="event.des_short_vi"></p>
                             <p v-else v-html="event.des_short_en"></p>
                             <div class="btn-page">
-                                <nuxt-link :to="`/event-detail/${event.id}/${event.slug}`">{{$t('common.readmore')}}</nuxt-link>
+                                <nuxt-link :to="`/chi-tiet-su-kien/${event.slug}`">{{$t('common.readmore')}}</nuxt-link>
                             </div>
                         </div>
                     </div>
@@ -157,13 +157,14 @@ export default {
                 phone: this.phone,
                 event_id: this.eventId
             };
+            alert("Gửi thông tin thành công. Bấm 'OK' để xác nhận hoàn tất.");
             axios.post(environment.apiUrl + "event-register", dataContact, {
                     headers: {
                         "Content-type": "application/json"
                     }
                 })
                 .then(res => {
-                    alert("done");
+                    
                     this.name = "";
                     this.email = "";
                     this.phone = "";

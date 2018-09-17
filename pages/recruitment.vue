@@ -69,7 +69,7 @@
                 <div class="col-sm-12">
                     <ul class="ed-recuitment-1" v-for="r in recruitmentData.recruitment" :key="r.id">
                         <li>
-                            <nuxt-link :to="`/recruitment-detail/${r.id}/${r.slug}`">
+                            <nuxt-link :to="`/chi-tiet-tuyen-dung/${r.id}/${r.slug}`">
                                 <h4 v-if="lang" v-html="r.title_vi"></h4>
                                 <h4 v-else v-html="r.title_en"></h4>
                             </nuxt-link>
@@ -81,7 +81,7 @@
                         </li>
                         <li>
                             <div class="btn-page">
-                                <nuxt-link :to="`/recruitment-detail/${r.id}/${r.slug}`">{{$t('common.readmore')}}</nuxt-link>
+                                <nuxt-link :to="`/chi-tiet-tuyen-dung/${r.id}/${r.slug}`">{{$t('common.readmore')}}</nuxt-link>
                             </div>
                         </li>
                     </ul>

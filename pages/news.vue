@@ -59,7 +59,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4" v-for="n in newsData.data" :key="n.id">
-                    <nuxt-link :to="`/news-detail/${n.id}/${n.slug}`" class="box-222">
+                    <nuxt-link :to="`/tin-tuc/${n.slug}`" class="box-222">
                         <img :src="$store.state.system_config.directory.news+'/'+n.image_thumbnail" class="img-responsive" :alt="n.title_vi" style="height:220px !important">
                         <span class="overload"></span>
                         <h4 v-if="lang" v-html="n.title_vi"></h4>
@@ -84,7 +84,7 @@
                     <h2><strong>Video</strong></h2>
                 </div>
                 <div class="col-md-9">
-                    <nuxt-link :to="`/news-detail/${videoData.data[0].id}/${videoData.data[0].slug}`" class="box-news-page">
+                    <nuxt-link :to="`/tin-tuc/${videoData.data[0].slug}`" class="box-news-page">
                         <img :src="$store.state.system_config.directory.news+'/'+videoData.data[0].image_thumbnail" class="img-responsive" :alt="videoData.data[0].title_vi">
                         <i class="fa fa-4x fa-youtube-play play-button" aria-hidden="true"></i>
                         <h4>
@@ -94,7 +94,7 @@
                     </nuxt-link>
                 </div>
                 <div class="col-md-3">
-                    <nuxt-link v-for="(n,index) in videoData.data" :key="n.id" v-if="index>0&&index<3" :to="`/news-detail/${n.id}/${n.slug}`" class="news-aside">
+                    <nuxt-link v-for="(n,index) in videoData.data" :key="n.id" v-if="index>0&&index<3" :to="`/tin-tuc/${n.slug}`" class="news-aside">
                         <img :src="$store.state.system_config.directory.news+'/'+n.image_thumbnail" :alt="n.title_vi" class="img-responsive">
                         <i class="fa fa-2x fa-youtube-play play-button" aria-hidden="true"></i>
                         <h4 v-if="lang" v-html="n.title_vi"></h4>
@@ -107,7 +107,7 @@
             </div>
             <div class="row">
                 <div class="col-md-4" v-for="(n,index) in videoData.data" :key="n.id" v-if="index>=3">
-                    <nuxt-link :to="`/news-detail/${n.id}/${n.slug}`" class="news-aside">
+                    <nuxt-link :to="`/tin-tuc/${n.slug}`" class="news-aside">
                         <img :src="$store.state.system_config.directory.news+'/'+n.image_thumbnail" :alt="n.title_vi" class="img-responsive">
                         <i class="fa fa-3x fa-youtube-play play-button" aria-hidden="true"></i>
                         <h4 v-if="lang" v-html="n.title_vi"></h4>

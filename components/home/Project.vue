@@ -31,7 +31,7 @@
                                             </li>
                                         </ul>
                                         <div class="btn-page text-center">
-                                            <nuxt-link :to="`/project-detail/${project.id}/${project.slug}`">{{$t('common.readmore')}}</nuxt-link>
+                                            <nuxt-link :to="`/chi-tiet-du-an/${project.slug}`">{{$t('common.readmore')}}</nuxt-link>
                                         </div>
                                     </div>
                                 </div>

@@ -29,9 +29,9 @@
                     <div class="row">
                         <div class="col-md-4" v-for="(p,index) in projectData.projects.data" :key="p.id" data-aos="fade-up" :data-aos-delay="index*50" data-aos-duration="1000" data-aos-easing="ease-in-out">
                             <div :class="`each-item filter ${index+1}`">
-                                <nuxt-link :to="`/project-detail/${p.id}/${p.slug}`" :class="`pic-prj ${setHeight(index)}`" :style="`background:url(${$store.state.system_config.directory.project+'/'+p.image});background-size:cover;width:100%;`">
+                                <nuxt-link :to="`/chi-tiet-du-an/${p.slug}`" :class="`pic-prj ${setHeight(index)}`" :style="`background:url(${$store.state.system_config.directory.project+'/'+p.image});background-size:cover;width:100%;`">
                                 </nuxt-link>
-                                <nuxt-link class="project-title" :to="`/project-detail/${p.id}/${p.slug}`">
+                                <nuxt-link class="project-title" :to="`/chi-tiet-du-an/${p.slug}`">
                                     <h4>
                                         <strong v-if="lang" v-html="p.title_vi"></strong>
                                         <strong v-else v-html="p.title_en"></strong>
@@ -54,7 +54,7 @@
                                 </div>
 
                                 <div class="btn-page text-center">
-                                    <nuxt-link :to="`/project-detail/${p.id}/${p.slug}`">{{$t('common.readmore')}}</nuxt-link>
+                                    <nuxt-link :to="`/chi-tiet-du-an/${p.slug}`">{{$t('common.readmore')}}</nuxt-link>
                                 </div>
                             </div>
                         </div>

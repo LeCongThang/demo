@@ -53,13 +53,13 @@ export default {
                 phone: this.phone,
                 project_id: this.eventId
             };
+            alert("Gửi thông tin thành công. Bấm 'OK' để xác nhận hoàn tất.");
             axios.post(environment.apiUrl + "project-register", dataContact, {
                     headers: {
                         "Content-type": "application/json"
                     }
                 })
                 .then(res => {
-                    alert("done");
                     this.name = "";
                     this.email = "";
                     this.phone = "";

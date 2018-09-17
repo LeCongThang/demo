@@ -24,9 +24,9 @@
                 </div>
                 <div class="col-md-3">
                     <div class="titile-news" style="margin-top: 78px;">
-                        <h4>{{$t('home.news')}}</h4>
+                        <h4 v-html="$t('home.event')"></h4>
                     </div>
-                    <nuxt-link class="news-aside" v-for="n in  news.news.post_type == 2 ?  news.news_featured.slice(0, 2): news.news_featured" :key="n.id" :to="`/event-detail/${n.id}/${n.slug}`">
+                    <nuxt-link class="news-aside" v-for="n in  news.news.post_type == 2 ?  news.news_featured.slice(0, 2): news.news_featured" :key="n.id" :to="`/chi-tiet-su-kien/${n.slug}`">
                         <img :src="$store.state.system_config.directory.news+'/'+n.image" :alt="n.title_vi" class="img-responsive">
                         <h4>{{lang?n.title_vi:n.title_en}}</h4>
                         <ul>
@@ -47,18 +47,18 @@
                         <div class="row">
                             <div class="col-md-6 col-md-offset-3">
                                 <div class="title-page text-center">
-                                    <h2>{{$t('home.project_feature')}}</h2>
+                                    <h2 v-html="$t('home.project_feature')"></h2>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-4" v-for="(r) in news.project_featured" :key="r.id">
                                 <div class="box-event-page">
-                                    <nuxt-link :to="`/project-detail/${r.id}/${r.slug}`">
+                                    <nuxt-link :to="`/chi-tiet-du-an/${r.slug}`">
                                         <img :src="$store.state.system_config.directory.project+'/'+r.image" class="img-responsive project-related" :alt="r.title_vi">
                                     </nuxt-link>
                                     <div class="txt-box-event-page">
-                                        <nuxt-link :to="`/project-detail/${r.id}/${r.slug}`">
+                                        <nuxt-link :to="`/chi-tiet-du-an/${r.slug}`">
                                             <h4>{{lang?r.title_vi:r.title_en}}</h4>
                                         </nuxt-link>
                                         <p v-if="lang" v-html="r.des_short_vi"></p>
@@ -93,7 +93,7 @@ export default {
     }) {
         let {
             data
-        } = await axios.get(environment.apiUrl + "news/" + route.params.id);
+        } = await axios.get(environment.apiUrl + "news/" + route.params.slug);
         return {
             news: data.data
         };
@@ -138,8 +138,7 @@ export default {
         $("a[href=\"" + url + "\"]")
             .parent()
             .addClass("active");
-    },
-    middleware: 'news_detail'
+    }
 };
 </script>
 

@@ -13,7 +13,7 @@
         <div class="row ">
             <div class="col-md-8 news-home-padding video-news" data-aos="fade-right" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
                 <!-- <iframe type="video/mp4" frameborder="0" src="https://www.youtube.com/embed/jij97zobmew"></iframe> -->
-                <nuxt-link :to="`/news-detail/${video.id}/${video.slug}`" style="position:relative">
+                <nuxt-link :to="`/tin-tuc/${video.slug}`" style="position:relative">
                     <img class="img-responsive" :src="$store.state.system_config.directory.news+'/'+video.image_thumbnail" :alt="video.title_vi" />
                     <i class="fa fa-4x fa-youtube-play play-button" aria-hidden="true"></i>
                 </nuxt-link>
@@ -22,20 +22,20 @@
                 <div class="news-item" style="margin-bottom: 8px;">
                     <img :src="$store.state.system_config.directory.news+'/'+news[0].image_thumbnail" :alt="news[0].title_vi" class="img-responsive news-in-home">
                     <div class="overlay">
-                        <nuxt-link :to="`/news-detail/${news[0].id}/${news[0].slug}`" class="title" v-if="lang" v-html="news[0].title_vi"></nuxt-link>
-                        <nuxt-link :to="`/news-detail/${news[0].id}/${news[0].slug}`" class="title" v-else v-html="news[0].title_en"></nuxt-link>
+                        <nuxt-link :to="`/tin-tuc/${news[0].slug}`" class="title" v-if="lang" v-html="news[0].title_vi"></nuxt-link>
+                        <nuxt-link :to="`/tin-tuc/${news[0].slug}`" class="title" v-else v-html="news[0].title_en"></nuxt-link>
                         <div class="btn-page text-center btn-xem">
-                            <nuxt-link :to="`/news-detail/${news[0].id}/${news[0].slug}`">{{$t('common.readmore')}}</nuxt-link>
+                            <nuxt-link :to="`/tin-tuc/${news[0].slug}`">{{$t('common.readmore')}}</nuxt-link>
                         </div>
                     </div>
                 </div>
                 <div class="news-item">
                     <img :src="$store.state.system_config.directory.news+'/'+news[1].image_thumbnail" class="img-responsive news-in-home" :alt="news[1].title_vi">
                     <div class="overlay">
-                        <nuxt-link :to="`/news-detail/${news[1].id}/${news[1].slug}`" class="title" v-if="lang" v-html="news[1].title_vi"></nuxt-link>
-                        <nuxt-link :to="`/news-detail/${news[1].id}/${news[1].slug}`" class="title" v-else v-html="news[1].title_en"></nuxt-link>
+                        <nuxt-link :to="`/tin-tuc/${news[1].slug}`" class="title" v-if="lang" v-html="news[1].title_vi"></nuxt-link>
+                        <nuxt-link :to="`/tin-tuc/${news[1].slug}`" class="title" v-else v-html="news[1].title_en"></nuxt-link>
                         <div class="btn-page text-center btn-xem">
-                            <nuxt-link :to="`/news-detail/${news[1].id}/${news[1].slug}`">{{$t('common.readmore')}}</nuxt-link>
+                            <nuxt-link :to="`/tin-tuc/${news[1].slug}`">{{$t('common.readmore')}}</nuxt-link>
                         </div>
                     </div>
                 </div>
@@ -44,10 +44,10 @@
                 <div class="news-item">
                     <img :src="$store.state.system_config.directory.news+'/'+n.image_thumbnail" class="img-responsive news-in-home" :alt="n.title_vi">
                     <div class="overlay">
-                        <nuxt-link :to="`/news-detail/${n.id}/${n.slug}`" class="title" v-if="lang" v-html="n.title_vi"></nuxt-link>
-                        <nuxt-link :to="`/news-detail/${n.id}/${n.slug}`" class="title" v-else v-html="n.title_en"></nuxt-link>
+                        <nuxt-link :to="`/tin-tuc/${n.slug}`" class="title" v-if="lang" v-html="n.title_vi"></nuxt-link>
+                        <nuxt-link :to="`/tin-tuc/${n.slug}`" class="title" v-else v-html="n.title_en"></nuxt-link>
                         <div class="btn-page text-center btn-xem">
-                            <nuxt-link :to="`/news-detail/${n.id}/${n.slug}`">{{$t('common.readmore')}}</nuxt-link>
+                            <nuxt-link :to="`/tin-tuc/${n.slug}`">{{$t('common.readmore')}}</nuxt-link>
                         </div>
                     </div>
                 </div>
