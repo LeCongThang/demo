@@ -91,6 +91,11 @@ module.exports = {
         hid: "og:image",
         name: "og:image",
         content: "https://centralreal.cf/images/logo/logo.png"
+      },
+      {
+        hid: "og:image",
+        property: "og:image",
+        content: "https://centralreal.cf/images/logo/logo.png"
       }
     ],
     link: [{
