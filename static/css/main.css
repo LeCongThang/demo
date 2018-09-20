@@ -665,13 +665,13 @@ a:hover {
 }
 
 .overlay .title {
-  width: 98%;
+  width: 96%;
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   position: absolute;
   top: 50%;
-  left: 53%;
+  left: 50%;
   text-transform: uppercase;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
