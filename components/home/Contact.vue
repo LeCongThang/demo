@@ -4,7 +4,8 @@
         <div class="row">
             <div class="col-sm-12 padding-0">
                 <div id="maps">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.1051004184446!2d106.71420181475891!3d10.803261861651979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528a4143f87d1%3A0x4c3e08bd750d058e!2zNjYgxJDGsOG7nW5nIE5ndXnhu4VuIEdpYSBUcsOtLCBQaMaw4budbmcgMjUsIELDrG5oIFRo4bqhbmgsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1532016956075"
+                    
+                    <iframe :src="$store.state.system_config.config.google_map"
                         width="100%" height="415" frameborder="0" style="border:0" allowfullscreen=""></iframe>
                 </div>
             </div>
@@ -69,7 +70,7 @@ export default {
                 email: this.email,
                 phone: this.phone,
                 title: this.title,
-                content: this.contents + ". Thông tin liên hệ đã được khách hàng được gửi tại trang: http://centralreal.cf" + this.$route.fullPath
+                content: this.contents + ". Thông tin liên hệ đã được khách hàng được gửi tại trang: http://centralreal.vn" + this.$route.fullPath
             };
             axios
                 .post(environment.apiUrl + "contact", dataContact, {

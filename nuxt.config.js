@@ -4,7 +4,7 @@ module.exports = {
    ** Setup env for site
    */
   env: {
-    baseUrl: process.env.BASE_URL || 'http://centralreal.cf',
+    baseUrl: process.env.BASE_URL || 'http://centralreal.vn',
   },
   /*
    ** Headers of the page
@@ -16,6 +16,11 @@ module.exports = {
     title: 'CENTRALREAL.VN',
     meta: [{
         charset: "utf-8"
+      },
+      {
+        hid: "google-site-verification",
+        name: "google-site-verification",
+        content: "FOAD1lSsU-oCztlUpgyYGND5jEXJ8_JtlwVXoPyk4bE"
       },
       {
         hid: "x-ua-compatible",
@@ -110,7 +115,11 @@ module.exports = {
     }, ],
 
   },
-
+  modules: [
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-126139624-1'
+    }]
+  ]
   /*
    ** Customize the progress bar color
    */
@@ -165,10 +174,6 @@ module.exports = {
     },
     {
       src: '~/plugins/aos.js',
-      ssr: false
-    },
-    {
-      src: '~plugins/ga.js',
       ssr: false
     },
     {

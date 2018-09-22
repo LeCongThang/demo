@@ -1,4 +1,4 @@
 export const environment ={
-    domain: "http://centralreal.cf",
+    domain: "http://centralreal.vn",
     apiUrl: "http://admin.centralreal.cf/api/v1/"
 };

@@ -1,5 +1,5 @@
 <template>
-<a target="_blank" :href="`https://www.facebook.com/sharer/sharer.php?u=http://centralreal.cf${url}`">
+<a target="_blank" :href="`https://www.facebook.com/sharer/sharer.php?u=http://centralreal.vn${url}`">
     <i class="fa fa-facebook"></i> Share
 </a>
 </template>
